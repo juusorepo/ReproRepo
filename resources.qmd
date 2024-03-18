@@ -1,0 +1,31 @@
+---
+title: "Resources for Reproducibility"
+---
+
+In the fascinating world of reproducibility, there is always more. See below some selected resources and references used in creating the tutorials (updated March 2024).
+
+## Guides and tutorials on reproducibility
+
+-   FORRT - Framework for Open and Reproducible Research ([link](https://forrt.org/))
+
+-   AEA Data Editor Guidance and tools ([link](https://aeadataeditor.github.io/))
+
+-   Open Science Training Handbook ([link](https://open-science-training-handbook.gitbook.io/book/02opensciencebasics/04reproducibleresearchanddataanalysis))
+
+-   Harrell F E: R Workflow for Reproducible Data Analysis and Reporting ([link](https://hbiostat.org/rflow/))
+
+-   Peikert, Aaron, & Diemerling, Hannes. (2023). Reproducible Research in R: A Workshop on How to Do the Same Thing More Than Once. Zenodo. <https://doi.org/10.5281/zenodo.8069391>
+
+-   Peikert, A., van Lissa, C. J., & Brandmaier, A. M. (2021). Reproducible Research in R: A Tutorial on How to Do the Same Thing More Than Once. Psych, 3(4), Article 4. <https://doi.org/10.3390/psych3040053>
+
+## Reproducibility checklists
+
+-   Data and Code Availability Standard by AEA Social Science Data Editors: <https://datacodestandard.org/>
+
+-   Reproducibility checklist by Meta-Psychology journal
+
+-   Journal of Applied Psychology methods checklist 2022 ([pdf link](https://www.apa.org/pubs/journals/features/apl-manuscript-checklist.pdf))
+
+-   Wicherts, J. M., Veldkamp, C. L., Augusteijn, H. E., Bakker, M., Van Aert, R., & Van Assen, M. A. (2016). Degrees of freedom in planning, running, analyzing, and reporting psychological studies: A checklist to avoid p-hacking. Frontiers in psychology, 7, 222767. <https://doi.org/10.3389/fpsyg.2016.01832>
+
+-   Lombaers, P., Bruin, J. de, & Schoot, R. van de. (2024). Reproducibility and Data storage Checklist for Active Learning-Aided Systematic Reviews. <https://doi.org/10.31234/osf.io/g93zf>

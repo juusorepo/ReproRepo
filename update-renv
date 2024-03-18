@@ -1,0 +1,11 @@
+
+
+
+in terminal:
+quarto render 04-notebooks/00-simulate-data.qmd
+
+In console:
+
+renv::restore()
+renv::install()
+renv::snapshot()

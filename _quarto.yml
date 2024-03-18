@@ -4,16 +4,35 @@ project:
 website:
   title: "ReproRepo"
   navbar:
+    background: primary
+    search: true
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "Home"
+        file: index.qmd
+      - text: "Tutorials"  
+        menu:
+        - text: "Babysteps for reproducible workflow in R"
+          file: babysteps.qmd
+        - text: " - Simulating data"
+          file: 04-notebooks/00-simulate-data.qmd
+        - text: " - Preparing sata with reproducibility"
+          file: 04-notebooks/01-prepare-data.qmd
+        - text: " - Creating reproducible tables and figures"
+          file: 04-notebooks/02-create-tables-and-figures.qmd
+      - text: "Resources"
+        file: resources.qmd
+      - text: "Contact"
+        file: contact.qmd
 
 format:
   html:
-    theme: cosmo
+    theme: sandstone
     css: styles.css
     toc: true
+    number-sections: true
 
+freeze: auto
 editor: visual
+
+
 

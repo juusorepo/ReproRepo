@@ -1,0 +1,197 @@
+---
+title: "Prepare data"
+freeze: auto
+date: "`r Sys.Date()`"
+---
+
+# Prepare data with EDA
+
+This notebook sets an example workflow and template for preparing raw data for analysis. The focus is on cleaning, coding, and transforming the data, which are crucial steps to ensure the reliability and validity of the analysis. All processing steps should be documented, including the determination of the final sample size, any data exclusions, manipulations, and the creation of variables for the study.
+
+**EDA (Exploratory Data Analysis)** is integrated into the process to understand the distribution of the data and identify any apparent issues that need addressing. After processing, the processed data is saved in CSV format. This approach keeps the raw data untouched and makes all processing steps transparent and reproducible.
+
+**Why prepare data in a notebook instead of a script file?**
+
+-   Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the "purl" function, explained in the **babysteps** tutorial, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.
+
+## 1 Load raw data and packages
+
+**Overview:** Start by loading required R packages and your dataset into your analysis environment. For the tutorial, we load the raw data created in the **Simulate-data notebook**.
+
+```{r}
+#| label: setup_prepare
+# Title: Prepare data
+
+# Load required packages
+require(here)
+require(tidyverse)
+
+# load the raw data
+dataset <- read.csv(here("01-data/raw/babysteps-rawdata.csv"))
+```
+
+## Check and Modify Data Types
+
+Before diving into EDA, it's crucial to ensure that each variable in your dataset is stored in the most appropriate data type. Correct data types can improve computational efficiency and are essential for appropriate analysis techniques.
+
+-   **Action Steps:** Start by listing the current data types of variables in your dataset. This helps identify any variables that may be incorrectly typed, such as numeric variables recognized as character data due to formatting issues.
+
+```{r}
+#| label: display_data_structure
+#| purl: false
+
+# Display the current data types of all variables in the dataset
+str(dataset)
+
+```
+
+-   **Convert Data Types:** Based on the initial inspection, convert variables to their correct data types. Common conversions include transforming character variables that represent categories into factors and ensuring numeric variables are not mistakenly treated as character or factor types.
+
+```{r}
+#| label: modify-data-types
+# Example code to modify data types
+
+# Converting character variables to factors
+dataset <- dataset %>% mutate_if(is.character, as.factor)
+
+
+```
+
+## Initial Exploratory Data Analysis
+
+Before further processing, you may want to conduct an exploratory data analysis (EDA) to gain insights into the dataset's distribution and characteristics. There are various ways to do this and also packages for automated EDA analysis (e.g., DataExplorer, GGally, SmartEDA, Hmisc). For this tutorial, we will use the DataExplorer.
+
+-   **Action Steps:** Run the code below to create an EDA report. Then check results from your Notebooks folder.
+
+```{r}
+#| label: Initial-EDA
+#| purl: false # to exclude this chunk from the R script file
+#| eval: false
+
+# Load/Install DataExplorer package
+if (!requireNamespace("DataExplorer", quietly = TRUE)) {install.packages("DataExplorer")}
+require(DataExplorer)
+
+# Create the report
+dataset %>%
+    create_report(
+        output_file = paste("EDA-report-initial", Sys.Date(), sep="-"), # filename
+        report_title = "Initial EDA Report - Babysteps Dataset",
+        y = 'PuzzleTime' # to set the outcome variable
+    )
+message("The EDA report was created and saved in your notebooks folder")
+```
+
+## Data Cleaning
+
+This step involves identifying and correcting issues in your dataset, such as missing values, errors, outliers, and standardizing variable names, to ensure data quality.
+
+### Identifying Missing Values
+
+-   **Overview:** Begin by identifying missing values in your dataset. Missing data can occur for various reasons, from non-response in surveys to errors in data entry.
+-   **Action Steps:** Use descriptive statistics to identify missing patterns and decide on appropriate methods for handling them, such as imputation or exclusion, based on the nature of your data.
+
+```{r}
+#| label: Missing-values
+# insert your code here or delete the section
+```
+
+### Correcting Errors
+
+-   **Overview:** Data entry errors, inconsistencies in response formats, and other inaccuracies can significantly affect your analysis.
+-   **Action Steps:** Validate data ranges (e.g., ages within plausible limits) and consistency (e.g., gender coded uniformly). Correct identified errors where possible, or note them for exclusion or special consideration.
+
+```{r}
+#| label: Correcting Errors
+```
+
+### Handling Outliers
+
+-   **Overview:** Outliers can influence statistical analyses and may represent either genuine phenomena or data errors.
+-   **Action Steps:** Identify outliers through visual (e.g., boxplots) and statistical methods. Investigate their origins and decide whether to keep, adjust, or remove them, documenting your rationale.
+
+```{r}
+#| label: Handling Outliers
+```
+
+### **Standardize Variable Names**
+
+Ensure all variable names are in lowercase to maintain consistency across your dataset. This can help avoid case-sensitive errors in your analysis scripts.
+
+```{r}
+#| label: Standardize Variable Names
+
+# lowercase all variables (good practice)
+dataset <- dataset %>% rename_all(tolower)
+```
+
+*Tip. Check out clean.names() function from janitor package to clean up variable names.*
+
+## Data Recoding and Transformation
+
+This step encompasses the processes of adjusting your variables to better fit your analysis needs and preparing your data through various transformations. It ensures that your dataset is in the optimal form for analysis, addressing both the structure of your data and the scales of measurement.
+
+### Recoding Variables
+
+-   **Overview:** Recoding involves adjusting existing variables to better fit your analysis needs, such as combining categories of a nominal variable or changing measurement scales.
+-   **Action Steps:** Clearly define your recoding rules and apply them uniformly across your dataset. Document changes to ensure transparency and reproducibility.
+
+```{r}
+#| label: Recoding variables
+
+# Recode wave into an integer for regression analyses
+dataset$wave <- as.integer(gsub("T", "", dataset$wave))
+
+# create a new categorical variable AgeGroup
+dataset <- dataset %>%
+  mutate(agegroup = case_when(
+    agemonths <= 14 ~ "12-14 months",
+    agemonths <= 20 ~ "15-20 months",
+    TRUE ~ "21-24 months"
+  ))
+```
+
+### Normalizing Scales
+
+-   **Overview:** Variable scales may need normalization, especially when combining data from different sources or preparing for certain statistical analyses.
+-   **Action Steps:** Apply normalization techniques, such as z-score standardization or min-max scaling, to adjust scales. Choose a method appropriate for your data distribution and analysis requirements.
+
+### Creating Dummy Variables
+
+-   **Overview:** Dummy variables are used to represent categorical data in binary form, which is necessary for many types of statistical modeling.
+-   **Action Steps:** Convert categorical variables into dummy variables as needed.
+
+## Post-Cleaning EDA
+
+After cleaning and transforming your data, perform another round of EDA to verify the data preparation steps' effects and ensure the dataset is ready for analysis. Look for any remaining issues to check the data quality and structure post-cleaning.
+
+```{r}
+#| label: EDA-with-processed-data
+#| purl: false    # to exclude this chunk from the R script file
+#| eval: false
+
+# Create the report
+dataset %>%
+    create_report(
+        output_file = paste("EDA-report-processed", Sys.Date(), sep=" - "),
+        report_title = "EDA Report with processed data - Babysteps Dataset",
+        y = 'puzzletime'
+    )
+message("The EDA report was created and saved in your notebooks folder")
+```
+
+## Save the processed data
+
+```{r}
+#| label: Save dataset
+# Save in CSV format into processed data -subfolder
+write.csv(dataset, here("01-data/processed/babysteps.csv"), row.names = FALSE)
+message("The processed dataset was saved in processed data folder")
+```
+
+# Conclusion
+
+This workflow guides you from loading your data to ensuring it's analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the reliability and validity of your research findings.
+
+
+
