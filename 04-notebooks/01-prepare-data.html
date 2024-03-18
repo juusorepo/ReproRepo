@@ -233,11 +233,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>EDA (Exploratory Data Analysis)</strong> is integrated into the process to understand the distribution of the data and identify any issues that need addressing. After processing, the processed data is saved in CSV format. This approach keeps the raw data untouched and makes all processing steps transparent and reproducible.</p>
 <p><strong>Why prepare data in a notebook instead of a script file?</strong></p>
 <ul>
-<li>Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the “purl” function, explained in the <strong><a href="../babysteps">Babysteps tutorial</a></strong>*, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.</li>
+<li>Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the “purl” function, explained in the <strong><a href="../babysteps">Babysteps tutorial</a></strong>, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.</li>
 </ul>
 <section id="load-raw-data-and-packages" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="load-raw-data-and-packages"><span class="header-section-number">1.1</span> 1 Load raw data and packages</h2>
-<p><strong>Overview:</strong> Start by loading required R packages and your dataset into your analysis environment. For the tutorial, we load the raw data created in the <strong>Simulate-data notebook</strong>.</p>
+<p><strong>Overview:</strong> Start by loading required R packages and the dataset into your analysis environment. For the tutorial, we load the raw data created in the <a href="00-simulate-data">Simulate-data notebook</a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>View code: Load packages and data</summary>
@@ -279,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <ul>
-<li><strong>Convert Data Types:</strong> Based on the initial inspection, convert variables to their correct data types. Common conversions include transforming character variables that represent categories into factors and ensuring numeric variables are not mistakenly treated as character or factor types.</li>
+<li><strong>Convert Data Types:</strong> Based on the initial inspection, we convert variables to their correct data types. Common conversions include transforming character variables that represent categories into factors and ensuring numeric variables are not mistakenly treated as character or factor types.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting character variables to factors</span></span>
@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1.3" class="anchored" data-anchor-id="initial-exploratory-data-analysis"><span class="header-section-number">1.3</span> Initial Exploratory Data Analysis</h2>
 <p>Before further processing, you may want to conduct an exploratory data analysis (EDA) to gain insights into the dataset’s distribution and characteristics. There are various ways to do this and also packages for automated EDA analysis (e.g., DataExplorer, GGally, SmartEDA, Hmisc). For this tutorial, we will use the DataExplorer.</p>
 <ul>
-<li><strong>Action Steps:</strong> Run the code below to create an EDA report. See results in Notebooks folder or <a href="04-notebooks/EDA-report-initial-2024-03-18.html">here</a>.</li>
+<li><strong>Action Steps:</strong> Run the code below to create an EDA report. See results in Notebooks folder or <a href="EDA-report-initial-2024-03-18.html">here</a>.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load/Install DataExplorer package</span></span>
@@ -407,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="conclusion" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Conclusion</h1>
 <p>This workflow guides you from loading your data to ensuring it’s analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the quality of your research.</p>
-<p><strong>To follow the full tutorial, next step is <a href="babysteps#step2c">Creating reproducible outputs</a></strong></p>
+<p><strong>To follow the full tutorial, next step is <a href="../babysteps#step2c">Creating reproducible outputs</a></strong></p>
 
 
 </section>
