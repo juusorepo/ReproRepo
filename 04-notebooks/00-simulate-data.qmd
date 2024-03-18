@@ -4,7 +4,7 @@ freeze: auto
 date: "`r Sys.Date()`"
 ---
 
-As part of the **Babysteps for Reproducibility tutorial**, in this notebook, simulated raw data is generated and saved in CSV format. Additionally, an example codebook is created, serving as a metadata document that outlines the dataset's contents, structure, and generation process. Simulating data before working with empirical data is a good practice because it allows for testing analytical methods, understanding potential outcomes, and ensuring that the data analysis workflow is robust and error-free. This preparatory step helps in planning and anticipating the needs and challenges of working with actual data.
+As part of the **[Babysteps for Reproducibility -tutorial](../babysteps)**, in this notebook, simulated raw data is generated and saved in CSV format. Additionally, an example codebook is created, serving as a metadata document that outlines the dataset's contents, structure, and generation process. Simulating data before working with empirical data is a good practice because it allows for testing analytical methods, understanding potential outcomes, and ensuring that the data analysis workflow is robust and error-free. This preparatory step helps in planning and anticipating the needs and challenges of working with empirical data.
 
 **Action steps:**
 
@@ -14,12 +14,15 @@ As part of the **Babysteps for Reproducibility tutorial**, in this notebook, sim
 
 -   Proceed to the next step: Preparing data with EDA
 
-*Understanding all the details of the code below is not necessary. The main point here is to create raw data for the reproducible workflow tutorial.*
+*Understanding all the details of the code below is not necessary. 
+The main point is to create raw dataset for the tutorial.*
 
 ```{r}
 #| label: setup-simulate
 #| warning: false
 #| message: false
+#| code-fold: true
+#| code-summary: "View code: Load packages"
 
 # load / install tidyverse package for data manipulation
 if (!requireNamespace("tidyverse", quietly = TRUE)) {install.packages("tidyverse")}
@@ -27,10 +30,12 @@ require(tidyverse)
 require(here)
 ```
 
-## Create codebook
+## Create an example codebook
 
 ```{r}
 #| label: codebook
+#| code-fold: true
+#| code-summary: "View code: Create codebook"
 
 # Define and create a codebook
 codebook <- "
@@ -118,6 +123,9 @@ message("Codebook created and saved in folder: 01-data/metadata.")
 
 ```{r}
 #| label: simulate-data
+#| code-fold: true
+#| code-summary: "View code: Simulate data"
+#| output: false
 
 # Simulate data for the babysteps analysis example
 # Set seed for reproducibility

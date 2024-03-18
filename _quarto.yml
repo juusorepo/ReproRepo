@@ -15,7 +15,7 @@ website:
           file: babysteps.qmd
         - text: " - Simulating data"
           file: 04-notebooks/00-simulate-data.qmd
-        - text: " - Preparing sata with reproducibility"
+        - text: " - Preparing data with reproducibility"
           file: 04-notebooks/01-prepare-data.qmd
         - text: " - Creating reproducible tables and figures"
           file: 04-notebooks/02-create-tables-and-figures.qmd

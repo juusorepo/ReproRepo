@@ -6,7 +6,7 @@ date: "`r Sys.Date()`"
 
 This notebook shows how to create reproducible tables in R, ready to be used in a publication or presentation. With this, you will avoid the need for copy-pasting values from R to word processor, avoiding errors and most importantly, ensuring better reproducibility.
 
-This tutorial is part of "Baby Steps for Reproducible Workflow in R". If you have not followed the full tutorial, the first code chunk downloads the example dataset.
+This notebook is part of [Babysteps for Reproducibility -tutorial](../babysteps). If you have not followed the full tutorial, the first code chunk downloads the example dataset.
 
 # Example data and study hypotheses
 
@@ -25,6 +25,12 @@ Tables to be created:
 -   Table 2. Linear Regression results
 
 -   Table 3. Mixed-effects model results
+
+And figures:
+
+-   Figure 1. Coefficient plot
+
+-   Figure 2. Interaction plot   
 
 # Load required packages and processed data
 
@@ -98,13 +104,13 @@ To create well-formatted summary table, we are using the modelsummary and flexta
 #| label: skim-summary
 #| purl: false
 
-# Print the datasummary_skim of the numeric variables
+# Run datasummary_skim with numeric variables
 babysteps_T1 %>%
   select(-wave,-babyid) %>% # omit few variables
   datasummary_skim(type = "numeric")
 ```
 
-Next, we will build a customized summary table using datasummary and flextable.
+Next, we build a customized summary table using datasummary and flextable.
 
 ```{r}
 #| label: table1-summary
@@ -177,13 +183,13 @@ tbl <- set_header_labels(
 #| label: table1-preview-summary
 #| purl: false
 
-# Print a preview of the flextable 
+# Print a preview of the flextable in html
 tbl
 ```
 
 ## Export Table 1 to different formats
 
-Continuing with the flextable package, we can export the table created to Word, PowerPoint, HTML, image (PNG), or PDF. The code below will save different formats to the outputs/tables folder. The outputs can then be included in the paper / presentation.
+Continuing with the flextable package, we can export the table created to Word, PowerPoint, HTML, image (PNG), or PDF. The code below will save different formats to the outputs/tables folder. The outputs can then be included in a paper or presentation.
 
 ```{r}
 #| label: export-outputs
@@ -214,7 +220,7 @@ save_as_image(tbl, path = here("05-outputs/tables/tbl1-desc.png"))
 
 # Table 2. Linear regression results table with Broom and Flextable
 
-A bit simpler example - the tidy() function from broom package enables us to make a tidy table from model results.
+A bit simpler example - the tidy() function from broom package enables us to make a tidy table from regression model results.
 
 ```{r}
 #| label: table2-linear-regression
@@ -342,7 +348,7 @@ save_as_pptx(
 #| label: preview-tbl-mixed
 #| purl: false
 
-# Preview the table
+# Preview the table in html
 tbl 
 ```
 
@@ -439,7 +445,7 @@ fig1
 
 The report package produces automatic reports of models and tests, following best practices guidelines (APA). The report() function creates a textual narrative of the results and report_table creates - a results table. A short [tutorial video](https://www.youtube.com/watch?v=iMh9tPsuiik)
 
-For the demo, we will use the linear model (model_lm) and the mixed-effects model (model3) we created earlier.
+For the demo, we will use the linear model and the full mixed model we created earlier.
 
 ```{r}
 #| label: report-results-lm
@@ -518,19 +524,18 @@ ggsave(
 
 ```{r}
 #| label: figure2-preview
+# Preview the interaction plot
 plot2
 ```
 
 
 # Final words
 
-There are several alternatives for the modelsummary + flextable combination. Some of these are listed in Resources page. You may also create a table more 'manually' and then use flextable for final customization and exporting.
+Naturally, there are multiple alternatives for the modelsummary + flextable combination. Some of these are listed in Resources page. One option is to create a table more 'manually' and then use flextable for final customization and exporting.
 
 The examples shown should be considered as starting points. A full analysis would require diagnostics like checking for model fits, testing assumptions, and inspecting random effects structures. But they were not the focus here.
 
-**Follow the tutorial**
-
-To follow the full tutorial, next step is [Preparing code and data for sharing](babysteps#step3)
+**To follow the full tutorial, next step is [Preparing code and data for sharing](../babysteps#step3)**
 
 ::: callout-note
 What did we learn from the study? In the playful exploration of baby steps, we find a metaphor for mastering reproducible workflows. As infants progress from crawling to walking, their journey mirrors researchers' path towards efficiency and precision. Yet, it's the giggles---the joy in learning---that enrich the process. Like these tiny adventurers, we too learn best when we embrace both the challenges and delights of discovery, advancing one baby step at a time.

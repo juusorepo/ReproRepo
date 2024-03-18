@@ -158,7 +158,7 @@
     "href": "04-notebooks/02-create-tables-and-figures.html#export-table-1-to-different-formats",
     "title": "Generating Reproducible Tables and Figures",
     "section": "3.1 Export Table 1 to different formats",
-    "text": "3.1 Export Table 1 to different formats\nContinuing with the flextable package, we can export the table created to Word, PowerPoint, HTML, image (PNG), or PDF. The code below will save different formats to the outputs/tables folder. The outputs can then be included in the paper / presentation.\n\n\n[1] \"C:/Users/juuso/OneDrive - Vaikuttava Yritys Oy/0 Oma RStudio/ReproRepo/05-outputs/tables/tbl1-desc.png\""
+    "text": "3.1 Export Table 1 to different formats\nContinuing with the flextable package, we can export the table created to Word, PowerPoint, HTML, image (PNG), or PDF. The code below will save different formats to the outputs/tables folder. The outputs can then be included in the paper / presentation.\n\n# To RTF (opens in e.g., Microsoft Word)\nsave_as_rtf(\n  \"Descriptive statistics for baseline data\" = tbl,\n  path = here(\"05-outputs/tables/tbl1-desc.rtf\")\n)\n\n# To PowerPoint\nsave_as_pptx(\n  \"Descriptive statistics for baseline data\" = tbl,\n  path = here(\"05-outputs/tables/tbl1-desc.pptx\")\n)\n\n# To HTML\nsave_as_html(tbl, path = here(\"05-outputs/tables/tbl1-desc.html\"))\n\n# To image file\nsave_as_image(tbl, path = here(\"05-outputs/tables/tbl1-desc.png\"))\n\n# If problems in creating image, install webshot package\n# if (!requireNamespace(\"webshot\", quietly = TRUE)) {install.packages(\"webshot\")}\n# require(webshot)"
   },
   {
     "objectID": "04-notebooks/02-create-tables-and-figures.html#table-2.-linear-regression-results-table-with-broom-and-flextable",

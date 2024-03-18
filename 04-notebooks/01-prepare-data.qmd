@@ -6,13 +6,13 @@ date: "`r Sys.Date()`"
 
 # Prepare data with EDA
 
-This notebook sets an example workflow and template for preparing raw data for analysis. The focus is on cleaning, coding, and transforming the data, which are crucial steps to ensure the reliability and validity of the analysis. All processing steps should be documented, including the determination of the final sample size, any data exclusions, manipulations, and the creation of variables for the study.
+This notebook sets an example workflow and template for preparing raw data for analysis. The focus is on cleaning, coding, and transforming the data, which are crucial steps to ensure the reliability and validity of the analysis. All processing steps should be documented, including the determination of the sample size, any data exclusions, manipulations, and the creation of variables for the study.
 
-**EDA (Exploratory Data Analysis)** is integrated into the process to understand the distribution of the data and identify any apparent issues that need addressing. After processing, the processed data is saved in CSV format. This approach keeps the raw data untouched and makes all processing steps transparent and reproducible.
+**EDA (Exploratory Data Analysis)** is integrated into the process to understand the distribution of the data and identify any issues that need addressing. After processing, the processed data is saved in CSV format. This approach keeps the raw data untouched and makes all processing steps transparent and reproducible.
 
 **Why prepare data in a notebook instead of a script file?**
 
--   Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the "purl" function, explained in the **babysteps** tutorial, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.
+-   Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the "purl" function, explained in the **[Babysteps tutorial](../babysteps)***, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.
 
 ## 1 Load raw data and packages
 
@@ -20,14 +20,23 @@ This notebook sets an example workflow and template for preparing raw data for a
 
 ```{r}
 #| label: setup_prepare
-# Title: Prepare data
+#| code-fold: true
+#| code-summary: "View code: Load packages and data"
+#| output: false
 
 # Load required packages
 require(here)
 require(tidyverse)
 
-# load the raw data
-dataset <- read.csv(here("01-data/raw/babysteps-rawdata.csv"))
+# Load / download data
+if (file.exists(here("01-data/raw/babysteps-rawdata.csv"))) {
+  babysteps <- read.csv(here("01-data/raw/babysteps-rawdata.csv"))
+} else {
+  babysteps <-
+    read.csv(
+      "https://raw.githubusercontent.com/juusorepo/ReproRepo/master/01-data/raw/babysteps-rawdata.csv"
+    )
+}
 ```
 
 ## Check and Modify Data Types
@@ -49,19 +58,16 @@ str(dataset)
 
 ```{r}
 #| label: modify-data-types
-# Example code to modify data types
 
 # Converting character variables to factors
 dataset <- dataset %>% mutate_if(is.character, as.factor)
-
-
 ```
 
 ## Initial Exploratory Data Analysis
 
 Before further processing, you may want to conduct an exploratory data analysis (EDA) to gain insights into the dataset's distribution and characteristics. There are various ways to do this and also packages for automated EDA analysis (e.g., DataExplorer, GGally, SmartEDA, Hmisc). For this tutorial, we will use the DataExplorer.
 
--   **Action Steps:** Run the code below to create an EDA report. Then check results from your Notebooks folder.
+-   **Action Steps:** Run the code below to create an EDA report. See results in Notebooks folder or [here](04-notebooks/EDA-report-initial-2024-03-18.html).
 
 ```{r}
 #| label: Initial-EDA
@@ -93,6 +99,7 @@ This step involves identifying and correcting issues in your dataset, such as mi
 
 ```{r}
 #| label: Missing-values
+#| include: false
 # insert your code here or delete the section
 ```
 
@@ -169,8 +176,9 @@ After cleaning and transforming your data, perform another round of EDA to verif
 #| label: EDA-with-processed-data
 #| purl: false    # to exclude this chunk from the R script file
 #| eval: false
+#| output: false
 
-# Create the report
+# Create the EDA report, define the outcome variable
 dataset %>%
     create_report(
         output_file = paste("EDA-report-processed", Sys.Date(), sep=" - "),
@@ -191,7 +199,7 @@ message("The processed dataset was saved in processed data folder")
 
 # Conclusion
 
-This workflow guides you from loading your data to ensuring it's analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the reliability and validity of your research findings.
+This workflow guides you from loading your data to ensuring it's analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the quality of your research.
 
 
 **To follow the full tutorial, next step is [Creating reproducible outputs](babysteps#step2c)**
