@@ -2,6 +2,7 @@
 title: "Baby Steps for a Reproducible Workflow in R"
 freeze: auto
 date: "`r Sys.Date()`"
+author: "Juuso Repo"
 ---
 
 The idea of *methods reproducibility* is to provide sufficient documentation of procedures and data to enable repeating the same procedures, in a similar or different context (Goodman et al., 2016). A reproducible workflow, then, is a systematically organized sequence of steps to accomplish this. As the value placed on reproducibility continues to rise within and beyond academia, mastering these practices is increasingly beneficial. This tutorial aims to present the basics rather than delve into all the complexities of all advanced stuff. It covers steps from preparing data for analysis to creating reproducible tables and figures, to be included in a paper or presentation.
@@ -208,7 +209,7 @@ You can create a new notebook by selecting: File - New File - Quarto document (o
 For organizing your analyses in multiple notebooks, a good practice is to number them following your analytic plan / workflow.
 :::
 
-## Creating reproducible analyses, tables and figures {step2c}
+## Creating reproducible analyses, tables and figures {#step2c}
 
 The next notebook shows how to create reproducible tables and figures in R. Also in APA style. This will avoid the need for copy-pasting values from R to a word processor, ensuring fewer errors and - better reproducibility! You can export the formatted table into Word, PowerPoint, HTML, or PDF.
 
