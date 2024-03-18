@@ -29,3 +29,11 @@ In the fascinating world of reproducibility, there is always more. See below som
 -   Wicherts, J. M., Veldkamp, C. L., Augusteijn, H. E., Bakker, M., Van Aert, R., & Van Assen, M. A. (2016). Degrees of freedom in planning, running, analyzing, and reporting psychological studies: A checklist to avoid p-hacking. Frontiers in psychology, 7, 222767. <https://doi.org/10.3389/fpsyg.2016.01832>
 
 -   Lombaers, P., Bruin, J. de, & Schoot, R. van de. (2024). Reproducibility and Data storage Checklist for Active Learning-Aided Systematic Reviews. <https://doi.org/10.31234/osf.io/g93zf>
+
+## R packages used in the tutorials
+
+-   [Modelsummary](https://modelsummary.com/index.html) - Creates tables and plots to present descriptive statistics and to summarize statistical models in R.
+
+-   [Flextable](https://ardata-fr.github.io/flextable-book/) - a framework to easily create tables for reporting and publications.
+
+-   [Report](https://easystats.github.io/report/) - "From R to your manuscript".

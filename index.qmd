@@ -1,11 +1,15 @@
 ---
-title: "ReproRepo"
+title: "Babysteps for Reproducible Workflow in R"
 ---
 
-This is a Quarto website.
+Methods reproducibility means documenting procedures well enough so they can be repeated with similar or different data. A reproducible workflow organizes these steps systematically. 
 
-To learn more and more about Quarto websites visit <https://quarto.org/docs/websites>.
+This tutorial covers the basics — from preparing data to making reproducible tables and figures for papers or presentations — without getting lost in too advanced topics.
 
-```{r}
-1 + 1
-```
+<div class="d-grid gap-2">
+  <a href="babysteps.html" style="text-decoration: none;">
+    <button class="btn btn-lg btn-primary" type="button">Start the Tutorial</button>
+  </a>
+</div>
+
+

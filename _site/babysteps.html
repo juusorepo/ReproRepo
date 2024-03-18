@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2024-03-18">
 
-<title>ReproRepo - Baby steps for a Reproducible Workflow in R</title>
+<title>ReproRepo - Baby Steps for a Reproducible Workflow in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -171,27 +171,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#step-one-create-a-project-and-folder-structure" id="toc-step-one-create-a-project-and-folder-structure" class="nav-link active" data-scroll-target="#step-one-create-a-project-and-folder-structure"><span class="header-section-number">1</span> STEP ONE: Create a project and folder structure</a>
+  <li><a href="#step-one-creating-project-and-folder-structure" id="toc-step-one-creating-project-and-folder-structure" class="nav-link active" data-scroll-target="#step-one-creating-project-and-folder-structure"><span class="header-section-number">1</span> STEP ONE: Creating project and folder structure</a>
   <ul class="collapse">
   <li><a href="#create-a-rstudio-project" id="toc-create-a-rstudio-project" class="nav-link" data-scroll-target="#create-a-rstudio-project"><span class="header-section-number">1.1</span> Create a RStudio project</a></li>
-  <li><a href="#create-the-project-folder-structure" id="toc-create-the-project-folder-structure" class="nav-link" data-scroll-target="#create-the-project-folder-structure"><span class="header-section-number">1.2</span> Create the project folder structure</a></li>
+  <li><a href="#creating-the-project-folder-structure" id="toc-creating-the-project-folder-structure" class="nav-link" data-scroll-target="#creating-the-project-folder-structure"><span class="header-section-number">1.2</span> Creating the project folder structure</a></li>
   </ul></li>
-  <li><a href="#step-two-prepare-and-analyse-data-and-generate-reproducible-tables-and-figures" id="toc-step-two-prepare-and-analyse-data-and-generate-reproducible-tables-and-figures" class="nav-link" data-scroll-target="#step-two-prepare-and-analyse-data-and-generate-reproducible-tables-and-figures"><span class="header-section-number">2</span> STEP TWO: Prepare and analyse data and generate reproducible tables and figures</a>
+  <li><a href="#step-two-preparing-and-analysing-data-and-generating-reproducible-tables-and-figures" id="toc-step-two-preparing-and-analysing-data-and-generating-reproducible-tables-and-figures" class="nav-link" data-scroll-target="#step-two-preparing-and-analysing-data-and-generating-reproducible-tables-and-figures"><span class="header-section-number">2</span> STEP TWO: Preparing and analysing data and generating reproducible tables and figures</a>
   <ul class="collapse">
-  <li><a href="#preparing-your-data-in-a-reproducible-way" id="toc-preparing-your-data-in-a-reproducible-way" class="nav-link" data-scroll-target="#preparing-your-data-in-a-reproducible-way"><span class="header-section-number">2.1</span> Preparing your data in a reproducible way</a></li>
-  <li><a href="#create-reproducible-analyses-tables-and-figures" id="toc-create-reproducible-analyses-tables-and-figures" class="nav-link" data-scroll-target="#create-reproducible-analyses-tables-and-figures"><span class="header-section-number">2.2</span> Create reproducible analyses, tables and figures</a></li>
+  <li><a href="#preparing-data-in-a-reproducible-way" id="toc-preparing-data-in-a-reproducible-way" class="nav-link" data-scroll-target="#preparing-data-in-a-reproducible-way"><span class="header-section-number">2.1</span> Preparing data in a reproducible way</a></li>
+  <li><a href="#creating-reproducible-analyses-tables-and-figures" id="toc-creating-reproducible-analyses-tables-and-figures" class="nav-link" data-scroll-target="#creating-reproducible-analyses-tables-and-figures"><span class="header-section-number">2.2</span> Creating reproducible analyses, tables and figures</a></li>
   </ul></li>
-  <li><a href="#step-three-prepare-data-and-code-for-sharing" id="toc-step-three-prepare-data-and-code-for-sharing" class="nav-link" data-scroll-target="#step-three-prepare-data-and-code-for-sharing"><span class="header-section-number">3</span> STEP THREE: Prepare data and code for sharing</a>
+  <li><a href="#step-three-preparing-data-and-code-for-sharing" id="toc-step-three-preparing-data-and-code-for-sharing" class="nav-link" data-scroll-target="#step-three-preparing-data-and-code-for-sharing"><span class="header-section-number">3</span> STEP THREE: Preparing data and code for sharing</a>
   <ul class="collapse">
-  <li><a href="#prepare-your-code-for-public-sharing" id="toc-prepare-your-code-for-public-sharing" class="nav-link" data-scroll-target="#prepare-your-code-for-public-sharing"><span class="header-section-number">3.1</span> Prepare your code for public sharing</a>
+  <li><a href="#preparing-code-for-public-sharing" id="toc-preparing-code-for-public-sharing" class="nav-link" data-scroll-target="#preparing-code-for-public-sharing"><span class="header-section-number">3.1</span> Preparing code for public sharing</a>
   <ul class="collapse">
-  <li><a href="#extract-code-from-notebooks---the-purl-function" id="toc-extract-code-from-notebooks---the-purl-function" class="nav-link" data-scroll-target="#extract-code-from-notebooks---the-purl-function"><span class="header-section-number">3.1.1</span> <strong>Extract code from notebooks - the PURL function</strong></a></li>
+  <li><a href="#extracting-code-from-notebooks---the-purl-function" id="toc-extracting-code-from-notebooks---the-purl-function" class="nav-link" data-scroll-target="#extracting-code-from-notebooks---the-purl-function"><span class="header-section-number">3.1.1</span> <strong>Extracting code from notebooks - the PURL function</strong></a></li>
   </ul></li>
-  <li><a href="#run-the-analyses-from-r-script-files" id="toc-run-the-analyses-from-r-script-files" class="nav-link" data-scroll-target="#run-the-analyses-from-r-script-files"><span class="header-section-number">3.2</span> Run the analyses from R script files</a></li>
-  <li><a href="#share-your-notebook-with-co-authors" id="toc-share-your-notebook-with-co-authors" class="nav-link" data-scroll-target="#share-your-notebook-with-co-authors"><span class="header-section-number">3.3</span> Share your notebook with co-authors</a></li>
-  <li><a href="#prepare-your-data-for-sharing" id="toc-prepare-your-data-for-sharing" class="nav-link" data-scroll-target="#prepare-your-data-for-sharing"><span class="header-section-number">3.4</span> Prepare your data for sharing</a></li>
+  <li><a href="#running-the-analyses-from-r-script-files" id="toc-running-the-analyses-from-r-script-files" class="nav-link" data-scroll-target="#running-the-analyses-from-r-script-files"><span class="header-section-number">3.2</span> Running the analyses from R script files</a></li>
+  <li><a href="#sharing-notebooks-with-co-authors" id="toc-sharing-notebooks-with-co-authors" class="nav-link" data-scroll-target="#sharing-notebooks-with-co-authors"><span class="header-section-number">3.3</span> Sharing notebooks with co-authors</a></li>
+  <li><a href="#preparing-data-for-sharing" id="toc-preparing-data-for-sharing" class="nav-link" data-scroll-target="#preparing-data-for-sharing"><span class="header-section-number">3.4</span> Preparing data for sharing</a></li>
   </ul></li>
-  <li><a href="#step-four-share-code-and-data-in-open-repository" id="toc-step-four-share-code-and-data-in-open-repository" class="nav-link" data-scroll-target="#step-four-share-code-and-data-in-open-repository"><span class="header-section-number">4</span> STEP FOUR: Share code and data in open repository</a></li>
+  <li><a href="#step-four-sharing-code-and-data-in-open-repository" id="toc-step-four-sharing-code-and-data-in-open-repository" class="nav-link" data-scroll-target="#step-four-sharing-code-and-data-in-open-repository"><span class="header-section-number">4</span> STEP FOUR: Sharing code and data in open repository</a></li>
   </ul>
 </nav>
     </div>
@@ -200,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Baby steps for a Reproducible Workflow in R</h1>
+<h1 class="title">Baby Steps for a Reproducible Workflow in R</h1>
 </div>
 
 
@@ -258,18 +258,18 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These basic steps can be expanded to include e.g., producing a complete manuscript in RStudio, managing version control with tools like Git, and ensuring computational reproducibility through containerization technologies such as Docker. See resources page for more.</p>
+<p>These basic steps can be expanded to include e.g., producing a fullmanuscript in RStudio, managing version control with tools like Git, and ensuring computational reproducibility through containerization technologies such as Docker. See resources page for more.</p>
 </div>
 </div>
-<section id="step-one-create-a-project-and-folder-structure" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> STEP ONE: Create a project and folder structure</h1>
+<section id="step-one-creating-project-and-folder-structure" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> STEP ONE: Creating project and folder structure</h1>
 <p>We begin with creating a tidy nest for all files related to the study/project. Or at least for the files related to data and analysis! Creating a coherent folder structure that can be used in all your future research projects will facilitate collaboration and make your life easier - with more time for reproduction!</p>
 <section id="create-a-rstudio-project" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="create-a-rstudio-project"><span class="header-section-number">1.1</span> Create a RStudio project</h2>
 <ul>
 <li><p>In RStudio, start fresh and select File - New Project - New Directory - Empty Project.</p></li>
 <li><p>Copy and run below code <strong>in RStudio</strong> <strong>console</strong> window to download this notebook to your project folder. (or download <strong>from here</strong> and save to project folder)</p>
-<p><code>download.file("https://juusorepo.github.io/IODS-project/chapter1.Rmd", "baby-steps.qmd")</code></p></li>
+<p><code>download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/babysteps.qmd", "babysteps.qmd")</code></p></li>
 <li><p>Open the notebook in RStudio.</p></li>
 <li><p>Run the below code chunk to install required packages. Tip: place cursor inside the chunk and press Ctrl+Shift+Enter. The Here package simplifies file path management by making all paths relative to the project root.</p></li>
 </ul>
@@ -307,8 +307,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="create-the-project-folder-structure" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="create-the-project-folder-structure"><span class="header-section-number">1.2</span> Create the project folder structure</h2>
+<section id="creating-the-project-folder-structure" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="creating-the-project-folder-structure"><span class="header-section-number">1.2</span> Creating the project folder structure</h2>
 <p>The code below will create a coherent folder structure for your project. You can modify the folder names for your own project as needed. Alternatively, you may create folders without code. Note these good practices when working with folders and files:</p>
 <ul>
 <li><p><strong>Naming conventions</strong> for folders and files: only lowercase letters; no spaces but-dashes (or_underscores) instead. Prefix numbers with leading zeros ensure automatic sorting (01-data, 02-scripts…).</p></li>
@@ -355,11 +355,11 @@ Note
 </div>
 </section>
 </section>
-<section id="step-two-prepare-and-analyse-data-and-generate-reproducible-tables-and-figures" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> STEP TWO: Prepare and analyse data and generate reproducible tables and figures</h1>
+<section id="step-two-preparing-and-analysing-data-and-generating-reproducible-tables-and-figures" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> STEP TWO: Preparing and analysing data and generating reproducible tables and figures</h1>
 <p>Using notebooks instead of plain text .R scripts offers many benefits. Notebooks integrate code, results, and notes in one document, making them more readable, enhancing collaboration and reproducibility. In this tutorial, we will use Quarto notebooks (.qmd) which is a next generation version of R Markdown and becoming the new gold standard.</p>
-<section id="preparing-your-data-in-a-reproducible-way" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="preparing-your-data-in-a-reproducible-way"><span class="header-section-number">2.1</span> Preparing your data in a reproducible way</h2>
+<section id="preparing-data-in-a-reproducible-way" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="preparing-data-in-a-reproducible-way"><span class="header-section-number">2.1</span> Preparing data in a reproducible way</h2>
 <p>For reproducibility, it is vital to keep the raw data untouched and create code which includes all steps done for processing and preparing the data for analysis. All data cleaning done in R ensures the transparency of your research.</p>
 <p>A good open science practice (when possible) is to <strong>simulate data</strong> when planning analysis or preregistering your study (Peikert et al., 2021). Once the empirical data is available, you can replace the simulated data - and get the results quicker.</p>
 <div class="cell">
@@ -367,8 +367,7 @@ Note
 <div>
 <div>
 
-<pre class="mermaid mermaid-js"># create flowchart
-flowchart LR
+<pre class="mermaid mermaid-js">flowchart LR
     step0("Simulate &lt;br&gt;and plan")
     step1("Collect")
     step2("Process")
@@ -395,8 +394,8 @@ flowchart LR
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download simulate-data notebook </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#download.file("https://juusorepo.github.io/IODS-project/chapter1.Rmd", </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#              "04-notebooks/00-simulate-data.qmd")</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://raw.githubusercontent.com/juusorepo/ReproRepo/master/04-notebooks/00-simulate-data.qmd"</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">"04-notebooks/00-simulate-data.qmd"</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Notebook is saved in your Notebooks -folder. Open and run the code."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Notebook is saved in your Notebooks -folder. Open and run the code.</code></pre>
@@ -409,8 +408,8 @@ flowchart LR
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download prepare-data notebook</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#download.file("https://juusorepo.github.io/IODS-project/chapter1.Rmd", </span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#             "04-notebooks/01-prepare-data.qmd")</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://raw.githubusercontent.com/juusorepo/ReproRepo/master/04-notebooks/01-prepare-data.qmd"</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="st">"04-notebooks/01-prepare-data.qmd"</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Notebook is saved in your Notebooks -folder. Open and run the code."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Notebook is saved in your Notebooks -folder. Open and run the code.</code></pre>
@@ -426,13 +425,13 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can create your own notebook by selecting: File - New File - R Notebook (in RStudio).</p>
-<p>Organize your analyses into multiple notebooks. A good practice is to number them following your analytic plan.</p>
+<p>You can create your own notebook by selecting: File - New File - R Notebook (in RStudio).<br>
+Organize your analyses into multiple notebooks. A good practice is to number them following your analytic plan.</p>
 </div>
 </div>
 </section>
-<section id="create-reproducible-analyses-tables-and-figures" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="create-reproducible-analyses-tables-and-figures"><span class="header-section-number">2.2</span> Create reproducible analyses, tables and figures</h2>
+<section id="creating-reproducible-analyses-tables-and-figures" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="creating-reproducible-analyses-tables-and-figures"><span class="header-section-number">2.2</span> Creating reproducible analyses, tables and figures</h2>
 <p>The next notebook shows how to create reproducible tables and figures in R. Also in APA style! This will avoid the need for copy-pasting values from R to a word processor, ensuring fewer errors and - better reproducibility! You can export the formatted table into Word, PowerPoint, HTML, or pdf.</p>
 <ul>
 <li><strong>Download the notebook</strong> by running the code below.</li>
@@ -440,8 +439,8 @@ Tip
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download a notebook for creating tables</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># download.file("https://juusorepo.github.io/IODS-project/chapter1.Rmd", </span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#              here("04-notebooks/02-create-tables-and-figures.qmd"))</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://raw.githubusercontent.com/juusorepo/ReproRepo/master/04-notebooks/02-create-tables-and-figures.qmd"</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">here</span>(<span class="st">"04-notebooks/02-create-tables-and-figures.qmd"</span>))</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Descript -notebooks downloaded and saved in your notebooks -folder. Open and try!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Descript -notebooks downloaded and saved in your notebooks -folder. Open and try!</code></pre>
@@ -463,8 +462,8 @@ Because they wanted a relationship with fewer variables!</p>
 </div>
 </section>
 </section>
-<section id="step-three-prepare-data-and-code-for-sharing" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> STEP THREE: Prepare data and code for sharing</h1>
+<section id="step-three-preparing-data-and-code-for-sharing" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> STEP THREE: Preparing data and code for sharing</h1>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -485,8 +484,8 @@ Because they wanted a relationship with fewer variables!</p>
 </div>
 </div>
 </div>
-<section id="prepare-your-code-for-public-sharing" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="prepare-your-code-for-public-sharing"><span class="header-section-number">3.1</span> Prepare your code for public sharing</h2>
+<section id="preparing-code-for-public-sharing" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="preparing-code-for-public-sharing"><span class="header-section-number">3.1</span> Preparing code for public sharing</h2>
 <ul>
 <li><strong>Comment the code.</strong> Make sure the code you plan to share is properly commented. Good practice is to write the comments before you write the code. If you lack comments, you can use Chat GPT to <em>assist</em> and review your code (with caution, naturally). With the prompt below, you can keep adding your scripts one at a time. Replace your code with the commented version, and test the code. Example prompt:</li>
 </ul>
@@ -529,11 +528,11 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For automated computational reproducibility, you can use* <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> *for dependency management or Docker for containerization.</p>
+<p>For automated computational reproducibility, you can use <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> for dependency management or Docker for containerization.</p>
 </div>
 </div>
-<section id="extract-code-from-notebooks---the-purl-function" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="extract-code-from-notebooks---the-purl-function"><span class="header-section-number">3.1.1</span> <strong>Extract code from notebooks - the PURL function</strong></h3>
+<section id="extracting-code-from-notebooks---the-purl-function" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="extracting-code-from-notebooks---the-purl-function"><span class="header-section-number">3.1.1</span> <strong>Extracting code from notebooks - the PURL function</strong></h3>
 <p>As you may have noticed from the example notebooks, we used notebooks also for personal notes and exploratory analyses. How can one manage all that in the same file? With help from the ‘purl’ function!</p>
 <p>The “purl” function from the knitr package will extract all executable code from the notebooks and save them in in an .R script file - for public sharing. The trick is that it only extracts the code chunks with comments, not the notes (text outside code chunks) or results. In addition, the code chunks marked with <strong>purl=FALSE</strong> (in the title, see example below), will <strong>not be included</strong> in the .R script file created. Thus, you can keep draft analyses and personal notes in the same notebook with the code for public sharing.</p>
 <ul>
@@ -546,196 +545,67 @@ Tip
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"04-notebooks/00-simulate-data.qmd"</span>), <span class="co"># the source notebook </span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">output=</span><span class="fu">here</span>(<span class="st">"02-scripts/00-simulate-data.R"</span>), <span class="co"># the output script file</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">documentation =</span> <span class="dv">1</span> <span class="co"># to include only the code chunks</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  |                                                           
-  |                                                     |   0%
-  |                                                           
-  |.........                                            |  17%                 
-  |                                                           
-  |..................                                   |  33% [setup-simulate]
-  |                                                           
-  |..........................                           |  50%                 
-  |                                                           
-  |...................................                  |  67% [codebook]      
-  |                                                           
-  |............................................         |  83%                 
-  |                                                           
-  |.....................................................| 100% [simulate-data] 
-                                                                                                           </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/juuso/OneDrive - Vaikuttava Yritys Oy/0 Oma RStudio/ReproRepo/02-scripts/00-simulate-data.R"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract prepare-data</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">purl</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"04-notebooks/01-prepare-data.qmd"</span>), </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">output=</span><span class="fu">here</span>(<span class="st">"02-scripts/01-prepare-data.R"</span>), </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">documentation =</span> <span class="dv">1</span> </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  |                                               
-  |                                         |   0%
-  |                                               
-  |..                                       |   4%                             
-  |                                               
-  |....                                     |   9% [setup_prepare]             
-  |                                               
-  |.....                                    |  13%                             
-  |                                               
-  |.......                                  |  17% [display_data_structure]    
-  |                                               
-  |.........                                |  22%                             
-  |                                               
-  |...........                              |  26% [modify-data-types]         
-  |                                               
-  |............                             |  30%                             
-  |                                               
-  |..............                           |  35% [Initial-EDA]               
-  |                                               
-  |................                         |  39%                             
-  |                                               
-  |..................                       |  43% [Missing-values]            
-  |                                               
-  |....................                     |  48%                             
-  |                                               
-  |.....................                    |  52% [Correcting Errors]         
-  |                                               
-  |.......................                  |  57%                             
-  |                                               
-  |.........................                |  61% [Handling Outliers]         
-  |                                               
-  |...........................              |  65%                             
-  |                                               
-  |.............................            |  70% [Standardize Variable Names]
-  |                                               
-  |..............................           |  74%                             
-  |                                               
-  |................................         |  78% [Recoding variables]        
-  |                                               
-  |..................................       |  83%                             
-  |                                               
-  |....................................     |  87% [EDA-with-processed-data]   
-  |                                               
-  |.....................................    |  91%                             
-  |                                               
-  |.......................................  |  96% [Save dataset]              
-  |                                               
-  |.........................................| 100%                             
-                                                                                                                       </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/juuso/OneDrive - Vaikuttava Yritys Oy/0 Oma RStudio/ReproRepo/02-scripts/01-prepare-data.R"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract create-tables-and-figures</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">purl</span>(<span class="fu">here</span>(<span class="st">"04-notebooks/02-create-tables-and-figures.qmd"</span>), </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">output=</span><span class="fu">here</span>(<span class="st">"02-scripts/02-create-tables-and-figures.R"</span>),</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">documentation =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  |                                         
-  |                                   |   0%
-  |                                         
-  |.                                  |   4%                                   
-  |                                         
-  |...                                |   7% [load-processed-data-and-packages]
-  |                                         
-  |....                               |  11%                                   
-  |                                         
-  |.....                              |  15% [skim-summary]                    
-  |                                         
-  |......                             |  19%                                   
-  |                                         
-  |........                           |  22% [tbl-summary]                     
-  |                                         
-  |.........                          |  26%                                   
-  |                                         
-  |..........                         |  30% [tbl-preview-summary]             
-  |                                         
-  |............                       |  33%                                   
-  |                                         
-  |.............                      |  37% [export-outputs]                  
-  |                                         
-  |..............                     |  41%                                   
-  |                                         
-  |................                   |  44% [tbl-linear-regression]           
-  |                                         
-  |.................                  |  48%                                   
-  |                                         
-  |..................                 |  52% [preview-tbl-linear-regression]   
-  |                                         
-  |...................                |  56%                                   
-  |                                         
-  |.....................              |  59% [tbl-mixed-effects]               
-  |                                         
-  |......................             |  63%                                   
-  |                                         
-  |.......................            |  67% [fig-coefs]                       
-  |                                         
-  |.........................          |  70%                                   
-  |                                         
-  |..........................         |  74% [fig1-preview]                    
-  |                                         
-  |...........................        |  78%                                   
-  |                                         
-  |.............................      |  81% [report-results-lm]               
-  |                                         
-  |..............................     |  85%                                   
-  |                                         
-  |...............................    |  89% [report-results-mixed]            
-  |                                         
-  |................................   |  93%                                   
-  |                                         
-  |.................................. |  96% [fig-interaction]                 
-  |                                         
-  |...................................| 100%                                   
-                                                                                                                             </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/juuso/OneDrive - Vaikuttava Yritys Oy/0 Oma RStudio/ReproRepo/02-scripts/02-create-tables-and-figures.R"</code></pre>
-</div>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract prepare-data</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">purl</span>(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">here</span>(<span class="st">"04-notebooks/01-prepare-data.qmd"</span>), </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">output=</span><span class="fu">here</span>(<span class="st">"02-scripts/01-prepare-data.R"</span>), </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">documentation =</span> <span class="dv">1</span> </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract create-tables-and-figures</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">purl</span>(<span class="fu">here</span>(<span class="st">"04-notebooks/02-create-tables-and-figures.qmd"</span>), </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">output=</span><span class="fu">here</span>(<span class="st">"02-scripts/02-create-tables-and-figures.R"</span>),</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">documentation =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="run-the-analyses-from-r-script-files" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="run-the-analyses-from-r-script-files"><span class="header-section-number">3.2</span> Run the analyses from R script files</h2>
-<p>After the R script files are created, it is good to test the scripts before sharing. You can use the following code chunk to re-run your analyses without opening the R script files. It is good practice to empty the R environment before running the analyses.</p>
+<section id="running-the-analyses-from-r-script-files" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="running-the-analyses-from-r-script-files"><span class="header-section-number">3.2</span> Running the analyses from R script files</h2>
+<p>After the R script files are created, it is better to test the scripts before sharing. You can use the following code chunk to re-run your analyses without opening the R script files. It is good practice to empty the R environment before running the analyses.</p>
 <ul>
 <li><p>Restart R Session in RStudio: Select <code>Session &gt; Restart R</code></p></li>
 <li><p>Run the below code chunk.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run analyses from R -----------------------------------------</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Clears all objects from memory to ensure reproducibility</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0 Simulate data</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"02-scripts/00-simulate-data.R"</span>))</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 Prepare data</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"02-scripts/01-prepare-data.R"</span>))</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 Run analyses to create tables</span></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"02-scripts/02-create-tables-and-figures.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear all objects from memory to ensure reproducibility</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 0 Simulate data</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"02-scripts/00-simulate-data.R"</span>))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 Prepare data</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"02-scripts/01-prepare-data.R"</span>))</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 Run analyses to create tables</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"02-scripts/02-create-tables-and-figures.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>Tip: You can run one row at a time by placing your cursor in the row and pressing Ctrl+Enter.</em></p>
-<p><em>Tip: Starting each code chunk with “title-for-chunk ————————————” will break up your script file into easily readable chunks.</em></p>
-<p><em>Note. the Purl function is not perfect. It may not work with all types of code, and you may need to do some manual editing. For example, it may not work with some types of loops or functions. It is also good to check the script file for any errors or missing parts.</em></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Starting each code chunk with “#| label: <the label="">” will split the script file into easily readable chunks. Note that the purl function may not work with all types of code, and you may need to do some manual editing.</the></p>
+</div>
+</div>
 </section>
-<section id="share-your-notebook-with-co-authors" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="share-your-notebook-with-co-authors"><span class="header-section-number">3.3</span> Share your notebook with co-authors</h2>
+<section id="sharing-notebooks-with-co-authors" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sharing-notebooks-with-co-authors"><span class="header-section-number">3.3</span> Sharing notebooks with co-authors</h2>
 <p>Best way to share some analyses with your colleagues? Notebooks are great for that. They can be read in any browser and can include code and your notes and questions for your colleagues. Although maybe intimidating to show others your code, it’s an important step in making your research reproducible. With this example, we render/knit one notebook into html format for sharing,</p>
 <ul>
-<li><p>Open one of the notebooks, for example 01-prepare-data.qmd</p></li>
-<li><p>Select Render. RStudio will render the notebook into a .html file, which you can easily share. You can change the output format with inserting the following in the very top of the notebook “format: html” and changing the html to pdf, docx, or other format.</p></li>
+<li><p>Open one of the example notebooks, for example 01-prepare-data.qmd</p></li>
+<li><p>To render your notebook in RStudio, click on the “Render” button. This process converts the notebook into an HTML file, facilitating easy sharing. To alter the output format, insert format: html at the notebook header, replacing html with pdf, docx, or another desired output format.</p></li>
 </ul>
+<p>Select Render. RStudio will render the notebook into a .html file, which you can easily share. You can change the output format with inserting the following in the very top of the notebook “format: html” and changing the html to pdf, docx, or other format.</p>
 </section>
-<section id="prepare-your-data-for-sharing" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="prepare-your-data-for-sharing"><span class="header-section-number">3.4</span> Prepare your data for sharing</h2>
+<section id="preparing-data-for-sharing" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="preparing-data-for-sharing"><span class="header-section-number">3.4</span> Preparing data for sharing</h2>
 <p>For full reproducibility, share your raw data when possible. Check these steps before sharing:</p>
 <ul>
 <li><p><strong>Consent</strong>. Ensure you have consent from the study participants and your institution to share the data.</p></li>
@@ -759,17 +629,17 @@ Note
 </div>
 </section>
 </section>
-<section id="step-four-share-code-and-data-in-open-repository" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> STEP FOUR: Share code and data in open repository</h1>
-<p>The final step is to create an OSF project and upload the files there. Open Science Framework (OSF) is a free, open-source service that connects the entire research lifecycle: planning, execution, reporting, archiving, and discovery. Alternatively, you can use other services such as Zenodo, Figshare, or Github.</p>
+<section id="step-four-sharing-code-and-data-in-open-repository" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> STEP FOUR: Sharing code and data in open repository</h1>
+<p>The final step is to select an open repository for public sharing. Open Science Framework (OSF) is one option, which we will be using here. It is a free, open-source service that connects the entire research lifecycle. Some alternatives are: Zenodo, Figshare, and Github.</p>
 <ol type="1">
 <li>Create a user and/or login at: <a href="https://osf.io/" class="uri">https://osf.io/</a></li>
-<li>Create a new project in OSF (you may keep the project private when testing)</li>
-<li>Create necessary folders with similar names as in your project folders. Start with these, maybe nothing else is needed: (data/raw, data/metadata, scripts)</li>
-<li>Upload the files to the folders created (in our example: raw data and three script files)</li>
+<li>Create a new project in OSF (you can keep the project private when testing)</li>
+<li>Create necessary folders with corresponding names with your project folders. With our example, we would create folder data/raw, data/metadata, scripts, and supplementary.</li>
+<li>Upload the files to the folders created</li>
 <li>Create a DOI (permanent link) for your project in OSF and start sharing!</li>
 </ol>
-<p><em>Congrats on walking the first steps! In the fascinating world of reproducibility, there is always more. Advanced issues like dependency management, version control, licencing, and writing a full manuscript in RStudio are not covered here. See the links attached if you are interested in learning more. Who says making good science doesn’t mean a lot of work?</em></p>
+<p><em>Congratulations on taking the initial steps! Feel free to adapt these ideas and codes to fit your personal style and needs. With R, numerous paths lead to the same destination. For further exploration, please refer to the resources page. Your feedback is always valued and appreciated! </em></p>
 
 
 </section>

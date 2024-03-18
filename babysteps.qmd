@@ -46,7 +46,7 @@ We begin with creating a tidy nest for all files related to the study/project. O
 
 -   Copy and run below code **in RStudio** **console** window to download this notebook to your project folder. (or download **from here** and save to project folder)
 
-    `download.file("https://juusorepo.github.io/IODS-project/chapter1.Rmd", "baby-steps.qmd")`
+    `download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/babysteps.qmd", "babysteps.qmd")`
 
 -   Open the notebook in RStudio.
 
@@ -96,7 +96,7 @@ The code below will create a coherent folder structure for your project. You can
 
 -   **Relative file paths**. Always use relative folder paths for reproducibility. Relative means `data/file.csv` instead of absolute one: `C:/Users/Documents…./file.csv`
 
--   **Here** -**function (optional)**. Wrap the file path with the here function to ensure the path is always relative to the project root and works in all contexts, e.g., `here("data/file.csv")`. Requires R package Here.
+-   **Here** -**function**. Wrap the file path with the here function to ensure the path is always relative to the project root and works in all contexts, e.g., `here("data/file.csv")`. Requires R package Here.
 
 -   **Separate folders for public sharing.** For our reproducible example, we will only need the folders: data, scripts, and supplementary for public sharing*.*
 
@@ -169,8 +169,8 @@ For this tutorial, we simulate a study on baby steps. In the first notebook we c
 ```{r}
 #| label: download-notebook00
 # Download simulate-data notebook 
-#download.file("https://juusorepo.github.io/IODS-project/chapter1.Rmd", 
-#              "04-notebooks/00-simulate-data.qmd")
+download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/04-notebooks/00-simulate-data.qmd", 
+              "04-notebooks/00-simulate-data.qmd")
 message("Notebook is saved in your Notebooks -folder. Open and run the code.")
 ```
 
@@ -182,14 +182,13 @@ Prepare-data -notebook is an example and a template for creating reproducible st
 ```{r}
 #| label: download-notebook01
 # Download prepare-data notebook
-#download.file("https://juusorepo.github.io/IODS-project/chapter1.Rmd", 
-#             "04-notebooks/01-prepare-data.qmd")
+download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/04-notebooks/01-prepare-data.qmd", 
+             "04-notebooks/01-prepare-data.qmd")
 message("Notebook is saved in your Notebooks -folder. Open and run the code.")
 ```
 
 ::: callout-tip
-You can create your own notebook by selecting: File - New File - R Notebook (in RStudio).
-
+You can create your own notebook by selecting: File - New File - R Notebook (in RStudio).\
 Organize your analyses into multiple notebooks. A good practice is to number them following your analytic plan.
 :::
 
@@ -204,8 +203,8 @@ The next notebook shows how to create reproducible tables and figures in R. Also
 #| label: download-notebook02
 
 # Download a notebook for creating tables
-# download.file("https://juusorepo.github.io/IODS-project/chapter1.Rmd", 
-#              here("04-notebooks/02-create-tables-and-figures.qmd"))
+download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/04-notebooks/02-create-tables-and-figures.qmd", 
+              here("04-notebooks/02-create-tables-and-figures.qmd"))
 message("Descript -notebooks downloaded and saved in your notebooks -folder. Open and try!")
 ```
 
@@ -258,11 +257,10 @@ writeLines(dependencies, here("03-supplementary/dependencies.txt"))
 # print a summary of the report
 message("Dependencies summary saved in the 03-supplementary -folder. A brief summary:")
 summary(report(sessionInfo()))
-
 ```
 
 ::: callout-tip
-For automated computational reproducibility, you can use\* [renv](https://rstudio.github.io/renv/articles/renv.html) \*for dependency management or Docker for containerization.
+For automated computational reproducibility, you can use [renv](https://rstudio.github.io/renv/articles/renv.html) for dependency management or Docker for containerization.
 :::
 
 ### **Extracting code from notebooks - the PURL function**
@@ -279,6 +277,7 @@ The "purl" function from the knitr package will extract all executable code from
 #| label: create-script-files-with-purl
 #| warning: false
 #| purl: false
+#| output: false
 
 # Extract simulate-data: use purl to extract r-code from notebook into script file
 purl(
@@ -302,22 +301,21 @@ purl(here("04-notebooks/02-create-tables-and-figures.qmd"),
 
 ## Running the analyses from R script files
 
-After the R script files are created, it is good to test the scripts before sharing. You can use the following code chunk to re-run your analyses without opening the R script files. It is good practice to empty the R environment before running the analyses.
+After the R script files are created, it is better to test the scripts before sharing. However, all modifications should be made in notebooks, so you will not get lost with different versions. After adjustments, just run the purl function again to replace the script files. 
 
--   Restart R Session in RStudio: Select `Session > Restart R`
+With the code below, you can run all the analyses without opening the R script files. The full workflow in one code chunk!
 
--   Run the below code chunk.
+-   Restart R Session in RStudio: Select `Session > Restart R` (good practice to ensure reproducibility).
+
+-   Run the below code chunk. Maybe better to run one row at a time, to check for errors (ctrl-enter).
 
 ```{r}
 #| label: run-analyses-from-scripts
 #| warning: false
 #| output: false
 
-# Run analyses from R -----------------------------------------
-
-# Clears all objects from memory to ensure reproducibility
+# Clear all objects from memory to ensure reproducibility
 rm(list = ls())
-
 
 # 0 Simulate data
 source(here("02-scripts/00-simulate-data.R"))
@@ -325,24 +323,25 @@ source(here("02-scripts/00-simulate-data.R"))
 # 1 Prepare data
 source(here("02-scripts/01-prepare-data.R"))
 
-# 2 Run analyses to create tables
+# 2 Run analyses to create tables and figures
 source(here("02-scripts/02-create-tables-and-figures.R"))
-
 ```
 
-*Tip: You can run one row at a time by placing your cursor in the row and pressing Ctrl+Enter.*
 
-*Tip: Starting each code chunk with "title-for-chunk ------------------------------------" will break up your script file into easily readable chunks.*
-
-*Note. the Purl function is not perfect. It may not work with all types of code, and you may need to do some manual editing. For example, it may not work with some types of loops or functions. It is also good to check the script file for any errors or missing parts.*
+::: callout-note
+Starting each code chunk with "#| label: your-label" will split the script file into easily readable chunks.
+Note that the purl function may not work with all types of code, and you may need to do some manual editing. 
+:::
 
 ## Sharing notebooks with co-authors
 
 Best way to share some analyses with your colleagues? Notebooks are great for that. They can be read in any browser and can include code and your notes and questions for your colleagues. Although maybe intimidating to show others your code, it's an important step in making your research reproducible. With this example, we render/knit one notebook into html format for sharing,
 
--   Open one of the notebooks, for example 01-prepare-data.qmd
+-   Open one of the example notebooks, for example 01-prepare-data.qmd
 
--   Select Render. RStudio will render the notebook into a .html file, which you can easily share. You can change the output format with inserting the following in the very top of the notebook "format: html" and changing the html to pdf, docx, or other format.
+-   To render your notebook in RStudio, click on the "Render" button. This process converts the notebook into an HTML file, facilitating easy sharing. To alter the output format, insert format: html at the notebook header, replacing html with pdf, docx, or another desired output format.
+
+Select Render. RStudio will render the notebook into a .html file, which you can easily share. You can change the output format with inserting the following in the very top of the notebook "format: html" and changing the html to pdf, docx, or other format.
 
 ## Preparing data for sharing
 
@@ -363,12 +362,12 @@ What's a reproducible researcher's favorite movie?\
 
 # STEP FOUR: Sharing code and data in open repository
 
-The final step is to create an OSF project and upload the files there. Open Science Framework (OSF) is a free, open-source service that connects the entire research lifecycle: planning, execution, reporting, archiving, and discovery. Alternatively, you can use other services such as Zenodo, Figshare, or Github.
+The final step is to select an open repository for public sharing. Open Science Framework (OSF) is one option, which we will be using here. It is a free, open-source service that connects the entire research lifecycle. Some alternatives are: Zenodo, Figshare, and Github. 
 
 1.  Create a user and/or login at: <https://osf.io/>
-2.  Create a new project in OSF (you may keep the project private when testing)
-3.  Create necessary folders with similar names as in your project folders. Start with these, maybe nothing else is needed: (data/raw, data/metadata, scripts)
-4.  Upload the files to the folders created (in our example: raw data and three script files)
+2.  Create a new project in OSF (you can keep the project private when testing)
+3.  Create necessary folders with corresponding names with your project folders. With our example, we would create folder data/raw, data/metadata, scripts, and supplementary. 
+4.  Upload the files to the folders created
 5.  Create a DOI (permanent link) for your project in OSF and start sharing!
 
-*Congrats on walking the first steps! In the fascinating world of reproducibility, there is always more. Advanced issues like dependency management, version control, licencing, and writing a full manuscript in RStudio are not covered here. See the links attached if you are interested in learning more. Who says making good science doesn't mean a lot of work?*
+*Congratulations on taking the initial steps! Feel free to adapt these ideas and codes to fit your personal style and needs. With R, numerous paths lead to the same destination. For further exploration, please refer to the resources page. Your feedback is always valued and appreciated! *

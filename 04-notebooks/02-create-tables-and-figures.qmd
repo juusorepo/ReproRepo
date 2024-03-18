@@ -6,11 +6,11 @@ date: "`r Sys.Date()`"
 
 This notebook shows how to create reproducible tables in R, ready to be used in a publication or presentation. With this, you will avoid the need for copy-pasting values from R to word processor, avoiding errors and most importantly, ensuring better reproducibility.
 
-This tutorial is part of "Baby Steps for Reproducible Workflow in R." If you have not followed the full tutorial, the first code chunk downloads the example dataset.
+This tutorial is part of "Baby Steps for Reproducible Workflow in R". If you have not followed the full tutorial, the first code chunk downloads the example dataset.
 
 # Example data and study hypotheses
 
-The dataset follows 100 baby participants across three observation points to monitor how their mobility type (Crawling, Toddling, Walking) affects their ability to solve puzzles and their engagement with the task, as indicated by their giggle counts. The data is simulated for planning a (fictional) study.
+The example dataset follows 100 baby participants across three observation points to monitor how their mobility type (Crawling, Toddling, Walking) affects their ability to solve puzzles and their engagement with the task, as indicated by their giggle counts. The data is simulated for planning a (fictional) study.
 
 Suppose we want to study the following hypotheses:
 
@@ -30,41 +30,51 @@ Tables to be created:
 
 ```{r}
 #| label: load-processed-data-and-packages
+#| code-fold: true
+#| code-summary: "View code: Load packages and data"
 #| warning: false
 #| message: false
+
 
 # install required packages if not already
 # tidyverse for data manipulation
 if (!requireNamespace("tidyverse", quietly = TRUE)) {install.packages("tidyverse")}
-# modelsummary package
+# modelsummary for automating table creation
 if (!requireNamespace("modelsummary", quietly = TRUE)) {install.packages("modelsummary")}
-# flextable package
+# flextable for customising tables
 if (!requireNamespace("flextable", quietly = TRUE)) {install.packages("flextable")}
-# Load the lme4 package for regression
+# lme4 package for mixed-effects regression
 if (!requireNamespace("lme4", quietly = TRUE)) {install.packages("lme4")}
 # broom to create tidy tables
 if (!requireNamespace("broom", quietly = TRUE)) {install.packages("broom")}
-# Load the report to report the results 
+# report for automating reporting  
 if (!requireNamespace("report", quietly = TRUE)) {install.packages("report")}
+# tidyverse for data manipulation  
+if (!requireNamespace("tidyverse", quietly = TRUE)) {install.packages("tidyverse")}
+# here for file management  
+if (!requireNamespace("here", quietly = TRUE)) {install.packages("here")}
 
 # load packages
-require(tidyverse)
-require(here)
 require(modelsummary)
 require(flextable)
 require(lme4)
-require(report)
 require(broom)
+require(report)
+require(tidyverse)
+require(here)
 
-# Download data IF NOT already available
-if (!file.exists(here("01-data/processed/babysteps.csv"))) {
-  download.file("https://raw.githubusercontent.com/juusorepo/baby-steps-reproducible-workflow-r/main/01-data/raw/babysteps-rawdata.csv", "babysteps.csv")
+# Load / download data
+if (file.exists(here("01-data/processed/babysteps.csv"))) {
+  babysteps <- read.csv(here("01-data/processed/babysteps.csv"))
+} else {
+  babysteps <-
+    read.csv(
+      "https://raw.githubusercontent.com/juusorepo/ReproRepo/master/01-data/processed/babysteps.csv"
+    )
 }
-# load the data
-babysteps <- read.csv(here("01-data/processed/babysteps.csv"))
 
-# Some adjustments
-# Converting character variables to factors 
+# Adjustments for data types and variable names
+# Converting character variables to factors
 babysteps <- babysteps %>% mutate_if(is.character, as.factor)
 # Subset data for the baseline measurement (T1)
 babysteps_T1 <- babysteps %>% filter(wave == 1)
@@ -78,9 +88,9 @@ babysteps_T1 <- babysteps_T1 %>%
   )
 ```
 
-# Create a descriptives table with datasummary
+# Create a descriptives table with datasummary and flextable
 
-To create well-formatted summary table, we are using the modelsummary R package. Modelsummary provides a variety of tables and plots to summarize statistical models and data in R. For tutorials and documentation, see: https://modelsummary.com/
+To create well-formatted summary table, we are using the modelsummary and flextable packages. Modelsummary creates a variety of tables and plots to summarize statistical models and data in R. With flextable, we modify the table for publication and presentation. If you are interested in documentation or alternative approaches, see resources page.
 
 -   First, we will use the skim_summary function to get a quick overview of the data.
 
@@ -90,30 +100,33 @@ To create well-formatted summary table, we are using the modelsummary R package.
 
 # Print the datasummary_skim of the numeric variables
 babysteps_T1 %>%
-  select(-wave, -babyid) %>%
+  select(-wave,-babyid) %>% # omit few variables
   datasummary_skim(type = "numeric")
-
 ```
 
 Next, we will build a customized summary table using datasummary and flextable.
 
 ```{r}
-#| label: tbl-summary
+#| label: table1-summary
 
 # First we set flextable defaults to follow APA style,
-# so all our tables will have the same default style 
+# so all our tables will have the same default style
 set_flextable_defaults(
-  font.size = 10, 
+  font.size = 10,
   font.family = "Times New Roman",
   font.color = "#000000",
   border.color = "grey",
   background.color = "white",
-  padding.top = 4, padding.bottom = 4,
-  padding.left = 4, padding.right = 4,
-  height = 1.3, # line height
+  padding.top = 4,
+  padding.bottom = 4,
+  padding.left = 4,
+  padding.right = 4,
+  height = 1.3,
+  # line height
   digits = 2,
   decimal.mark = ".",
-  big.mark = ",", # thousands separator
+  big.mark = ",",
+  # thousands separator
   na_str = "NA"
 )
 
@@ -121,28 +134,32 @@ set_flextable_defaults(
 # the left side defines rows and the right side defines columns.
 tbl <- datasummary(
   `Age (months)` + `Puzzletime (sec)` + `Giggle count` + `Sleep (hours)` ~ # left side: rows
-  N + steptype * (Mean + SD), # right side: columns, and * for grouping
+    N + steptype * (Mean + SD),
+  # right side: columns, and * for grouping
   output = "flextable",
   data = babysteps_T1
 )
 
-# Modifying the table, learn more: https://ardata-fr.github.io/flextable-book/
+# Modification with flextable
 # add a spanning header row
-tbl <- add_header_row(tbl,
+tbl <- add_header_row(
+  tbl,
   colwidths = c(2, 2, 2, 2),
   values = c("", "Crawling", "Toddling", "Walking")
-  )
+)
 # center align the header row
-tbl <- align(tbl, i = 1, part = "header", align = "center")
+tbl <- align(tbl,
+             i = 1,
+             part = "header",
+             align = "center")
 tbl <- add_footer_lines(tbl, "Add notes here.")
 
 # add a caption
-tbl <- set_caption(tbl, caption = "Descriptive statistics for baseline data")
+tbl <-
+  set_caption(tbl, caption = "Descriptive statistics for baseline data")
 
 # set width of the first column
 tbl <- width(tbl, j = 1, width = 1.5)
-# or autofit columns widths
-# tbl <- autofit(tbl)
 
 # adjust the column labels
 tbl <- set_header_labels(
@@ -157,29 +174,32 @@ tbl <- set_header_labels(
 ```
 
 ```{r}
-#| label: tbl-preview-summary
+#| label: table1-preview-summary
 #| purl: false
 
-# Print a preview of the table 
-print(tbl) # add 'preview = "docx"' to preview word format (or rft, pptx, pdf)
+# Print a preview of the flextable 
+tbl
 ```
 
 ## Export Table 1 to different formats
 
-Continuing with the flextable package, you can export the table created to Word, PowerPoint, HTML, image (PNG), or PDF. The examples below will save different format to the 05-outputs/tables folder. The outputs can be shared with others or included in the final paper / presentation.
+Continuing with the flextable package, we can export the table created to Word, PowerPoint, HTML, image (PNG), or PDF. The code below will save different formats to the outputs/tables folder. The outputs can then be included in the paper / presentation.
 
 ```{r}
 #| label: export-outputs
+#| output: false
 
 # To RTF (opens in e.g., Microsoft Word)
 save_as_rtf(
-  "Descriptive statistics for baseline data" = tbl, 
-  path = here("05-outputs/tables/tbl1-desc.rtf"))
+  "Descriptive statistics for baseline data" = tbl,
+  path = here("05-outputs/tables/tbl1-desc.rtf")
+)
 
 # To PowerPoint
 save_as_pptx(
-  "Descriptive statistics for baseline data" = tbl, 
-  path = here("05-outputs/tables/tbl1-desc.pptx"))
+  "Descriptive statistics for baseline data" = tbl,
+  path = here("05-outputs/tables/tbl1-desc.pptx")
+)
 
 # To HTML
 save_as_html(tbl, path = here("05-outputs/tables/tbl1-desc.html"))
@@ -187,7 +207,7 @@ save_as_html(tbl, path = here("05-outputs/tables/tbl1-desc.html"))
 # To image file
 save_as_image(tbl, path = here("05-outputs/tables/tbl1-desc.png"))
 
-# If problems in creating image, install webshot package 
+# If problems in creating image, install webshot package
 # if (!requireNamespace("webshot", quietly = TRUE)) {install.packages("webshot")}
 # require(webshot)
 ```
@@ -197,49 +217,58 @@ save_as_image(tbl, path = here("05-outputs/tables/tbl1-desc.png"))
 A bit simpler example - the tidy() function from broom package enables us to make a tidy table from model results.
 
 ```{r}
-#| label: tbl-linear-regression
- 
+#| label: table2-linear-regression
+
 # Run a linear regression model
-model_lm <- lm(puzzletime ~ agemonths + sleephours, data = babysteps)
+model_lm <-
+  lm(puzzletime ~ agemonths + sleephours, data = babysteps)
 
 # Create a tidy table from the model results
 tbl_lm <- model_lm %>%
   tidy(conf.int = TRUE) %>% # include confidence intervals
   mutate_if(is.numeric, round, 3) # round numerics to three decimals
 
-# Convert to flextable for customization and export  
+# Convert to flextable for customization and export
 tbl_lm <- flextable(tbl_lm)
 
-# Customize using flextable 
+# Customize using flextable
 tbl_lm <- tbl_lm %>%
   set_caption("Linear Regression Results") %>%
-  set_header_labels(term = "Predictor", estimate = "Estimate", std.error = "Std. Error", 
-                    statistic = "Statistic", p.value = "P value", conf.low = "CI Lower", conf.high = "CI Upper") %>%
+  set_header_labels(
+    term = "Predictor",
+    estimate = "Estimate",
+    std.error = "Std. Error",
+    statistic = "Statistic",
+    p.value = "P value",
+    conf.low = "CI Lower",
+    conf.high = "CI Upper"
+  ) %>%
   align(align = "center", part = "all") %>%
   align(align = "left", part = "header")
 
 # Export the table to Word
 save_as_rtf(
-  "Linear regression results" = tbl_lm, 
-  path = here("05-outputs/tables/tbl2-lm.rtf"))
+  "Linear regression results" = tbl_lm,
+  path = here("05-outputs/tables/tbl2-lm.rtf")
+)
 ```
 
-The table is saved in the 05-outputs/tables folder. You can preview your export with the following:
+The table is saved in the outputs/tables folder. Let's preview a HTML version:
 
 ```{r}
 #| label: preview-tbl-linear-regression
 #| purl: false
 
-# Preview table, the format can be changed to: docx, rft, pptx, pdf with 'preview = "format"'
-print(tbl) 
+# Preview table
+tbl 
 ```
 
 # Table 3. Mixed effects model results
 
-We run three models and presents the results in a single table. We create an APA style table for the paper and a more colorful version for presentation.
+Below, we run three mixed-effects models and combine results to a single table. We create an APA style table for publication and a more colorful version for presentation.
 
 ```{r}
-#| label: tbl-mixed-effects
+#| label: table3-mixed-effects
 
 # Model 1: Basic Effect of Age
 model1 <- lm(puzzletime ~ agemonths, data = babysteps)
@@ -248,108 +277,162 @@ model1 <- lm(puzzletime ~ agemonths, data = babysteps)
 model2 <- lm(puzzletime ~ agemonths + steptype, data = babysteps)
 
 # Model 3: Age, Mobility Type, and Sleep Quality
-model3 <- lm(puzzletime ~ agemonths + steptype + sleephours, data = babysteps)
+model3 <-
+  lm(puzzletime ~ agemonths + steptype + sleephours, data = babysteps)
 
 # Add models into a list
-models <- list("M1" = model1,"M2" = model2, "M3" = model3)
+models <- list("M1" = model1, "M2" = model2, "M3" = model3)
 
 # Create a table with modelsummary
 # Specify table title and footnote
-title = "" 
-notes = "Insert notes here."     
+title = ""
+notes = "Insert notes here."
 
 # Rename and/or reorder coefficients for the table
 coef_map <- c(
-        "agemonths" = "Age in months",  
-        "steptypeToddling" = "Step type: Toddling",   
-        "steptypeWalking" = "Step type: Walking",
-        "sleephours" = "Sleeptime in hours",
-        "(Intercept)" = "Intercept")
+  "agemonths" = "Age in months",
+  "steptypeToddling" = "Step type: Toddling",
+  "steptypeWalking" = "Step type: Walking",
+  "sleephours" = "Sleeptime in hours",
+  "(Intercept)" = "Intercept"
+)
 
-# Create the table 
-tbl <- modelsummary(models,               # display the table
-             output = 'flextable',        # output as flextable
-             stars = TRUE,                # include stars for significance
-             gof_map = c("nobs", "r.squared"),         # goodness of fit stats to include   
-             coef_map = coef_map,         # coefficient mapping
-             title = title,             # title
-             notes = notes)           # source note
+# Create the table
+tbl <- modelsummary(
+  models,
+  # display the table
+  output = 'flextable',
+  # output as flextable
+  stars = TRUE,
+  # include stars for significance
+  gof_map = c("nobs", "r.squared"),
+  # goodness of fit stats to include
+  coef_map = coef_map,
+  # coefficient mapping
+  title = title,
+  # title
+  notes = notes
+)           # source note
 
 # Autofit cell widths and height
 tbl <- autofit(tbl) # Adjust column widths
 
 # Export the table to RTF (e.g., Word)
 save_as_rtf(
-  "Table 3. Mixed effects model results" = tbl, 
-  path = here("05-outputs/tables/tbl3-mixed-effects.rtf"))
+  "Table 3. Mixed effects model results" = tbl,
+  path = here("05-outputs/tables/tbl3-mixed-effects.rtf")
+)
 
 # Create a styled version for presentation
 tbl_for_ppt <- tbl %>%
-    bg(c(3,5), bg = 'lightblue') %>% # background color in row 1
-    color(7, color = 'red') %>% # text color in row 7
+  bg(c(3, 5), bg = 'lightblue') %>% # background color in row 1
+  color(7, color = 'red') %>% # text color in row 7
   fontsize(size = 10, part = "all") %>% # Font size for all parts of the table
-  theme_vanilla() # flextable offers several predefined themes 
-  
+  theme_vanilla() # flextable offers several predefined themes
+
 # Export the presentation version to Powerpoint
 save_as_pptx(
-  "Mixed effects model results" = tbl_for_ppt, 
-  path = here("05-outputs/tables/tbl3-mixed-effects.pptx"))
+  "Mixed effects model results" = tbl_for_ppt,
+  path = here("05-outputs/tables/tbl3-mixed-effects.pptx")
+)
+```
+
+
+```{r}
+#| label: preview-tbl-mixed
+#| purl: false
+
+# Preview the table
+tbl 
 ```
 
 # Figure 1. Coefficient plot
 
-Using the full mixed-effects model, we generate a coefficient plot that shows point estimates and confidence intervals. Modelplot accepts the same kinds of objects and arguments as the modelsummary function, and we can also customize the plot like any other ggplot object.
+Using the full mixed-effects model, we generate a coefficient plot that shows point estimates and confidence intervals. Modelplot function accepts same kinds of objects and arguments as the modelsummary function, and we can also customize the plot like any other ggplot object.
 
 ```{r}
-#| label: fig-coefs
+#| label: figure1-coefs
 
-# Create a coefficient plot 
-fig1 <- modelplot(model3, 
-          coef_map = rev(coef_map), # rev() reverses list order
-          coef_omit = "Intercept", # omit Intercept 
-          color = "blue") + 
-  geom_vline(xintercept = 0, color = "red", linetype = "dashed", linewidth = .75) + # red 0 line
-  theme(panel.background = element_rect(fill = "white"), # Set plot panel background to white
-        plot.background = element_rect(fill = "white", color = NA)) + # Set the plot background to white, remove border
-  labs(
-    title = "Figure 1: Predictors of Puzzle Solving Time",
-    caption = "Insert notes here."
-  )
 
-fig1 <- modelplot(model3, 
-          coef_map = rev(coef_map), # rev() reverses list order
-          coef_omit = "Intercept", # omit Intercept 
-          color = "blue") + 
-  geom_vline(xintercept = 0, color = "red", linetype = "dashed", linewidth = .75) + # red 0 line
-  theme(panel.background = element_rect(fill = "white"), # Ensure background is white
-        plot.background = element_rect(fill = "white", color = NA), # No border
-        text = element_text(family = "sans-serif", color = "black"), # sans-serif fonts like Arial
-        plot.title = element_text(size = 12, face = "bold"), # Title in bold
-        plot.caption = element_text(size = 10), # Smaller text for caption
-        axis.title = element_text(size = 12), # Axis titles
-        axis.text = element_text(size = 10), # Axis text
-        legend.title = element_text(size = 12), # Legend title
-        legend.text = element_text(size = 10) # Legend text
-        ) + 
-  labs(
-    title = "Figure 1: Predictors of Puzzle Solving Time",
-    caption = "Insert notes here."
-  )
+# Create a coefficient plot
+fig1 <- modelplot(
+  model3,
+  coef_map = rev(coef_map),
+  # rev() reverses list order
+  coef_omit = "Intercept",
+  # omit Intercept
+  color = "blue"
+) +
+  geom_vline(
+    xintercept = 0,
+    color = "red",
+    linetype = "dashed",
+    linewidth = .75
+  ) + # red 0 line
+  theme(
+    panel.background = element_rect(fill = "white"),
+    # Set plot panel background to white
+    plot.background = element_rect(fill = "white", color = NA)
+  ) + # Set the plot background to white, remove border
+  labs(title = "Figure 1: Predictors of Puzzle Solving Time",
+       caption = "Insert notes here.")
+
+fig1 <- modelplot(
+  model3,
+  coef_map = rev(coef_map),
+  # rev() reverses list order
+  coef_omit = "Intercept",
+  # omit Intercept
+  color = "black"
+) +
+  geom_vline(
+    xintercept = 0,
+    color = "red",
+    linetype = "dashed",
+    linewidth = .75
+  ) + # red 0 line
+  theme(
+    panel.background = element_rect(fill = "white"),
+    # Ensure background is white
+    plot.background = element_rect(fill = "white", color = NA),
+    # No border
+    text = element_text(family = "sans-serif", color = "black"),
+    # sans-serif fonts like Arial
+    plot.title = element_text(size = 12, face = "bold"),
+    # Title in bold
+    plot.caption = element_text(size = 10),
+    # Smaller text for caption
+    axis.title = element_text(size = 12),
+    # Axis titles
+    axis.text = element_text(size = 10),
+    # Axis text
+    legend.title = element_text(size = 12),
+    # Legend title
+    legend.text = element_text(size = 10) # Legend text
+  ) +
+  labs(title = "Figure 1: Predictors of Puzzle Solving Time",
+       caption = "Insert notes here.")
 
 # Export fig1 to a PNG file
-ggsave(here("05-outputs/figures/fig1-coefs.png"), fig1, width = 8, height = 6, dpi = 300)
+ggsave(
+  here("05-outputs/figures/fig1-coefs.png"),
+  fig1,
+  width = 8,
+  height = 6,
+  dpi = 300
+)
 ```
 
 Preview the coefficient plot
 
 ```{r}
-#| label: fig1-preview
+#| label: figure1-preview
 #| purl: false
 #| warning: false
 #| echo: false
 
 # preview the fig
-print(fig1)
+fig1
 ```
 
 # The report package for automatic reports
@@ -362,22 +445,21 @@ For the demo, we will use the linear model (model_lm) and the mixed-effects mode
 #| label: report-results-lm
 #| purl: false
 
-# Generate narrative report 
-report(model_lm) 
+# Generate narrative report from the linear model
+report(model_lm)
 
-# Generate results table as a flextable 
+# Generate results table as a flextable
 set_flextable_defaults(na_str = "") # Remove NA strings
 report_table(model_lm) %>% as.data.frame() %>% as_flextable()
 
-# Further steps to customize the table...
-
+# You may add further steps to customize the table...
 ```
 
 ```{r}
 #| label: report-results-mixed
 #| purl: false
 
-# Generate narrative report, shorten with summary() 
+# Generate narrative report from mixed-effects model, shorten with summary() 
 report(model3) %>% summary()
 
 # Generate results table as a flextable 
@@ -389,38 +471,61 @@ report_table(model3) %>% as.data.frame() %>% as_flextable()
 Finally, we generate a interaction plot based on the mixed-effects model. We use the predict() function to generate predicted values for the interaction between age and step type. We then use ggplot to create the plot.
 
 ```{r}
-#| label: fig-interaction
+#| label: figure2-interaction
 
 # Generate a data frame for predictions
-predict_data <- expand.grid(agemonths = seq(min(babysteps$agemonths), max(babysteps$agemonths), length.out = 100),
-                            steptype = unique(babysteps$steptype),
-                            babyid = unique(babysteps$babyid)[1])  # Use a representative babyid
+predict_data <-
+  expand.grid(
+    agemonths = seq(
+      min(babysteps$agemonths),
+      max(babysteps$agemonths),
+      length.out = 100
+    ),
+    steptype = unique(babysteps$steptype),
+    babyid = unique(babysteps$babyid)[1]
+  )  # Use a representative babyid
 
 # Predict puzzletime using the model
-predict_data$puzzletime_pred <- predict(model2, newdata = predict_data, re.form = NA)  # Fixed effects only
+predict_data$puzzletime_pred <-
+  predict(model2, newdata = predict_data, re.form = NA)  # Fixed effects only
 
 
 # Plotting observed data points
-ggplot(babysteps, aes(x = agemonths, y = puzzletime, color = steptype)) +
-#  geom_point(alpha = 0.5) +
+plot2 <- ggplot(babysteps, aes(x = agemonths, y = puzzletime, color = steptype)) +
+  #  geom_point(alpha = 0.5) +
   # Add predicted lines from the model
-  geom_line(data = predict_data, aes(x = agemonths, y = puzzletime_pred, color = steptype), linewidth = 1) +
+  geom_line(
+    data = predict_data,
+    aes(x = agemonths, y = puzzletime_pred, color = steptype),
+    linewidth = 1
+  ) +
   # Add a smooth line through the observed data for comparison
   theme_minimal() +
-  labs(title = "Interaction of Age and Step Type on Puzzle Time",
+  labs(title = "Interaction of Age and Step Type on Puzzle Solving Time",
        x = "Age in Months",
        y = "Puzzle Time (minutes)") +
   scale_color_brewer(palette = "Set1")
 
 # Export fig1 to a PNG file
-ggsave(here("05-outputs/figures/fig2-interaction.png"), fig1, width = 8, height = 6, dpi = 300)
-
+ggsave(
+  here("05-outputs/figures/fig2-interaction.png"),
+  fig1,
+  width = 8,
+  height = 6,
+  dpi = 300
+)
 ```
+
+```{r}
+#| label: figure2-preview
+plot2
+```
+
 
 # Final words
 
-There are several alternatives for the modelsummary + flextable combination showed here. Some of these are listed in Resources page. Naturally, you can also create a table more 'manually' with e.g., tidyverse and then use flextable for final customization and export.
+There are several alternatives for the modelsummary + flextable combination. Some of these are listed in Resources page. You may also create a table more 'manually' and then use flextable for final customization and exporting.
 
-The examples shown should be considered as starting points. A full analysis would require diagnostics like checking for model fits, testing assumptions, inspecting random effects structures etc.
+The examples shown should be considered as starting points. A full analysis would require diagnostics like checking for model fits, testing assumptions, and inspecting random effects structures. But they were not the focus here.
 
 *What did we learn from the study? In the playful exploration of baby steps, we find a metaphor for mastering reproducible workflows. As infants progress from crawling to walking, their journey mirrors researchers' path towards efficiency and precision. Yet, it's the giggles---the joy in learning---that enrich the process. Like these tiny adventurers, we too learn best when we embrace both the challenges and delights of discovery, advancing one baby step at a time.*
