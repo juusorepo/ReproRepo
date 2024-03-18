@@ -528,4 +528,10 @@ There are several alternatives for the modelsummary + flextable combination. Som
 
 The examples shown should be considered as starting points. A full analysis would require diagnostics like checking for model fits, testing assumptions, and inspecting random effects structures. But they were not the focus here.
 
-*What did we learn from the study? In the playful exploration of baby steps, we find a metaphor for mastering reproducible workflows. As infants progress from crawling to walking, their journey mirrors researchers' path towards efficiency and precision. Yet, it's the giggles---the joy in learning---that enrich the process. Like these tiny adventurers, we too learn best when we embrace both the challenges and delights of discovery, advancing one baby step at a time.*
+**Follow the tutorial**
+
+To follow the full tutorial, next step is [Preparing code and data for sharing](babysteps#step3)
+
+::: callout-note
+What did we learn from the study? In the playful exploration of baby steps, we find a metaphor for mastering reproducible workflows. As infants progress from crawling to walking, their journey mirrors researchers' path towards efficiency and precision. Yet, it's the giggles---the joy in learning---that enrich the process. Like these tiny adventurers, we too learn best when we embrace both the challenges and delights of discovery, advancing one baby step at a time.
+:::

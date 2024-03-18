@@ -194,4 +194,5 @@ message("The processed dataset was saved in processed data folder")
 This workflow guides you from loading your data to ensuring it's analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the reliability and validity of your research findings.
 
 
+**To follow the full tutorial, next step is [Creating reproducible outputs](babysteps#step2c)**
 

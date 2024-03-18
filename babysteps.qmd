@@ -130,7 +130,8 @@ message("Project folders created successfully.")
 ```
 
 ::: callout-note
-Why was the reproducibility advocate bad at hide and seek?  Because they always left a trail to reproduce their steps!
+Why was the reproducibility advocate bad at hide and seek?
+Because they always left a trail to reproduce their steps!
 :::
 
 # STEP TWO: Preparing and analysing data and generating reproducible tables and figures
@@ -165,6 +166,7 @@ For this tutorial, we simulate a study on baby steps. In the first notebook we c
 
 -   **Download the simulate-data notebook** by running the code below (if not downloaded already)
 -   **Open the notebook** and run all code.
+-   If you are reading this online, you can read the notebook [here](04-notebooks/00-simulate-data)
 
 ```{r}
 #| label: download-notebook00
@@ -178,6 +180,7 @@ Prepare-data -notebook is an example and a template for creating reproducible st
 
 -   **Download the prepare-data notebook** by running the code below (if not downloaded already)
 -   **Open the notebook** and run all code.
+-   If you are reading this online, you can read the notebook [here](04-notebooks/01-prepare-data)
 
 ```{r}
 #| label: download-notebook01
@@ -188,16 +191,17 @@ message("Notebook is saved in your Notebooks -folder. Open and run the code.")
 ```
 
 ::: callout-tip
-You can create your own notebook by selecting: File - New File - R Notebook (in RStudio).\
-Organize your analyses into multiple notebooks. A good practice is to number them following your analytic plan.
+You can create a new notebook by selecting: File - New File - Quarto document (or R Notebook).
+For organizing your analyses in multiple notebooks, a good practice is to number them following your analytic plan / workflow.
 :::
 
-## Creating reproducible analyses, tables and figures
+## Creating reproducible analyses, tables and figures {step2c}
 
-The next notebook shows how to create reproducible tables and figures in R. Also in APA style! This will avoid the need for copy-pasting values from R to a word processor, ensuring fewer errors and - better reproducibility! You can export the formatted table into Word, PowerPoint, HTML, or pdf.
+The next notebook shows how to create reproducible tables and figures in R. Also in APA style. This will avoid the need for copy-pasting values from R to a word processor, ensuring fewer errors and - better reproducibility! You can export the formatted table into Word, PowerPoint, HTML, or PDF.
 
 -   **Download the notebook** by running the code below.
 -   **Open the notebook** to follow and run the examples.
+-   If you are reading this online, you can read the notebook [here](04-notebooks/02-create-tables-and-figures)
 
 ```{r}
 #| label: download-notebook02
@@ -213,7 +217,7 @@ Why did the scientist break up with reproducibility?\
 Because they wanted a relationship with fewer variables!
 :::
 
-# STEP THREE: Preparing data and code for sharing
+# STEP THREE: Preparing data and code for sharing {#step3}
 
 ```{mermaid}
 flowchart LR
