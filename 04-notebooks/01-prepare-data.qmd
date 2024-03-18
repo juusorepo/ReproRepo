@@ -12,11 +12,11 @@ This notebook sets an example workflow and template for preparing raw data for a
 
 **Why prepare data in a notebook instead of a script file?**
 
--   Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the "purl" function, explained in the **[Babysteps tutorial](../babysteps)***, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.
+-   Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the "purl" function, explained in the **[Babysteps tutorial](../babysteps)**, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.
 
 ## 1 Load raw data and packages
 
-**Overview:** Start by loading required R packages and your dataset into your analysis environment. For the tutorial, we load the raw data created in the **Simulate-data notebook**.
+**Overview:** Start by loading required R packages and the dataset into your analysis environment. For the tutorial, we load the raw data created in the [Simulate-data notebook](00-simulate-data).
 
 ```{r}
 #| label: setup_prepare
@@ -54,7 +54,7 @@ str(dataset)
 
 ```
 
--   **Convert Data Types:** Based on the initial inspection, convert variables to their correct data types. Common conversions include transforming character variables that represent categories into factors and ensuring numeric variables are not mistakenly treated as character or factor types.
+-   **Convert Data Types:** Based on the initial inspection, we convert variables to their correct data types. Common conversions include transforming character variables that represent categories into factors and ensuring numeric variables are not mistakenly treated as character or factor types.
 
 ```{r}
 #| label: modify-data-types
@@ -67,7 +67,7 @@ dataset <- dataset %>% mutate_if(is.character, as.factor)
 
 Before further processing, you may want to conduct an exploratory data analysis (EDA) to gain insights into the dataset's distribution and characteristics. There are various ways to do this and also packages for automated EDA analysis (e.g., DataExplorer, GGally, SmartEDA, Hmisc). For this tutorial, we will use the DataExplorer.
 
--   **Action Steps:** Run the code below to create an EDA report. See results in Notebooks folder or [here](04-notebooks/EDA-report-initial-2024-03-18.html).
+-   **Action Steps:** Run the code below to create an EDA report. See results in Notebooks folder or [here](EDA-report-initial-2024-03-18.html).
 
 ```{r}
 #| label: Initial-EDA
@@ -202,5 +202,5 @@ message("The processed dataset was saved in processed data folder")
 This workflow guides you from loading your data to ensuring it's analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the quality of your research.
 
 
-**To follow the full tutorial, next step is [Creating reproducible outputs](babysteps#step2c)**
+**To follow the full tutorial, next step is [Creating reproducible outputs](../babysteps#step2c)**
 

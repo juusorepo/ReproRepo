@@ -2,10 +2,10 @@
 title: "Contact"
 ---
 
-All feedback is highly valued. Especially ideas to make \
+All feedback is highly valued. Especially ideas to make\
 things more simple and easy for non-coders.
 
-Email: juuso.repo(a)utu.fi or contact via [LinkedIn](www.linkedin.com/in/juuso-repo-196473102)
+Email: juuso.repo(a)utu.fi
 
 Juuso Repo\
 Senior Researcher\

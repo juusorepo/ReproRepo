@@ -6,7 +6,7 @@ date: "`r Sys.Date()`"
 
 This notebook shows how to create reproducible tables in R, ready to be used in a publication or presentation. With this, you will avoid the need for copy-pasting values from R to word processor, avoiding errors and most importantly, ensuring better reproducibility.
 
-This notebook is part of [Babysteps for Reproducibility -tutorial](../babysteps). If you have not followed the full tutorial, the first code chunk downloads the example dataset.
+This notebook is part of [Babysteps for Reproducibility](../babysteps) -tutorial. If you have not followed the full tutorial, no worries, the first code chunk downloads the example dataset.
 
 # Example data and study hypotheses
 

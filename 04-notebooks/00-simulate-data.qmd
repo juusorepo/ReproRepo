@@ -185,4 +185,4 @@ write.csv(data, here("01-data/raw/babysteps-rawdata.csv"), row.names = FALSE)
 message("Raw data was created and saved in folder: 01-data/raw.")
 ```
 
-**To follow the full tutorial, next step is [Preparing data for analysis](04-notebooks/01-prepare-data)**
+**To follow the full tutorial, next step is [Preparing data for analysis](01-prepare-data)**

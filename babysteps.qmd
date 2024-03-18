@@ -11,9 +11,9 @@ The idea of *methods reproducibility* is to provide sufficient documentation of 
 ```{mermaid, echo=FALSE}
 flowchart LR
     step1("1. Set up the project <br> ")
-    step2("2. Prepare and analyse data <br> and generate outputs")
+    step2("2. Prepare & analyse data <br> and generate outputs")
     step3("3. Prepare code and data <br> for sharing")
-    step4("4. Share in public")
+    step4("4. Share code and data in public")
     
     step1 --> step2 --> step3 --> step4
 ```
