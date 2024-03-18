@@ -30,9 +30,9 @@ require(tidyverse)
 
 # Load / download data
 if (file.exists(here("01-data/raw/babysteps-rawdata.csv"))) {
-  babysteps <- read.csv(here("01-data/raw/babysteps-rawdata.csv"))
+  dataset <- read.csv(here("01-data/raw/babysteps-rawdata.csv"))
 } else {
-  babysteps <-
+  dataset <-
     read.csv(
       "https://raw.githubusercontent.com/juusorepo/ReproRepo/master/01-data/raw/babysteps-rawdata.csv"
     )

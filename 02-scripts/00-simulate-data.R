@@ -2,6 +2,8 @@
 #| label: setup-simulate
 #| warning: false
 #| message: false
+#| code-fold: true
+#| code-summary: "View code: Load packages"
 
 # load / install tidyverse package for data manipulation
 if (!requireNamespace("tidyverse", quietly = TRUE)) {install.packages("tidyverse")}
@@ -11,6 +13,8 @@ require(here)
 
 ## -----------------------------------------------------------------------------
 #| label: codebook
+#| code-fold: true
+#| code-summary: "View code: Create codebook"
 
 # Define and create a codebook
 codebook <- "
@@ -96,6 +100,9 @@ message("Codebook created and saved in folder: 01-data/metadata.")
 
 ## -----------------------------------------------------------------------------
 #| label: simulate-data
+#| code-fold: true
+#| code-summary: "View code: Simulate data"
+#| output: false
 
 # Simulate data for the babysteps analysis example
 # Set seed for reproducibility

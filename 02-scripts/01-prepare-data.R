@@ -1,20 +1,28 @@
 ## -----------------------------------------------------------------------------
 #| label: setup_prepare
-# Title: Prepare data
+#| code-fold: true
+#| code-summary: "View code: Load packages and data"
+#| output: false
 
 # Load required packages
 require(here)
 require(tidyverse)
 
-# load the raw data
-dataset <- read.csv(here("01-data/raw/babysteps-rawdata.csv"))
+# Load / download data
+if (file.exists(here("01-data/raw/babysteps-rawdata.csv"))) {
+  dataset <- read.csv(here("01-data/raw/babysteps-rawdata.csv"))
+} else {
+  dataset <-
+    read.csv(
+      "https://raw.githubusercontent.com/juusorepo/ReproRepo/master/01-data/raw/babysteps-rawdata.csv"
+    )
+}
 
 
 
 
 ## -----------------------------------------------------------------------------
 #| label: modify-data-types
-# Example code to modify data types
 
 # Converting character variables to factors
 dataset <- dataset %>% mutate_if(is.character, as.factor)
@@ -22,10 +30,9 @@ dataset <- dataset %>% mutate_if(is.character, as.factor)
 
 
 
-
-
 ## -----------------------------------------------------------------------------
 #| label: Missing-values
+#| include: false
 # insert your code here or delete the section
 
 

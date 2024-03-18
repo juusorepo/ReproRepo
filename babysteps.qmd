@@ -73,6 +73,7 @@ require(here)
 #| label: check-download
 #| code-fold: true
 #| code-summary: "Code: Need help with the file?"
+#| output: false
  
 # If errors, you may set the working directory with this function (uncomment it)
 # Check your working directory
@@ -131,6 +132,7 @@ message("Project folders created successfully.")
 
 ::: callout-note
 Why was the reproducibility advocate bad at hide and seek?
+
 Because they always left a trail to reproduce their steps!
 :::
 
@@ -170,10 +172,16 @@ For this tutorial, we simulate a study on baby steps. In the first notebook we c
 
 ```{r}
 #| label: download-notebook00
-# Download simulate-data notebook 
+#| output: false
+
+# Download simulate-data notebook (if not downloaded)
+if (file.exists(here("04-notebooks/00-simulate-data.qmd"))) {
+  print("Notebooks already exists.")
+} else {
 download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/04-notebooks/00-simulate-data.qmd", 
               "04-notebooks/00-simulate-data.qmd")
-message("Notebook is saved in your Notebooks -folder. Open and run the code.")
+}
+message("Notebook saved in your Notebooks -folder. Open and run the code.")
 ```
 
 Prepare-data -notebook is an example and a template for creating reproducible steps for processing raw data.
@@ -184,10 +192,15 @@ Prepare-data -notebook is an example and a template for creating reproducible st
 
 ```{r}
 #| label: download-notebook01
-# Download prepare-data notebook
+#| output: false
+# Download prepare-data notebook (if not downloaded)
+if (file.exists(here("04-notebooks/01-prepare-data.qmd"))) {
+  print("Notebook already exists.")
+} else {
 download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/04-notebooks/01-prepare-data.qmd", 
              "04-notebooks/01-prepare-data.qmd")
-message("Notebook is saved in your Notebooks -folder. Open and run the code.")
+}
+message("Notebook saved in your Notebooks -folder. Open and run the code.")
 ```
 
 ::: callout-tip
@@ -205,10 +218,15 @@ The next notebook shows how to create reproducible tables and figures in R. Also
 
 ```{r}
 #| label: download-notebook02
+#| output: false
 
-# Download a notebook for creating tables
+# Download a notebook for creating tables (if not downloaded)
+if (file.exists(here("04-notebooks/02-create-tables-and-figures.qmd"))) {
+  print("Notebooks already exists.")
+} else {
 download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/04-notebooks/02-create-tables-and-figures.qmd", 
               here("04-notebooks/02-create-tables-and-figures.qmd"))
+}
 message("Descript -notebooks downloaded and saved in your notebooks -folder. Open and try!")
 ```
 
@@ -333,8 +351,7 @@ source(here("02-scripts/02-create-tables-and-figures.R"))
 
 
 ::: callout-note
-Starting each code chunk with "#| label: your-label" will split the script file into easily readable chunks.
-Note that the purl function may not work with all types of code, and you may need to do some manual editing. 
+Labeling each code chunk with "#| label: your-label" will split the script file into easily readable chunks.
 :::
 
 ## Sharing notebooks with co-authors
@@ -374,4 +391,4 @@ The final step is to select an open repository for public sharing. Open Science 
 4.  Upload the files to the folders created
 5.  Create a DOI (permanent link) for your project in OSF and start sharing!
 
-*Congratulations on taking the initial steps! Feel free to adapt these ideas and codes to fit your personal style and needs. With R, numerous paths lead to the same destination. For further exploration, please refer to the resources page. Your feedback is always valued and appreciated! *
+*Congratulations on taking the initial steps! Feel free to adapt these ideas and codes to fit your personal style and needs. With R, numerous paths lead to the same destination. For further exploration, please refer to the resources page. Any [feedback](contact) is always appreciated! *
