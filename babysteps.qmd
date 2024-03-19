@@ -43,7 +43,7 @@ We begin with creating a tidy nest for all files related to the study/project. O
 
 ## Create a RStudio project
 
--   In RStudio, start fresh and select File - New Project - New Directory - Empty Project.
+-   In RStudio, start fresh and select File - New Project - New Directory - Quarto Project.
 
 -   Copy and run below code **in RStudio** **console** window to download this notebook to your project folder. (or download **from here** and save to project folder)
 
@@ -68,26 +68,6 @@ if (!requireNamespace("here", quietly = TRUE)) {install.packages("here")}
 # Load packages
 require(knitr)
 require(here)
-```
-
-```{r check-download}
-#| label: check-download
-#| code-fold: true
-#| code-summary: "Code: Need help with the file?"
-#| output: false
- 
-# If errors, you may set the working directory with this function (uncomment it)
-# Check your working directory
-# getwd()
-# Set your working directory
-# setwd("c:/your-path-to-project-folder/")
-
-# Check the file is found
-if (file.exists(here("babysteps.qmd"))) {
-  print("Babysteps file found!")
-} else {
-  print("Note! Please check the babysteps.qmd file and your working directory.")
-}
 ```
 
 ## Creating the project folder structure
@@ -172,7 +152,7 @@ For this tutorial, we simulate a study on baby steps. In the first notebook we c
 -   If you are reading this online, you can read the notebook [here](04-notebooks/00-simulate-data)
 
 ```{r}
-#| label: download-notebook00
+#| label: download-notebook-simulate
 #| output: false
 
 # Download simulate-data notebook (if not downloaded)
@@ -192,7 +172,7 @@ Prepare-data -notebook is an example and a template for creating reproducible st
 -   If you are reading this online, you can read the notebook [here](04-notebooks/01-prepare-data)
 
 ```{r}
-#| label: download-notebook01
+#| label: download-notebook-prepare
 #| output: false
 # Download prepare-data notebook (if not downloaded)
 if (file.exists(here("04-notebooks/01-prepare-data.qmd"))) {
@@ -205,8 +185,7 @@ message("Notebook saved in your Notebooks -folder. Open and run the code.")
 ```
 
 ::: callout-tip
-You can create a new notebook by selecting: File - New File - Quarto document (or R Notebook).
-For organizing your analyses in multiple notebooks, a good practice is to number them following your analytic plan / workflow.
+You can create a new notebook by selecting: File - New File - Quarto document (or R Notebook). For organizing your analyses in multiple notebooks, a good practice is to number them following your analytic plan / workflow.
 :::
 
 ## Creating reproducible analyses, tables and figures {#step2c}
@@ -324,7 +303,7 @@ purl(here("04-notebooks/02-create-tables-and-figures.qmd"),
 
 ## Running the analyses from R script files
 
-After the R script files are created, it is better to test the scripts before sharing. However, all modifications should be made in notebooks, so you will not get lost with different versions. After adjustments, just run the purl function again to replace the script files. 
+After the R script files are created, it is better to test the scripts before sharing. However, all modifications should be made in notebooks, so you will not get lost with different versions. After adjustments, just run the purl function again to replace the script files.
 
 With the code below, you can run all the analyses without opening the R script files. The full workflow in one code chunk!
 
@@ -339,6 +318,8 @@ With the code below, you can run all the analyses without opening the R script f
 
 # Clear all objects from memory to ensure reproducibility
 rm(list = ls())
+# reload here as we emptied it from memory
+require(here)
 
 # 0 Simulate data
 source(here("02-scripts/00-simulate-data.R"))
@@ -350,9 +331,8 @@ source(here("02-scripts/01-prepare-data.R"))
 source(here("02-scripts/02-create-tables-and-figures.R"))
 ```
 
-
 ::: callout-note
-Labeling each code chunk with "#| label: your-label" will split the script file into easily readable chunks.
+Labeling each code chunk with "#\| label: your-label" will split the script file into easily readable chunks.
 :::
 
 ## Sharing notebooks with co-authors
@@ -384,12 +364,12 @@ What's a reproducible researcher's favorite movie?\
 
 # STEP FOUR: Sharing code and data in open repository
 
-The final step is to select an open repository for public sharing. Open Science Framework (OSF) is one option, which we will be using here. It is a free, open-source service that connects the entire research lifecycle. Some alternatives are: Zenodo, Figshare, and Github. 
+The final step is to select an open repository for public sharing. Open Science Framework (OSF) is one option, which we will be using here. It is a free, open-source service that connects the entire research lifecycle. Some alternatives are: Zenodo, Figshare, and Github.
 
 1.  Create a user and/or login at: <https://osf.io/>
 2.  Create a new project in OSF (you can keep the project private when testing)
-3.  Create necessary folders with corresponding names with your project folders. With our example, we would create folder data/raw, data/metadata, scripts, and supplementary. 
+3.  Create necessary folders with corresponding names with your project folders. With our example, we would create folder data/raw, data/metadata, scripts, and supplementary.
 4.  Upload the files to the folders created
 5.  Create a DOI (permanent link) for your project in OSF and start sharing!
 
-*Congratulations on taking the initial steps! Feel free to adapt these ideas and codes to fit your personal style and needs. With R, numerous paths lead to the same destination. For further exploration, please refer to the resources page. Any [feedback](contact) is always appreciated! *
+*Congratulations on taking the initial steps! Feel free to adapt these ideas and codes to fit your personal style and needs. With R, numerous paths lead to the same destination. For further exploration, please refer to the resources page. Any [feedback](contact) is always appreciated!*

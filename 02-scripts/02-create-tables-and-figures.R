@@ -1,10 +1,9 @@
-## -----------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------------------------
 #| label: load-processed-data-and-packages
 #| code-fold: true
 #| code-summary: "View code: Load packages and data"
 #| warning: false
 #| message: false
-
 
 # install required packages if not already
 # tidyverse for data manipulation
@@ -58,9 +57,16 @@ babysteps_T1 <- babysteps_T1 %>%
   )
 
 
+## flowchart LR
+##     step0("Dataset") -->
+##     step1("Create model(s)") -->
+##     step2("Modelsummary") -->
+##     step3("Modify with<br> flextable") -->
+##     step4("Export to<br> word/ppt/pdf")
 
 
-## -----------------------------------------------------------------------------
+
+## -----------------------------------------------------------------------------------------------------------------------------------------------------
 #| label: table1-summary
 
 # First we set flextable defaults to follow APA style,
@@ -69,18 +75,16 @@ set_flextable_defaults(
   font.size = 10,
   font.family = "Times New Roman",
   font.color = "#000000",
-  border.color = "grey",
+  border.color = "#333333",
   background.color = "white",
   padding.top = 4,
   padding.bottom = 4,
   padding.left = 4,
   padding.right = 4,
-  height = 1.3,
-  # line height
+  height = 1.3, # line height
   digits = 2,
   decimal.mark = ".",
-  big.mark = ",",
-  # thousands separator
+  big.mark = ",",  # thousands separator
   na_str = "NA"
 )
 
@@ -129,7 +133,7 @@ tbl <- set_header_labels(
 
 
 
-## -----------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------------------------
 #| label: export-outputs
 #| output: false
 
@@ -156,7 +160,7 @@ save_as_image(tbl, path = here("05-outputs/tables/tbl1-desc.png"))
 # require(webshot)
 
 
-## -----------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------------------------
 #| label: table2-linear-regression
 
 # Run a linear regression model
@@ -195,7 +199,7 @@ save_as_rtf(
 
 
 
-## -----------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------------------------
 #| label: table3-mixed-effects
 
 # Model 1: Basic Effect of Age
@@ -228,19 +232,12 @@ coef_map <- c(
 # Create the table
 tbl <- modelsummary(
   models,
-  # display the table
-  output = 'flextable',
-  # output as flextable
-  stars = TRUE,
-  # include stars for significance
-  gof_map = c("nobs", "r.squared"),
-  # goodness of fit stats to include
-  coef_map = coef_map,
-  # coefficient mapping
-  title = title,
-  # title
-  notes = notes
-)           # source note
+  output = 'flextable',  # output as flextable
+  stars = TRUE,  # include stars for significance
+  gof_map = c("nobs", "r.squared"), # goodness of fit stats to include
+  coef_map = coef_map, # coefficient mapping defined above
+  title = title, 
+  notes = notes)  
 
 # Autofit cell widths and height
 tbl <- autofit(tbl) # Adjust column widths
@@ -267,64 +264,30 @@ save_as_pptx(
 
 
 
-## -----------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------------------------
 #| label: figure1-coefs
-
 
 # Create a coefficient plot
 fig1 <- modelplot(
   model3,
-  coef_map = rev(coef_map),
-  # rev() reverses list order
-  coef_omit = "Intercept",
-  # omit Intercept
-  color = "blue"
-) +
-  geom_vline(
-    xintercept = 0,
-    color = "red",
-    linetype = "dashed",
-    linewidth = .75
-  ) + # red 0 line
-  theme(
-    panel.background = element_rect(fill = "white"),
-    # Set plot panel background to white
-    plot.background = element_rect(fill = "white", color = NA)
-  ) + # Set the plot background to white, remove border
-  labs(title = "Figure 1: Predictors of Puzzle Solving Time",
-       caption = "Insert notes here.")
-
-fig1 <- modelplot(
-  model3,
-  coef_map = rev(coef_map),
-  # rev() reverses list order
-  coef_omit = "Intercept",
-  # omit Intercept
+  coef_map = rev(coef_map), # rev() reverses list order
+  coef_omit = "Intercept", # omit Intercept
   color = "black"
 ) +
   geom_vline(
     xintercept = 0,
     color = "red",
     linetype = "dashed",
-    linewidth = .75
-  ) + # red 0 line
+    linewidth = .75 ) + # red 0 line
   theme(
-    panel.background = element_rect(fill = "white"),
-    # Ensure background is white
-    plot.background = element_rect(fill = "white", color = NA),
-    # No border
-    text = element_text(family = "sans-serif", color = "black"),
-    # sans-serif fonts like Arial
-    plot.title = element_text(size = 12, face = "bold"),
-    # Title in bold
-    plot.caption = element_text(size = 10),
-    # Smaller text for caption
-    axis.title = element_text(size = 12),
-    # Axis titles
-    axis.text = element_text(size = 10),
-    # Axis text
-    legend.title = element_text(size = 12),
-    # Legend title
+    panel.background = element_rect(fill = "white"), # Ensure background is white
+    plot.background = element_rect(fill = "white", color = NA), # No border
+    text = element_text(family = "sans-serif", color = "black"), # sans-serif fonts like Arial
+    plot.title = element_text(size = 12, face = "bold"), # Title in bold
+    plot.caption = element_text(size = 10), # Smaller text for caption
+    axis.title = element_text(size = 12), # Axis titles
+    axis.text = element_text(size = 10), # Axis text
+    legend.title = element_text(size = 12), # Legend title
     legend.text = element_text(size = 10) # Legend text
   ) +
   labs(title = "Figure 1: Predictors of Puzzle Solving Time",
@@ -346,7 +309,7 @@ ggsave(
 
 
 
-## -----------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------------------------------------------------------------
 #| label: figure2-interaction
 
 # Generate a data frame for predictions
@@ -390,10 +353,5 @@ ggsave(
   height = 6,
   dpi = 300
 )
-
-
-## -----------------------------------------------------------------------------
-#| label: figure2-preview
-# Preview the interaction plot
-plot2
+message("Outputs saved in your output -folder") 
 

@@ -10,9 +10,20 @@ This notebook sets an example workflow and template for preparing raw data for a
 
 **EDA (Exploratory Data Analysis)** is integrated into the process to understand the distribution of the data and identify any issues that need addressing. After processing, the processed data is saved in CSV format. This approach keeps the raw data untouched and makes all processing steps transparent and reproducible.
 
+```{mermaid}
+flowchart LR
+    step0("Load<br> raw data") -->
+    step1("Modify<br> Data Types") -->
+    step2("Initial<br> EDA") -->
+    step3("Data<br> Cleaning") -->
+    step4("Data<br> Transformations") -->
+    step5("Post-Cleaning<br> EDA") -->
+    step6("Save <br>the data")
+```
+
 **Why prepare data in a notebook instead of a script file?**
 
--   Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the "purl" function, explained in the **[Babysteps tutorial](../babysteps)**, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.
+-   Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the "purl" function, explained in the [**Babysteps tutorial**](../babysteps), only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.
 
 ## 1 Load raw data and packages
 
@@ -201,6 +212,4 @@ message("The processed dataset was saved in processed data folder")
 
 This workflow guides you from loading your data to ensuring it's analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the quality of your research.
 
-
 **To follow the full tutorial, next step is [Creating reproducible outputs](../babysteps#step2c)**
-
