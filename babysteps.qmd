@@ -7,7 +7,7 @@ author: "Juuso Repo"
 
 The idea of *methods reproducibility* is to provide sufficient documentation of procedures and data to enable repeating the same procedures, in a similar or different context (Goodman et al., 2016). A reproducible workflow, then, is a systematically organized sequence of steps to accomplish this. As the value placed on reproducibility continues to rise within and beyond academia, mastering these practices is increasingly beneficial. This tutorial aims to present the basics rather than delve into all the complexities of all advanced stuff. It covers steps from preparing data for analysis to creating reproducible tables and figures, to be included in a paper or presentation.
 
-**The basic steps for reproducible workflow are:**
+**The basic steps for reproducible workflow covered here are:**
 
 ```{mermaid flowchart_main, echo=FALSE}
 flowchart LR
@@ -43,15 +43,15 @@ We begin with creating a tidy nest for all files related to the study/project. O
 
 ## Create a RStudio project
 
--   In RStudio, start fresh and select File - New Project - New Directory - Quarto Project.
+-   In RStudio, start fresh and select File - New Project - New Directory - Quarto Project. It creates you a project folder with few files.
 
--   Copy and run below code **in RStudio** **console** window to download this notebook to your project folder. (or download **from here** and save to project folder)
+-   Copy and run the below code **in RStudio** **console** **window** to download this notebook to your project folder. (or download [the zip file](https://github.com/juusorepo/ReproRepo/raw/master/babysteps-for-reproducibility.zip) and extract it to your project folder).
 
     `download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/babysteps.qmd", "babysteps.qmd")`
 
 -   Open the notebook in RStudio.
 
--   Run the below code chunk to install required packages. Tip: place cursor inside the chunk and press Ctrl+Shift+Enter. The Here package simplifies file path management by making all paths relative to the project root.
+-   Run the below code chunk to install required packages. The Here package simplifies file path management by making all paths relative to the project root.
 
 ```{r}
 #| label: setup-babysteps
