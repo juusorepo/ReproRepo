@@ -207,7 +207,7 @@
     "href": "resources.html#guides-and-tutorials-on-reproducibility",
     "title": "Resources for Reproducibility",
     "section": "1 Guides and tutorials on reproducibility",
-    "text": "1 Guides and tutorials on reproducibility\n\nFORRT - Framework for Open and Reproducible Research (link)\nAEA Data Editor Guidance and tools (link)\nOpen Science Training Handbook (link)\nHarrell F E: R Workflow for Reproducible Data Analysis and Reporting (link)\nPeikert, Aaron, & Diemerling, Hannes. (2023). Reproducible Research in R: A Workshop on How to Do the Same Thing More Than Once. Zenodo. https://doi.org/10.5281/zenodo.8069391\nPeikert, A., van Lissa, C. J., & Brandmaier, A. M. (2021). Reproducible Research in R: A Tutorial on How to Do the Same Thing More Than Once. Psych, 3(4), Article 4. https://doi.org/10.3390/psych3040053"
+    "text": "1 Guides and tutorials on reproducibility\n\nFORRT - Framework for Open and Reproducible Research (link)\nIntroduction to Reproducible Publications with RStudio (The Carpentries) (link)\nOpen Science Training Handbook (link)\nHarrell F E: R Workflow for Reproducible Data Analysis and Reporting (link)\nBauer, P. C., & Landesvatter, C. (2023). Writing a reproducible paper with RStudio and quarto. (link)\nPeikert, Aaron, & Diemerling, Hannes. (2023). Reproducible Research in R: A Workshop on How to Do the Same Thing More Than Once. Zenodo. https://doi.org/10.5281/zenodo.8069391\nPeikert, A., van Lissa, C. J., & Brandmaier, A. M. (2021). Reproducible Research in R: A Tutorial on How to Do the Same Thing More Than Once. Psych, 3(4), Article 4. https://doi.org/10.3390/psych3040053\nAEA Data Editor Guidance and tools (link)"
   },
   {
     "objectID": "resources.html#reproducibility-checklists",
