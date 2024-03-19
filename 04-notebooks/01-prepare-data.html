@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-03-18">
+<meta name="dcterms.date" content="2024-03-19">
 
 <title>ReproRepo - Prepare data</title>
 <style>
@@ -101,6 +101,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -215,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 18, 2024</p>
+      <p class="date">March 19, 2024</p>
     </div>
   </div>
   
@@ -231,9 +234,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="1"><span class="header-section-number">1</span> Prepare data with EDA</h1>
 <p>This notebook sets an example workflow and template for preparing raw data for analysis. The focus is on cleaning, coding, and transforming the data, which are crucial steps to ensure the reliability and validity of the analysis. All processing steps should be documented, including the determination of the sample size, any data exclusions, manipulations, and the creation of variables for the study.</p>
 <p><strong>EDA (Exploratory Data Analysis)</strong> is integrated into the process to understand the distribution of the data and identify any issues that need addressing. After processing, the processed data is saved in CSV format. This approach keeps the raw data untouched and makes all processing steps transparent and reproducible.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    step0("Load&lt;br&gt; raw data") --&gt;
+    step1("Modify&lt;br&gt; Data Types") --&gt;
+    step2("Initial&lt;br&gt; EDA") --&gt;
+    step3("Data&lt;br&gt; Cleaning") --&gt;
+    step4("Data&lt;br&gt; Transformations") --&gt;
+    step5("Post-Cleaning&lt;br&gt; EDA") --&gt;
+    step6("Save &lt;br&gt;the data")
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <p><strong>Why prepare data in a notebook instead of a script file?</strong></p>
 <ul>
-<li>Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the “purl” function, explained in the <strong><a href="../babysteps">Babysteps tutorial</a></strong>, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.</li>
+<li>Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the “purl” function, explained in the <a href="../babysteps"><strong>Babysteps tutorial</strong></a>, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.</li>
 </ul>
 <section id="load-raw-data-and-packages" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="load-raw-data-and-packages"><span class="header-section-number">1.1</span> 1 Load raw data and packages</h2>
