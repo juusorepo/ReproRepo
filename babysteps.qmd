@@ -34,7 +34,7 @@ flowchart LR
 The guide and provided code snippets serve as a template for initiating new projects or creating reproducible versions of existing ones. The best way to learn is to download the notebooks, experiment with the examples in RStudio, and adapt them to your project and preferences. To follow along, ensure that you have R and RStudio installed and up to date.
 
 ::: callout-tip
-These basic steps can be expanded to include e.g., producing a fullmanuscript in RStudio, managing version control with tools like Git, and ensuring computational reproducibility through containerization technologies such as Docker. See resources page for more.
+These basic steps can be expanded to include e.g., producing a full manuscript in RStudio, managing version control with tools like Git, and ensuring computational reproducibility through containerization technologies such as Docker. See resources page for more.
 :::
 
 # STEP ONE: Creating project and folder structure
