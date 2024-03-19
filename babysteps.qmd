@@ -9,7 +9,7 @@ The idea of *methods reproducibility* is to provide sufficient documentation of 
 
 **The basic steps for reproducible workflow are:**
 
-```{mermaid, echo=FALSE}
+```{mermaid flowchart_main, echo=FALSE}
 flowchart LR
     step1("1. Set up the project <br> ")
     step2("2. Prepare & analyse data <br> and generate outputs")
@@ -127,7 +127,7 @@ For reproducibility, it is vital to keep the raw data untouched and create code 
 
 A good open science practice (when possible) is to **simulate data** when planning analysis or preregistering your study (Peikert et al., 2021). Once the empirical data is available, you can replace the simulated data - and get the results quicker.
 
-```{mermaid c3, echo=FALSE}
+```{mermaid flowchart_workflow2, echo=FALSE}
 flowchart LR
     step0("Simulate <br>and plan")
     step1("Collect")
@@ -217,7 +217,7 @@ Because they wanted a relationship with fewer variables!
 
 # STEP THREE: Preparing data and code for sharing {#step3}
 
-```{mermaid}
+```{mermaid flowchart_prepare, echo=FALSE}
 flowchart LR
     step0("Prepare data<br> for sharing")
     step1("Prepare notebooks<br> for sharing")

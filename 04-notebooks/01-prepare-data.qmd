@@ -10,7 +10,7 @@ This notebook sets an example workflow and template for preparing raw data for a
 
 **EDA (Exploratory Data Analysis)** is integrated into the process to understand the distribution of the data and identify any issues that need addressing. After processing, the processed data is saved in CSV format. This approach keeps the raw data untouched and makes all processing steps transparent and reproducible.
 
-```{mermaid}
+```{mermaid flowchart_process, echo=FALSE, purl=FALSE}
 flowchart LR
     step0("Load<br> raw data") -->
     step1("Modify<br> Data Types") -->

@@ -97,16 +97,16 @@ babysteps_T1 <- babysteps_T1 %>%
 
 To create well-formatted summary table, we are using the modelsummary and flextable packages. Modelsummary creates a variety of tables and plots to summarize statistical models and data in R. With flextable, we modify the table for publication and presentation. If you are interested in documentation or alternative approaches, see resources page.
 
-```{mermaid}
-flowchart LR
-    step0("Dataset") -->
-    step1("Create model(s)") -->
-    step2("Modelsummary") -->
-    step3("Modify with<br> flextable") -->
-    step4("Export to<br> word/ppt/pdf")
+```{mermaid flowchart_modelsummary, echo=FALSE, purl=FALSE}
+flowchart LR     
+  step0("Dataset") -->     
+  step1("Create model(s)") -->     
+  step2("Modelsummary") -->     
+  step3("Modify with<br> flextable") -->     
+  step4("Export to<br> word/ppt/pdf"
 ```
 
--   First, we will use the skim_summary function to get a quick overview of the data.
+First, we will use the skim_summary function to get a quick overview of the data.
 
 ```{r}
 #| label: skim-summary

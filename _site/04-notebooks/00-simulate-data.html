@@ -6,8 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Juuso Repo">
-<meta name="dcterms.date" content="2024-03-18">
+<meta name="dcterms.date" content="2024-03-19">
 
 <title>ReproRepo - Simulating data</title>
 <style>
@@ -100,7 +99,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 
 <div id="quarto-search-results"></div>
@@ -129,21 +128,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
     <a class="dropdown-item" href="../babysteps.html" rel="" target="">
- <span class="dropdown-text">Baby steps for a Reproducible Workflow in R</span></a>
+ <span class="dropdown-text">Babysteps for reproducible workflow in R</span></a>
   </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">04 Notebooks</li>
         <li>
     <a class="dropdown-item" href="../04-notebooks/00-simulate-data.html" rel="" target="">
- <span class="dropdown-text">Simulating data</span></a>
+ <span class="dropdown-text">- Simulating data</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../04-notebooks/01-prepare-data.html" rel="" target="">
- <span class="dropdown-text">Prepare data</span></a>
+ <span class="dropdown-text">- Preparing data with reproducibility</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../04-notebooks/02-create-tables-and-figures.html" rel="" target="">
- <span class="dropdown-text">Generating Reproducible Tables and Figures</span></a>
+ <span class="dropdown-text">- Creating reproducible tables and figures</span></a>
   </li>  
     </ul>
   </li>
@@ -161,72 +158,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../04-notebooks/00-simulate-data.html">04 Notebooks</a></li><li class="breadcrumb-item"><a href="../04-notebooks/00-simulate-data.html">Simulating data</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../babysteps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Baby steps for a Reproducible Workflow in R</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
- <span class="menu-text">00-simulate-data.qmd</span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">04 Notebooks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../04-notebooks/00-simulate-data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Simulating data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../04-notebooks/01-prepare-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prepare data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../04-notebooks/02-create-tables-and-figures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generating Reproducible Tables and Figures</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#create-codebook" id="toc-create-codebook" class="nav-link active" data-scroll-target="#create-codebook"><span class="header-section-number">1</span> Create codebook</a></li>
+  <li><a href="#create-an-example-codebook" id="toc-create-an-example-codebook" class="nav-link active" data-scroll-target="#create-an-example-codebook"><span class="header-section-number">1</span> Create an example codebook</a></li>
   <li><a href="#simulate-data" id="toc-simulate-data" class="nav-link" data-scroll-target="#simulate-data"><span class="header-section-number">2</span> Simulate data</a></li>
   </ul>
 </nav>
@@ -243,17 +185,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Juuso Repo </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 18, 2024</p>
+      <p class="date">March 19, 2024</p>
     </div>
   </div>
   
@@ -263,113 +199,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>As part of the <strong>Babysteps for Reproducibility tutorial</strong>, in this notebook, simulated raw data is generated and saved in CSV format. Additionally, an example codebook is created, serving as a metadata document that outlines the dataset’s contents, structure, and generation process. Simulating data before working with empirical data is a good practice because it allows for testing analytical methods, understanding potential outcomes, and ensuring that the data analysis workflow is robust and error-free. This preparatory step helps in planning and anticipating the needs and challenges of working with actual data.</p>
+<p>As part of the <strong><a href="../babysteps">Babysteps for Reproducibility -tutorial</a></strong>, in this notebook, simulated raw data is generated and saved in CSV format. Additionally, an example codebook is created, serving as a metadata document that outlines the dataset’s contents, structure, and generation process. Simulating data before working with empirical data is a good practice because it allows for testing analytical methods, understanding potential outcomes, and ensuring that the data analysis workflow is robust and error-free. This preparatory step helps in planning and anticipating the needs and challenges of working with empirical data.</p>
 <p><strong>Action steps:</strong></p>
 <ul>
 <li><p>Run the first code chunk to create a sample codebook.</p></li>
 <li><p>Run the second code chunk to simulate and save the raw data.</p></li>
 <li><p>Proceed to the next step: Preparing data with EDA</p></li>
 </ul>
-<p><em>Understanding all the details of the code below is not necessary. The main point here is to create raw data for the reproducible workflow tutorial.</em></p>
+<p><em>Understanding all the details of the code below is not necessary in following the tutorial.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-simulate</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># load / install tidyverse package for data manipulation</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"tidyverse"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {<span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)}</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(here)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>View code: Load packages</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load / install tidyverse package for data manipulation</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"tidyverse"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {<span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)}</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<section id="create-codebook" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="create-codebook"><span class="header-section-number">1</span> Create codebook</h2>
+<section id="create-an-example-codebook" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="create-an-example-codebook"><span class="header-section-number">1</span> Create an example codebook</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: codebook</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define and create a codebook</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st"># Codebook for Longitudinal Baby Steps Dataset</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">## Dataset Overview</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">**Title:** Longitudinal Study on Baby Steps and Developmental Progress</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">**Description:** The dataset follows 100 baby participants across three observation points to monitor how their mobility type (Crawling, Toddling, Walking) affects their ability to solve puzzles and their engagement with the task, as indicated by their giggle counts. The data has three three observation points for each baby. The data is simulated for planning a (fictional) study.</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">**Author:** Jane Doe</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">**Creation Date:** March 11, 2024</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">**Last Updated:** March 12, 2024</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">**Version:** 1.0</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">## Contact Information</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">**Author Contact:** Jane Doe (email)</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">**Institution:** University of Data Science</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">## License</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="st">This dataset is made available under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). Users are free to share and adapt the material for any purpose, even commercially, under the following terms: appropriate credit must be given, a link to the license provided, and indication if changes were made.</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="st">## Citation</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="st">Please cite this dataset as:</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="st">Doe, J. (2024). Longitudinal Study on Baby Steps and Developmental Progress. University of Data Science. Version 1.0. [DOI or URL]</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="st">## Variables</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="st">-   BabyID</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: Unique identifier for each baby participant.</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Integer</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Example Values: 1, 2, 3, ..., 100</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="st">-   StepType</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: The type of mobility the baby is primarily using at the time of observation.</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Categorical</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Possible Values: Crawling, Toddling, Walking</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="st">-   AgeMonths</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: Age of the baby at the time of observation, in months.</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Integer</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Range: 12-24 months</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="st">-   ObservationPoint</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: The stage of observation in the longitudinal study.</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Categorical</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Possible Values: Start (12-14 months), Midway (15-20 months), End (21-24 months)</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="st">-   PuzzleTime</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: Time it takes for the baby to solve a simple puzzle, measured in seconds.</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Numeric</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Example Values: Values can range based on puzzle difficulty and baby's skill level.</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="st">-   GiggleCount</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: Number of times the baby giggles while solving the puzzle. Used as a proxy for enjoyment or engagement.</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Integer</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Example Values: Non-negative values, varying by individual and task.</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="st">### Collection Method</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="st">Data were collected through direct observation of baby participants in a controlled environment, ensuring that puzzle difficulty was consistent across observations.</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="st">## Use Cases</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="st">This dataset is intended for research on early childhood development, specifically examining the relationship between motor skills, problem-solving abilities, and engagement in activities.</span></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="st">## Ethics Approval</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="st">This study received ethics approval from the Institutional Review Board at the University of Data Science, approval number #12345.</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="st">## Acknowledgements</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="st">We thank the participants and their families for their time and contribution to this study. This research was supported by the Early Development Research Grant #67890.</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the codebook content to a file</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(codebook, <span class="fu">here</span>(<span class="st">"01-data/metadata/codebook-babysteps.md"</span>))</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Codebook created and saved in folder: 01-data/metadata."</span>)</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>View code: Create codebook</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define and create a codebook</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st"># Codebook for Longitudinal Baby Steps Dataset</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">## Dataset Overview</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">**Title:** Longitudinal Study on Baby Steps and Developmental Progress</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">**Description:** The dataset follows 100 baby participants across three observation points to monitor how their mobility type (Crawling, Toddling, Walking) affects their ability to solve puzzles and their engagement with the task, as indicated by their giggle counts. The data has three three observation points for each baby. The data is simulated for planning a (fictional) study.</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">**Author:** Jane Doe</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">**Creation Date:** March 11, 2024</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">**Last Updated:** March 12, 2024</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">**Version:** 1.0</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="st">## Contact Information</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">**Author Contact:** Jane Doe (email)</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">**Institution:** University of Data Science</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">## License</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="st">This dataset is made available under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). Users are free to share and adapt the material for any purpose, even commercially, under the following terms: appropriate credit must be given, a link to the license provided, and indication if changes were made.</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="st">## Citation</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="st">Please cite this dataset as:</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="st">Doe, J. (2024). Longitudinal Study on Baby Steps and Developmental Progress. University of Data Science. Version 1.0. [DOI or URL]</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="st">## Variables</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="st">-   BabyID</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: Unique identifier for each baby participant.</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Integer</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Example Values: 1, 2, 3, ..., 100</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="st">-   StepType</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: The type of mobility the baby is primarily using at the time of observation.</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Categorical</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Possible Values: Crawling, Toddling, Walking</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="st">-   AgeMonths</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: Age of the baby at the time of observation, in months.</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Integer</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Range: 12-24 months</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="st">-   ObservationPoint</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: The stage of observation in the longitudinal study.</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Categorical</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Possible Values: Start (12-14 months), Midway (15-20 months), End (21-24 months)</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="st">-   PuzzleTime</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: Time it takes for the baby to solve a simple puzzle, measured in seconds.</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Numeric</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Example Values: Values can range based on puzzle difficulty and baby's skill level.</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="st">-   GiggleCount</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Description: Number of times the baby giggles while solving the puzzle. Used as a proxy for enjoyment or engagement.</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Type: Integer</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="st">    -   Example Values: Non-negative values, varying by individual and task.</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="st">### Collection Method</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="st">Data were collected through direct observation of baby participants in a controlled environment, ensuring that puzzle difficulty was consistent across observations.</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="st">## Use Cases</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="st">This dataset is intended for research on early childhood development, specifically examining the relationship between motor skills, problem-solving abilities, and engagement in activities.</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="st">## Ethics Approval</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="st">This study received ethics approval from the Institutional Review Board at the University of Data Science, approval number #12345.</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="st">## Acknowledgements</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="st">We thank the participants and their families for their time and contribution to this study. This research was supported by the Early Development Research Grant #67890.</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the codebook content to a file</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(codebook, <span class="fu">here</span>(<span class="st">"01-data/metadata/codebook-babysteps.md"</span>))</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Codebook created and saved in folder: 01-data/metadata."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Codebook created and saved in folder: 01-data/metadata.</code></pre>
 </div>
@@ -378,71 +310,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="simulate-data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="simulate-data"><span class="header-section-number">2</span> Simulate data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: simulate-data</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data for the babysteps analysis example</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set parameters</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>n_babies <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>observations <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create baby IDs</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>baby_ids <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_babies, <span class="at">times =</span> observations)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign step types randomly but consistently for each baby across observations</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>step_type <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Crawling"</span>, <span class="st">"Toddling"</span>, <span class="st">"Walking"</span>), n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">times =</span> observations)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate age in months, ensuring logical progression over observations</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>age_months <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">sample</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">14</span>, n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>),</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">20</span>, n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>),</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">24</span>, n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>))</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Define waves of observation</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>wave <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"T1"</span>, <span class="st">"T2"</span>, <span class="st">"T3"</span>), <span class="at">each =</span> n_babies)</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a random slope variable (SleepHours) and a control variable (FeedingType)</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>sleep_hours <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">16</span>, n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">times =</span> observations)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>feeding_type <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Breastfed"</span>, <span class="st">"Formula"</span>), n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">times =</span> observations)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co"># PuzzleTime decreases as babies grow, with adjustments based on step_type, sleep_hours and feeding_type</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>puzzle_time <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(n_babies <span class="sc">*</span> observations, <span class="at">min =</span> <span class="dv">30</span>, <span class="at">max =</span> <span class="dv">120</span>) <span class="sc">-</span> </span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                     (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="fu">runif</span>(n_babies <span class="sc">*</span> observations, <span class="at">min =</span> <span class="dv">2</span>, <span class="at">max =</span> <span class="dv">4</span>) <span class="sc">-</span> </span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Walking"</span>, <span class="dv">15</span> <span class="sc">+</span> (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="dv">1</span>,  </span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Toddling"</span>, <span class="dv">10</span> <span class="sc">+</span> (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="fl">0.5</span>,  </span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                                   (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="fl">0.2</span>)) <span class="sc">-</span>  </span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Walking"</span>, (sleep_hours <span class="sc">-</span> <span class="dv">10</span>) <span class="sc">*</span> <span class="dv">2</span>,  </span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Toddling"</span>, (sleep_hours <span class="sc">-</span> <span class="dv">10</span>) <span class="sc">*</span> <span class="fl">1.5</span>, </span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>                                   (sleep_hours <span class="sc">-</span> <span class="dv">10</span>))), <span class="dv">1</span>)</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co"># GiggleCount: Inversely related to PuzzleTime, adjusted for age and step_type</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>giggle_count <span class="ot">&lt;-</span> <span class="fu">round</span>((puzzle_time <span class="sc">/</span> <span class="fu">runif</span>(n_babies <span class="sc">*</span> observations, <span class="at">min =</span> <span class="dv">2</span>, <span class="at">max =</span> <span class="dv">4</span>)) <span class="sc">+</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Crawling"</span>, <span class="dv">5</span>, </span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Toddling"</span>, <span class="dv">2</span>, </span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                      <span class="co"># Interaction: Increase gigglecount with age, more so for advanced step types</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                      (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> </span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Walking"</span>, <span class="fl">0.5</span>, </span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Toddling"</span>, <span class="fl">0.25</span>, </span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Crawling"</span>, <span class="fl">0.1</span>, <span class="dv">0</span>))),</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">0</span>)</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataframe creation</span></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">BabyID =</span> baby_ids,</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>               <span class="at">StepType =</span> step_type,</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>               <span class="at">AgeMonths =</span> age_months,</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>               <span class="at">Wave =</span> wave,</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>               <span class="at">SleepHours =</span> sleep_hours,</span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>               <span class="at">FeedingType =</span> feeding_type,</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>               <span class="at">PuzzleTime =</span> puzzle_time,</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>               <span class="at">GiggleCount =</span> giggle_count)</span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the raw data into a csv file</span></span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"01-data/raw/babysteps-rawdata.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Raw data was created and saved in folder: 01-data/raw."</span>)</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Raw data was created and saved in folder: 01-data/raw.</code></pre>
+<details>
+<summary>View code: Simulate data</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data for the babysteps analysis example</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set parameters</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>n_babies <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>observations <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create baby IDs</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>baby_ids <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_babies, <span class="at">times =</span> observations)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign step types randomly but consistently for each baby across observations</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>step_type <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Crawling"</span>, <span class="st">"Toddling"</span>, <span class="st">"Walking"</span>), n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">times =</span> observations)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate age in months, ensuring logical progression over observations</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>age_months <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">sample</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">14</span>, n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">20</span>, n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">24</span>, n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Define waves of observation</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>wave <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"T1"</span>, <span class="st">"T2"</span>, <span class="st">"T3"</span>), <span class="at">each =</span> n_babies)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a random slope variable (SleepHours) and a control variable (FeedingType)</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>sleep_hours <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">16</span>, n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">times =</span> observations)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>feeding_type <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Breastfed"</span>, <span class="st">"Formula"</span>), n_babies, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">times =</span> observations)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># PuzzleTime decreases as babies grow, with adjustments based on step_type, sleep_hours and feeding_type</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>puzzle_time <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(n_babies <span class="sc">*</span> observations, <span class="at">min =</span> <span class="dv">30</span>, <span class="at">max =</span> <span class="dv">120</span>) <span class="sc">-</span> </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                     (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="fu">runif</span>(n_babies <span class="sc">*</span> observations, <span class="at">min =</span> <span class="dv">2</span>, <span class="at">max =</span> <span class="dv">4</span>) <span class="sc">-</span> </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Walking"</span>, <span class="dv">15</span> <span class="sc">+</span> (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="dv">1</span>,  </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Toddling"</span>, <span class="dv">10</span> <span class="sc">+</span> (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="fl">0.5</span>,  </span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                                   (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="fl">0.2</span>)) <span class="sc">-</span>  </span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Walking"</span>, (sleep_hours <span class="sc">-</span> <span class="dv">10</span>) <span class="sc">*</span> <span class="dv">2</span>,  </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Toddling"</span>, (sleep_hours <span class="sc">-</span> <span class="dv">10</span>) <span class="sc">*</span> <span class="fl">1.5</span>, </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                                   (sleep_hours <span class="sc">-</span> <span class="dv">10</span>))), <span class="dv">1</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co"># GiggleCount: Inversely related to PuzzleTime, adjusted for age and step_type</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>giggle_count <span class="ot">&lt;-</span> <span class="fu">round</span>((puzzle_time <span class="sc">/</span> <span class="fu">runif</span>(n_babies <span class="sc">*</span> observations, <span class="at">min =</span> <span class="dv">2</span>, <span class="at">max =</span> <span class="dv">4</span>)) <span class="sc">+</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Crawling"</span>, <span class="dv">5</span>, </span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Toddling"</span>, <span class="dv">2</span>, </span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                      <span class="co"># Interaction: Increase gigglecount with age, more so for advanced step types</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>                      (age_months <span class="sc">-</span> <span class="dv">12</span>) <span class="sc">*</span> </span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Walking"</span>, <span class="fl">0.5</span>, </span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Toddling"</span>, <span class="fl">0.25</span>, </span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">ifelse</span>(step_type <span class="sc">==</span> <span class="st">"Crawling"</span>, <span class="fl">0.1</span>, <span class="dv">0</span>))),</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">0</span>)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataframe creation</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">BabyID =</span> baby_ids,</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">StepType =</span> step_type,</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>               <span class="at">AgeMonths =</span> age_months,</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>               <span class="at">Wave =</span> wave,</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>               <span class="at">SleepHours =</span> sleep_hours,</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>               <span class="at">FeedingType =</span> feeding_type,</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>               <span class="at">PuzzleTime =</span> puzzle_time,</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>               <span class="at">GiggleCount =</span> giggle_count)</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the raw data into a csv file</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"01-data/raw/babysteps-rawdata.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Raw data was created and saved in folder: 01-data/raw."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-</div>
+<p><strong>To follow the full tutorial, next step is <a href="01-prepare-data">Preparing data for analysis</a></strong></p>
 
 
 </section>

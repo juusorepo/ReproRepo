@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Juuso Repo">
+<meta name="dcterms.date" content="2024-03-19">
 
 <title>ReproRepo - Prepare data</title>
 <style>
@@ -94,12 +94,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 
 <div id="quarto-search-results"></div>
@@ -128,21 +131,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
     <a class="dropdown-item" href="../babysteps.html" rel="" target="">
- <span class="dropdown-text">Baby steps for a Reproducible Workflow in R</span></a>
+ <span class="dropdown-text">Babysteps for reproducible workflow in R</span></a>
   </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">04 Notebooks</li>
         <li>
     <a class="dropdown-item" href="../04-notebooks/00-simulate-data.html" rel="" target="">
- <span class="dropdown-text">Simulating data</span></a>
+ <span class="dropdown-text">- Simulating data</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../04-notebooks/01-prepare-data.html" rel="" target="">
- <span class="dropdown-text">Prepare data</span></a>
+ <span class="dropdown-text">- Preparing data with reproducibility</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../04-notebooks/02-create-tables-and-figures.html" rel="" target="">
- <span class="dropdown-text">Generating Reproducible Tables and Figures</span></a>
+ <span class="dropdown-text">- Creating reproducible tables and figures</span></a>
   </li>  
     </ul>
   </li>
@@ -160,65 +161,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../04-notebooks/00-simulate-data.html">04 Notebooks</a></li><li class="breadcrumb-item"><a href="../04-notebooks/01-prepare-data.html">Prepare data</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../babysteps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Baby steps for a Reproducible Workflow in R</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
- <span class="menu-text">00-simulate-data.qmd</span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">04 Notebooks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../04-notebooks/00-simulate-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simulating data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../04-notebooks/01-prepare-data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Prepare data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../04-notebooks/02-create-tables-and-figures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generating Reproducible Tables and Figures</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -262,17 +208,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Juuso Repo </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">March 19, 2024</p>
     </div>
   </div>
   
@@ -284,68 +224,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="prepare-data-with-eda" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Prepare data with EDA</h1>
-<p>This notebook sets an example workflow and template for preparing raw data for analysis. The focus is on cleaning, coding, and transforming the data, which are crucial steps to ensure the reliability and validity of the analysis. All processing steps should be documented, including the determination of the final sample size, any data exclusions, manipulations, and the creation of variables for the study.</p>
-<p><strong>EDA (Exploratory Data Analysis)</strong> is integrated into the process to understand the distribution of the data and identify any apparent issues that need addressing. After processing, the processed data is saved in CSV format. This approach keeps the raw data untouched and makes all processing steps transparent and reproducible.</p>
+<p>This notebook sets an example workflow and template for preparing raw data for analysis. The focus is on cleaning, coding, and transforming the data, which are crucial steps to ensure the reliability and validity of the analysis. All processing steps should be documented, including the determination of the sample size, any data exclusions, manipulations, and the creation of variables for the study.</p>
+<p><strong>EDA (Exploratory Data Analysis)</strong> is integrated into the process to understand the distribution of the data and identify any issues that need addressing. After processing, the processed data is saved in CSV format. This approach keeps the raw data untouched and makes all processing steps transparent and reproducible.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    step0("Load&lt;br&gt; raw data") --&gt;
+    step1("Modify&lt;br&gt; Data Types") --&gt;
+    step2("Initial&lt;br&gt; EDA") --&gt;
+    step3("Data&lt;br&gt; Cleaning") --&gt;
+    step4("Data&lt;br&gt; Transformations") --&gt;
+    step5("Post-Cleaning&lt;br&gt; EDA") --&gt;
+    step6("Save &lt;br&gt;the data")
+</pre>
+</div>
+</div>
+</div>
+</div>
 <p><strong>Why prepare data in a notebook instead of a script file?</strong></p>
 <ul>
-<li>Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the “purl” function, explained in the <strong>babysteps</strong> tutorial, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.</li>
+<li>Working in a notebook, rather than a script file, allows for the inclusion of exploratory data analysis and personal notes while processing data to ensure accurate processing. With the “purl” function, explained in the <a href="../babysteps"><strong>Babysteps tutorial</strong></a>, only the code chunks will be extracted and saved in a script file for public sharing. The full notebook is intended for personal and collegial use. Feel free to modify the notebook for your style and purposes.</li>
 </ul>
 <section id="load-raw-data-and-packages" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="load-raw-data-and-packages"><span class="header-section-number">1.1</span> 1 Load raw data and packages</h2>
-<p><strong>Overview:</strong> Start by loading required R packages and your dataset into your analysis environment. For the tutorial, we load the raw data created in the <strong>Simulate-data notebook</strong>.</p>
+<p><strong>Overview:</strong> Start by loading required R packages and the dataset into your analysis environment. For the tutorial, we load the raw data created in the <a href="00-simulate-data">Simulate-data notebook</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup_prepare</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Title: Prepare data</span></span>
+<details>
+<summary>View code: Load packages and data</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(here)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: here</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'here' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>here() starts at C:/Users/juuso/OneDrive - Vaikuttava Yritys Oy/0 Oma RStudio/ReproRepo</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup_prepare</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: tidyverse</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyverse' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'forcats' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.0     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup_prepare</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load the raw data</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"01-data/raw/babysteps-rawdata.csv"</span>))</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load / download data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">"01-data/raw/babysteps-rawdata.csv"</span>))) {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"01-data/raw/babysteps-rawdata.csv"</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  dataset <span class="ot">&lt;-</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">read.csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">"https://raw.githubusercontent.com/juusorepo/ReproRepo/master/01-data/raw/babysteps-rawdata.csv"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="check-and-modify-data-types" class="level2" data-number="1.2">
@@ -355,10 +276,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Action Steps:</strong> Start by listing the current data types of variables in your dataset. This helps identify any variables that may be incorrectly typed, such as numeric variables recognized as character data due to formatting issues.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the current data types of all variables in the dataset</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dataset)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the current data types of all variables in the dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   300 obs. of  8 variables:
  $ BabyID     : int  1 2 3 4 5 6 7 8 9 10 ...
@@ -372,63 +291,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <ul>
-<li><strong>Convert Data Types:</strong> Based on the initial inspection, convert variables to their correct data types. Common conversions include transforming character variables that represent categories into factors and ensuring numeric variables are not mistakenly treated as character or factor types.</li>
+<li><strong>Convert Data Types:</strong> Based on the initial inspection, we convert variables to their correct data types. Common conversions include transforming character variables that represent categories into factors and ensuring numeric variables are not mistakenly treated as character or factor types.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Example code to modify data types</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust the following commands according to the specific needs of your dataset.</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting character variables to factors (for categorical variables with a limited number of categories)</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character, as.factor)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting factors to character (if necessary for string processing)</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># dataset &lt;- dataset %&gt;% mutate_if(is.factor, as.character)</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting integers to numeric</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># dataset &lt;- dataset %&gt;% mutate_if(is.integer, as.numeric)</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Recheck data types</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dataset)</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   300 obs. of  8 variables:
- $ BabyID     : int  1 2 3 4 5 6 7 8 9 10 ...
- $ StepType   : Factor w/ 3 levels "Crawling","Toddling",..: 3 3 3 2 3 2 2 2 3 1 ...
- $ AgeMonths  : int  14 13 13 14 12 12 14 13 13 13 ...
- $ Wave       : Factor w/ 3 levels "T1","T2","T3": 1 1 1 1 1 1 1 1 1 1 ...
- $ SleepHours : int  13 11 10 13 10 13 14 13 11 11 ...
- $ FeedingType: Factor w/ 2 levels "Breastfed","Formula": 1 2 1 2 1 1 2 1 2 2 ...
- $ PuzzleTime : num  49.1 43.3 28.6 47.3 71.8 62.4 67.6 77.6 53.8 59.9 ...
- $ GiggleCount: int  24 20 9 24 30 25 21 34 16 32 ...</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting character variables to factors</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character, as.factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="initial-exploratory-data-analysis" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="initial-exploratory-data-analysis"><span class="header-section-number">1.3</span> Initial Exploratory Data Analysis</h2>
 <p>Before further processing, you may want to conduct an exploratory data analysis (EDA) to gain insights into the dataset’s distribution and characteristics. There are various ways to do this and also packages for automated EDA analysis (e.g., DataExplorer, GGally, SmartEDA, Hmisc). For this tutorial, we will use the DataExplorer.</p>
 <ul>
-<li><strong>Action Steps:</strong> Run the code below to create an EDA report. Then check results from your Notebooks folder.</li>
+<li><strong>Action Steps:</strong> Run the code below to create an EDA report. See results in Notebooks folder or <a href="EDA-report-initial-2024-03-18.html">here</a>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "Initial EDA"</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| purl: false # to exclude this chunk from the R script file</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load/Install DataExplorer package</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"DataExplorer"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {<span class="fu">install.packages</span>(<span class="st">"DataExplorer"</span>)}</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(DataExplorer)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the report</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">create_report</span>(</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">output_file =</span> <span class="fu">paste</span>(<span class="st">"EDA-report-initial"</span>, <span class="fu">Sys.Date</span>(), <span class="at">sep=</span><span class="st">"-"</span>), <span class="co"># filename</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">report_title =</span> <span class="st">"Initial EDA Report - Babysteps Dataset"</span>,</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">'PuzzleTime'</span> <span class="co"># to set the outcome variable</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"The EDA report was created and saved in your notebooks folder"</span>)</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load/Install DataExplorer package</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"DataExplorer"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {<span class="fu">install.packages</span>(<span class="st">"DataExplorer"</span>)}</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(DataExplorer)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the report</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">create_report</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">output_file =</span> <span class="fu">paste</span>(<span class="st">"EDA-report-initial"</span>, <span class="fu">Sys.Date</span>(), <span class="at">sep=</span><span class="st">"-"</span>), <span class="co"># filename</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">report_title =</span> <span class="st">"Initial EDA Report - Babysteps Dataset"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">'PuzzleTime'</span> <span class="co"># to set the outcome variable</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"The EDA report was created and saved in your notebooks folder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-cleaning" class="level2" data-number="1.4">
@@ -440,12 +328,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Overview:</strong> Begin by identifying missing values in your dataset. Missing data can occur for various reasons, from non-response in surveys to errors in data entry.</li>
 <li><strong>Action Steps:</strong> Use descriptive statistics to identify missing patterns and decide on appropriate methods for handling them, such as imputation or exclusion, based on the nature of your data.</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Missing-values</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># insert your code here or delete the section</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="correcting-errors" class="level3" data-number="1.4.2">
 <h3 data-number="1.4.2" class="anchored" data-anchor-id="correcting-errors"><span class="header-section-number">1.4.2</span> Correcting Errors</h3>
@@ -465,12 +347,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="1.4.4" class="anchored" data-anchor-id="standardize-variable-names"><span class="header-section-number">1.4.4</span> <strong>Standardize Variable Names</strong></h3>
 <p>Ensure all variable names are in lowercase to maintain consistency across your dataset. This can help avoid case-sensitive errors in your analysis scripts.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Standardize Variable Names</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># lowercase all variables (good practice)</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span> <span class="fu">rename_all</span>(tolower)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lowercase all variables (good practice)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span> <span class="fu">rename_all</span>(tolower)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Tip. Check out clean.names() function from janitor package to clean up variable names.</em></p>
 </section>
@@ -485,20 +363,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Action Steps:</strong> Clearly define your recoding rules and apply them uniformly across your dataset. Document changes to ensure transparency and reproducibility.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "Recoding variables"</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode wave into an integer for regression analyses</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>wave <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">gsub</span>(<span class="st">"T"</span>, <span class="st">""</span>, dataset<span class="sc">$</span>wave))</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new categorical variable AgeGroup</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">agegroup =</span> <span class="fu">case_when</span>(</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    agemonths <span class="sc">&lt;=</span> <span class="dv">14</span> <span class="sc">~</span> <span class="st">"12-14 months"</span>,</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    agemonths <span class="sc">&lt;=</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">"15-20 months"</span>,</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"21-24 months"</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode wave into an integer for regression analyses</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>wave <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">gsub</span>(<span class="st">"T"</span>, <span class="st">""</span>, dataset<span class="sc">$</span>wave))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new categorical variable AgeGroup</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">agegroup =</span> <span class="fu">case_when</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    agemonths <span class="sc">&lt;=</span> <span class="dv">14</span> <span class="sc">~</span> <span class="st">"12-14 months"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    agemonths <span class="sc">&lt;=</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">"15-20 months"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"21-24 months"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="normalizing-scales" class="level3" data-number="1.5.2">
@@ -520,47 +394,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1.6" class="anchored" data-anchor-id="post-cleaning-eda"><span class="header-section-number">1.6</span> Post-Cleaning EDA</h2>
 <p>After cleaning and transforming your data, perform another round of EDA to verify the data preparation steps’ effects and ensure the dataset is ready for analysis. Look for any remaining issues to check the data quality and structure post-cleaning.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "EDA-with-processed-data"</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| purl: false    # to exclude this chunk from the R script file</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the report</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">create_report</span>(</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">output_file =</span> <span class="fu">paste</span>(<span class="st">"EDA-report-processed"</span>, <span class="fu">Sys.Date</span>(), <span class="at">sep=</span><span class="st">" - "</span>),</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">report_title =</span> <span class="st">"EDA Report with processed data - Babysteps Dataset"</span>,</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">'puzzletime'</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"The EDA report was created and saved in your notebooks folder"</span>)</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the EDA report, define the outcome variable</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">create_report</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">output_file =</span> <span class="fu">paste</span>(<span class="st">"EDA-report-processed"</span>, <span class="fu">Sys.Date</span>(), <span class="at">sep=</span><span class="st">" - "</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">report_title =</span> <span class="st">"EDA Report with processed data - Babysteps Dataset"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">'puzzletime'</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"The EDA report was created and saved in your notebooks folder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="save-the-processed-data" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="save-the-processed-data"><span class="header-section-number">1.7</span> Save the processed data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "Save dataset"</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Save in CSV format into processed data -subfolder</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(dataset, <span class="fu">here</span>(<span class="st">"01-data/processed/babysteps.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save in CSV format into processed data -subfolder</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(dataset, <span class="fu">here</span>(<span class="st">"01-data/processed/babysteps.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"The processed dataset was saved in processed data folder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The processed dataset was saved in processed data folder</code></pre>
+</div>
 </div>
 </section>
 </section>
 <section id="conclusion" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Conclusion</h1>
-<p>This workflow guides you from loading your data to ensuring it’s analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the reliability and validity of your research findings.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"test.png"</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span>, <span class="at">main =</span> <span class="st">"Test"</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>png 
-  2 </code></pre>
-</div>
-</div>
+<p>This workflow guides you from loading your data to ensuring it’s analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the quality of your research.</p>
+<p><strong>To follow the full tutorial, next step is <a href="../babysteps#step2c">Creating reproducible outputs</a></strong></p>
 
 
 </section>
