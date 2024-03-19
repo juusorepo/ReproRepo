@@ -45,7 +45,7 @@ We begin with creating a tidy nest for all files related to the study/project. O
 
 -   In RStudio, start fresh and select File - New Project - New Directory - Quarto Project. It creates you a project folder with few files.
 
--   Copy and run the below code **in RStudio** **console** **window** to download this notebook to your project folder. (or download [the zip file](https://github.com/juusorepo/ReproRepo/raw/master/babysteps-for-reproducibility.zip) and extract it to your project folder).
+-   Copy and run the below code **in RStudio** **console** **window** to download this notebook to your project folder. (or download the [zip file](https://github.com/juusorepo/ReproRepo/raw/master/babysteps-files.zip) and copy the files to your project folder).
 
     `download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/babysteps.qmd", "babysteps.qmd")`
 
