@@ -8,15 +8,19 @@ In the fascinating world of reproducibility, there is always more. See below som
 
 -   FORRT - Framework for Open and Reproducible Research ([link](https://forrt.org/))
 
--   AEA Data Editor Guidance and tools ([link](https://aeadataeditor.github.io/))
+-   Introduction to Reproducible Publications with RStudio (The Carpentries) ([link](https://ucsbcarpentry.github.io/Reproducible-Publications-with-RStudio-Quarto/index.html))
 
 -   Open Science Training Handbook ([link](https://open-science-training-handbook.gitbook.io/book/02opensciencebasics/04reproducibleresearchanddataanalysis))
 
 -   Harrell F E: R Workflow for Reproducible Data Analysis and Reporting ([link](https://hbiostat.org/rflow/))
 
+-   Bauer, P. C., & Landesvatter, C. (2023). Writing a reproducible paper with RStudio and quarto. ([link](https://osf.io/preprints/osf/ur4xn))
+
 -   Peikert, Aaron, & Diemerling, Hannes. (2023). Reproducible Research in R: A Workshop on How to Do the Same Thing More Than Once. Zenodo. <https://doi.org/10.5281/zenodo.8069391>
 
 -   Peikert, A., van Lissa, C. J., & Brandmaier, A. M. (2021). Reproducible Research in R: A Tutorial on How to Do the Same Thing More Than Once. Psych, 3(4), Article 4. <https://doi.org/10.3390/psych3040053>
+
+-   AEA Data Editor Guidance and tools ([link](https://aeadataeditor.github.io/))
 
 ## Reproducibility checklists
 
