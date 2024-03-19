@@ -103,7 +103,7 @@ flowchart LR
   step1("Create model(s)") -->     
   step2("Modelsummary") -->     
   step3("Modify with<br> flextable") -->     
-  step4("Export to<br> word/ppt/pdf"
+  step4("Export to<br> word/ppt/pdf")
 ```
 
 First, we will use the skim_summary function to get a quick overview of the data.
