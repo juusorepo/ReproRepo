@@ -78,7 +78,7 @@ dataset <- dataset %>% mutate_if(is.character, as.factor)
 
 Before further processing, you may want to conduct an exploratory data analysis (EDA) to gain insights into the dataset's distribution and characteristics. There are various ways to do this and also packages for automated EDA analysis (e.g., DataExplorer, GGally, SmartEDA, Hmisc). For this tutorial, we will use the DataExplorer.
 
--   **Action Steps:** Run the code below to create an EDA report. See results in Notebooks folder or [here](EDA-report-initial-2024-03-18.html).
+-   **Action Steps:** Run the code below to create an EDA report. See results in Notebooks folder or [here](EDA-report-initial-2024-03-21.html).
 
 ```{r}
 #| label: Initial-EDA

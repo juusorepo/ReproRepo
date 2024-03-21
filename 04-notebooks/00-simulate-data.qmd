@@ -1,5 +1,5 @@
 ---
-title: "Simulating data"
+title: "Simulating data (with codebook)"
 freeze: auto
 date: "`r Sys.Date()`"
 ---
@@ -12,9 +12,9 @@ As part of the [**Babysteps for Reproducibility -tutorial**](../babysteps), in t
 
 -   Run the second code chunk to simulate and save the raw data.
 
--   Proceed to the next step: Preparing data with EDA
+-   Proceed to the next step: Preparing data for analysis
 
-*Understanding all the details of the code below is not necessary in following the tutorial.*
+*Understanding all the details of the code below is not necessary for following the tutorial.*
 
 ```{r}
 #| label: setup-simulate
