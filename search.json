@@ -221,7 +221,7 @@
     "href": "resources.html#r-packages-used-in-the-tutorials",
     "title": "Resources for Reproducibility",
     "section": "3 R packages used in the tutorials",
-    "text": "3 R packages used in the tutorials\n\nModelsummary - Creates tables and plots to present descriptive statistics and to summarize statistical models in R.\nFlextable - a framework to easily create tables for reporting and publications.\nReport - “From R to your manuscript”."
+    "text": "3 R packages used in the tutorials\n\nModelsummary - Creates tables and plots to present descriptive statistics and to summarize statistical models in R.\nFlextable - a framework to easily create tables for reporting and publications.\nReport - “From R to your manuscript”.\nGtsummary - Create publication-ready analytical and summary tables."
   },
   {
     "objectID": "about.html",
