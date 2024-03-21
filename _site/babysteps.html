@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Juuso Repo">
-<meta name="dcterms.date" content="2024-03-19">
+<meta name="dcterms.date" content="2024-03-21">
 
 <title>ReproRepo - Baby Steps for a Reproducible Workflow in R</title>
 <style>
@@ -218,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 19, 2024</p>
+      <p class="date">March 21, 2024</p>
     </div>
   </div>
   
@@ -229,14 +229,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>The idea of <em>methods reproducibility</em> is to provide sufficient documentation of procedures and data to enable repeating the same procedures, in a similar or different context (Goodman et al., 2016). A reproducible workflow, then, is a systematically organized sequence of steps to accomplish this. As the value placed on reproducibility continues to rise within and beyond academia, mastering these practices is increasingly beneficial. This tutorial aims to present the basics rather than delve into all the complexities of all advanced stuff. It covers steps from preparing data for analysis to creating reproducible tables and figures, to be included in a paper or presentation.</p>
-<p><strong>The basic steps for reproducible workflow are:</strong></p>
+<p><strong>The basic steps for reproducible workflow covered here are:</strong></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
     step1("1. Set up the project &lt;br&gt; ")
-    step2("2. Prepare &amp; analyse data &lt;br&gt; and generate outputs")
+    step2("2. Prepare and analyse data &lt;br&gt; and generate outputs")
     step3("3. Prepare code and data &lt;br&gt; for sharing")
     step4("4. Share code and data in public")
     
@@ -265,7 +265,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These basic steps can be expanded to include e.g., producing a fullmanuscript in RStudio, managing version control with tools like Git, and ensuring computational reproducibility through containerization technologies such as Docker. See resources page for more.</p>
+<p>These basic steps can be expanded to include e.g., producing a full manuscript in RStudio, managing version control with tools like Git, and ensuring computational reproducibility through containerization technologies such as Docker. See resources page for more.</p>
 </div>
 </div>
 <section id="step-one-creating-project-and-folder-structure" class="level1" data-number="1">
@@ -274,11 +274,11 @@ Tip
 <section id="create-a-rstudio-project" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="create-a-rstudio-project"><span class="header-section-number">1.1</span> Create a RStudio project</h2>
 <ul>
-<li><p>In RStudio, start fresh and select File - New Project - New Directory - Quarto Project.</p></li>
-<li><p>Copy and run below code <strong>in RStudio</strong> <strong>console</strong> window to download this notebook to your project folder. (or download <strong>from here</strong> and save to project folder)</p>
+<li><p>In RStudio, start fresh and select File - New Project - New Directory - Quarto Project. It creates you a project folder with few files.</p></li>
+<li><p>Copy and run the below code <strong>in RStudio</strong> <strong>console</strong> <strong>window</strong> to download this notebook to your project folder. (or download the <a href="https://github.com/juusorepo/ReproRepo/raw/master/babysteps-files.zip">zip file</a> and copy the files to your project folder).</p>
 <p><code>download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/babysteps.qmd", "babysteps.qmd")</code></p></li>
 <li><p>Open the notebook in RStudio.</p></li>
-<li><p>Run the below code chunk to install required packages. Tip: place cursor inside the chunk and press Ctrl+Shift+Enter. The Here package simplifies file path management by making all paths relative to the project root.</p></li>
+<li><p>Run the below code chunk to install required packages. The Here package simplifies file path management by making all paths relative to the project root.</p></li>
 </ul>
 <div class="cell">
 <details>

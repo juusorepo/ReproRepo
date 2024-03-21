@@ -85,7 +85,7 @@ set_flextable_defaults(
 
 # The datasummary function builds a table by reference to a two-sided formula:
 # the left side defines rows and the right side defines columns.
-tbl <- datasummary(
+tbl_sum <- datasummary(
   `Age (months)` + `Puzzletime (sec)` + `Giggle count` + `Sleep (hours)` ~ # left side: rows
     N + steptype * (Mean + SD),
   # right side: columns, and * for grouping
@@ -95,28 +95,28 @@ tbl <- datasummary(
 
 # Modification with flextable
 # add a spanning header row
-tbl <- add_header_row(
-  tbl,
+tbl_sum <- add_header_row(
+  tbl_sum,
   colwidths = c(2, 2, 2, 2),
   values = c("", "Crawling", "Toddling", "Walking")
 )
 # center align the header row
-tbl <- align(tbl,
+tbl_sum <- align(tbl_sum,
              i = 1,
              part = "header",
              align = "center")
-tbl <- add_footer_lines(tbl, "Add notes here.")
+tbl_sum <- add_footer_lines(tbl_sum, "Add notes here.")
 
 # add a caption
-tbl <-
-  set_caption(tbl, caption = "Descriptive statistics for baseline data")
+tbl_sum <-
+  set_caption(tbl_sum, caption = "Descriptive statistics for baseline data")
 
 # set width of the first column
-tbl <- width(tbl, j = 1, width = 1.5)
+tbl_sum <- width(tbl_sum, j = 1, width = 1.5)
 
 # adjust the column labels
-tbl <- set_header_labels(
-  tbl,
+tbl_sum <- set_header_labels(
+  tbl_sum,
   "Crawling / Mean" = "Mean",
   "Crawling / SD" = "SD",
   "Toddling / Mean" = "Mean",
@@ -134,21 +134,21 @@ tbl <- set_header_labels(
 
 # To RTF (opens in e.g., Microsoft Word)
 save_as_rtf(
-  "Descriptive statistics for baseline data" = tbl,
+  "Descriptive statistics for baseline data" = tbl_sum,
   path = here("05-outputs/tables/tbl1-desc.rtf")
 )
 
 # To PowerPoint
 save_as_pptx(
-  "Descriptive statistics for baseline data" = tbl,
+  "Descriptive statistics for baseline data" = tbl_sum,
   path = here("05-outputs/tables/tbl1-desc.pptx")
 )
 
 # To HTML
-save_as_html(tbl, path = here("05-outputs/tables/tbl1-desc.html"))
+save_as_html(tbl_sum, path = here("05-outputs/tables/tbl1-desc.html"))
 
 # To image file
-save_as_image(tbl, path = here("05-outputs/tables/tbl1-desc.png"))
+save_as_image(tbl_sum, path = here("05-outputs/tables/tbl1-desc.png"))
 
 # If problems in creating image, install webshot package
 # if (!requireNamespace("webshot", quietly = TRUE)) {install.packages("webshot")}
@@ -160,7 +160,7 @@ save_as_image(tbl, path = here("05-outputs/tables/tbl1-desc.png"))
 
 # Run a linear regression model
 model_lm <-
-  lm(puzzletime ~ agemonths + sleephours, data = babysteps)
+  lm(puzzletime ~ agemonths + sleephours + steptype, data = babysteps)
 
 # Create a tidy table from the model results
 tbl_lm <- model_lm %>%
@@ -197,15 +197,14 @@ save_as_rtf(
 ## -----------------------------------------------------------------------------
 #| label: table3-mixed-effects
 
-# Model 1: Basic Effect of Age
-model1 <- lm(puzzletime ~ agemonths, data = babysteps)
+# Model 1: Impact of age, mobility type, and engagement
+model1 <- lmer(puzzletime ~ agemonths + steptype + (1|babyid), data = babysteps)
 
-# Model 2: Age and Mobility Type
-model2 <- lm(puzzletime ~ agemonths + steptype, data = babysteps)
+# Model 2: Inclusion of sleep quality
+model2 <- lmer(puzzletime ~ agemonths + steptype + gigglecount + (1|babyid), data = babysteps)
 
-# Model 3: Age, Mobility Type, and Sleep Quality
-model3 <-
-  lm(puzzletime ~ agemonths + steptype + sleephours, data = babysteps)
+# Model 3: Interaction effects
+model3 <- lmer(puzzletime ~ agemonths + steptype * gigglecount + (1|babyid), data = babysteps)
 
 # Add models into a list
 models <- list("M1" = model1, "M2" = model2, "M3" = model3)
@@ -215,40 +214,31 @@ models <- list("M1" = model1, "M2" = model2, "M3" = model3)
 title = ""
 notes = "Insert notes here."
 
-# Rename and/or reorder coefficients for the table
-coef_map <- c(
-  "agemonths" = "Age in months",
-  "steptypeToddling" = "Step type: Toddling",
-  "steptypeWalking" = "Step type: Walking",
-  "sleephours" = "Sleeptime in hours",
-  "(Intercept)" = "Intercept"
-)
-
 # Create the table
-tbl <- modelsummary(
+tbl_mx <- modelsummary(
   models,
   output = 'flextable',  # output as flextable
   stars = TRUE,  # include stars for significance
   gof_map = c("nobs", "r.squared"), # goodness of fit stats to include
-  coef_map = coef_map, # coefficient mapping defined above
   title = title, 
   notes = notes)  
 
 # Autofit cell widths and height
-tbl <- autofit(tbl) # Adjust column widths
+tbl_mx <- autofit(tbl_mx) # Adjust column widths
 
 # Export the table to RTF (e.g., Word)
 save_as_rtf(
-  "Table 3. Mixed effects model results" = tbl,
+  "Table 3. Mixed effects model results" = tbl_mx,
   path = here("05-outputs/tables/tbl3-mixed-effects.rtf")
 )
 
 # Create a styled version for presentation
-tbl_for_ppt <- tbl %>%
-  bg(c(3, 5), bg = 'lightblue') %>% # background color in row 1
-  color(7, color = 'red') %>% # text color in row 7
+tbl_for_ppt <- tbl_mx %>%
+  bg(c(5, 7), bg = 'lightblue') %>% # background color in row 1
+  color(9, color = 'red') %>% # text color in row 7
   fontsize(size = 10, part = "all") %>% # Font size for all parts of the table
-  theme_vanilla() # flextable offers several predefined themes
+  theme_vanilla() %>% # flextable offers several predefined themes
+  height(height = 0.15) # Adjusting the height of the rows, set as needed
 
 # Export the presentation version to Powerpoint
 save_as_pptx(
@@ -262,9 +252,18 @@ save_as_pptx(
 ## -----------------------------------------------------------------------------
 #| label: figure1-coefs
 
+# List coefficients for the figure (rename + reorder) 
+# here we plot only main effects for simplicity
+coef_map <- c(
+  "agemonths" = "Age in months",
+  "steptypeToddling" = "Step type: Toddling",
+  "steptypeWalking" = "Step type: Walking",
+  "gigglecount" = "Giggle count"
+)
+
 # Create a coefficient plot
 fig1 <- modelplot(
-  model3,
+  model2,
   coef_map = rev(coef_map), # rev() reverses list order
   coef_omit = "Intercept", # omit Intercept
   color = "black"
@@ -286,7 +285,7 @@ fig1 <- modelplot(
     legend.text = element_text(size = 10) # Legend text
   ) +
   labs(title = "Figure 1: Predictors of Puzzle Solving Time",
-       caption = "Insert notes here.")
+       caption = "Unstandardized coefficients.")
 
 # Export fig1 to a PNG file
 ggsave(
@@ -307,46 +306,44 @@ ggsave(
 ## -----------------------------------------------------------------------------
 #| label: figure2-interaction
 
-# Generate a data frame for predictions
-predict_data <-
-  expand.grid(
-    agemonths = seq(
-      min(babysteps$agemonths),
-      max(babysteps$agemonths),
-      length.out = 100
-    ),
-    steptype = unique(babysteps$steptype),
-    babyid = unique(babysteps$babyid)[1]
-  )  # Use a representative babyid
+# Prepare data for prediction, focusing on steptype and gigglecount interaction
+predict_data_interaction <- expand.grid(
+  agemonths = mean(babysteps$agemonths),  # Use mean age to isolate the interaction effect
+  steptype = unique(babysteps$steptype),
+  gigglecount = seq(min(babysteps$gigglecount), max(babysteps$gigglecount), length.out = 100),
+  babyid = unique(babysteps$babyid)[1]
+)
 
-# Predict puzzletime using the model
-predict_data$puzzletime_pred <-
-  predict(model2, newdata = predict_data, re.form = NA)  # Fixed effects only
+# Predict puzzletime using model3 for the interaction between steptype and gigglecount
+predict_data_interaction$puzzletime_pred <- predict(model3, newdata = predict_data_interaction, re.form = NA) 
 
-
-# Plotting observed data points
-plot2 <- ggplot(babysteps, aes(x = agemonths, y = puzzletime, color = steptype)) +
-  #  geom_point(alpha = 0.5) +
-  # Add predicted lines from the model
-  geom_line(
-    data = predict_data,
-    aes(x = agemonths, y = puzzletime_pred, color = steptype),
-    linewidth = 1
+# Adjusting the plot for black and white APA style
+interaction_plot <- ggplot(predict_data_interaction, aes(x = gigglecount, y = puzzletime_pred, group = steptype)) +
+  geom_line(aes(linetype = steptype), linewidth = 1) +  
+  theme_minimal(base_size = 12) + 
+  theme(
+    legend.title = element_blank(),  
+    legend.position = "bottom",  
+    plot.title = element_text(face = "bold", size = 14),  
+    axis.title = element_text(size = 12),  
+    axis.text = element_text(size = 11) 
   ) +
-  # Add a smooth line through the observed data for comparison
-  theme_minimal() +
-  labs(title = "Interaction of Age and Step Type on Puzzle Solving Time",
-       x = "Age in Months",
-       y = "Puzzle Time (minutes)") +
-  scale_color_brewer(palette = "Set1")
+  labs(
+    title = "Interaction Effect of Step Type and Giggle Count on Puzzle Solving Time",
+    x = "Giggle Count",
+    y = "Predicted Puzzle Time (seconds)"
+  ) +
+  scale_linetype_manual(values = c("solid", "dashed", "dotted"))
 
-# Export fig1 to a PNG file
+# Export the interaction_plot to a PNG file
 ggsave(
-  here("05-outputs/figures/fig2-interaction.png"),
-  fig1,
+  filename = here("05-outputs/figures/fig2-interaction.png"),
+  plot = interaction_plot,  
   width = 8,
   height = 6,
-  dpi = 300
+  dpi = 300,
+  bg = "white"  # Ensure a white background 
 )
+
 message("Outputs saved in your output -folder") 
 

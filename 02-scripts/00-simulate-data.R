@@ -110,53 +110,48 @@ set.seed(123)
 
 # Set parameters
 n_babies <- 100
-observations <- 3
-# Create baby IDs
-baby_ids <- rep(1:n_babies, times = observations)
-# Assign step types randomly but consistently for each baby across observations
-step_type <- rep(sample(c("Crawling", "Toddling", "Walking"), n_babies, replace = TRUE), times = observations)
-# Simulate age in months, ensuring logical progression over observations
-age_months <- c(rep(sample(12:14, n_babies, replace = TRUE), 1),
-                rep(sample(15:20, n_babies, replace = TRUE), 1),
-                rep(sample(21:24, n_babies, replace = TRUE), 1))
-# Define waves of observation
-wave <- rep(c("T1", "T2", "T3"), each = n_babies)
-# Adding a random slope variable (SleepHours) and a control variable (FeedingType)
-sleep_hours <- rep(sample(10:16, n_babies, replace = TRUE), times = observations)
-feeding_type <- rep(sample(c("Breastfed", "Formula"), n_babies, replace = TRUE), times = observations)
+observations_per_baby <- 3  # Each baby is observed in three waves
 
-# PuzzleTime decreases as babies grow, with adjustments based on step_type, sleep_hours and feeding_type
-puzzle_time <- round(runif(n_babies * observations, min = 30, max = 120) - 
-                     (age_months - 12) * runif(n_babies * observations, min = 2, max = 4) - 
-                     ifelse(step_type == "Walking", 15 + (age_months - 12) * 1,  
-                            ifelse(step_type == "Toddling", 10 + (age_months - 12) * 0.5,  
-                                   (age_months - 12) * 0.2)) -  
-                     ifelse(step_type == "Walking", (sleep_hours - 10) * 2,  
-                            ifelse(step_type == "Toddling", (sleep_hours - 10) * 1.5, 
-                                   (sleep_hours - 10))), 1)
+# Create baby IDs and waves
+baby_ids <- rep(1:n_babies, each = observations_per_baby)
+wave <- rep(c("T1", "T2", "T3"), times = n_babies)
 
-# GiggleCount: Inversely related to PuzzleTime, adjusted for age and step_type
-giggle_count <- round((puzzle_time / runif(n_babies * observations, min = 2, max = 4)) +
-                      ifelse(step_type == "Crawling", 5, 
-                             ifelse(step_type == "Toddling", 2, 
-                                    0)) +
-                      # Interaction: Increase gigglecount with age, more so for advanced step types
-                      (age_months - 12) * 
-                      ifelse(step_type == "Walking", 0.5, 
-                             ifelse(step_type == "Toddling", 0.25, 
-                                    ifelse(step_type == "Crawling", 0.1, 0))),
-                      0)
+# Assign step types randomly but consistently for each baby across observations (for simplicity)
+step_type <- rep(sample(c("Crawling", "Toddling", "Walking"), n_babies, replace = TRUE), each = observations_per_baby)
+
+# Simulate age in months, ensuring full variation from 12 to 24 months and logical progression
+age_months_start <- sample(12:22, n_babies, replace = TRUE)
+age_progression <- list(0:2, 0:2, 0:2)
+age_months <- rep(age_months_start, each = observations_per_baby) + rep(0:2, each = n_babies)
+# Adjust age_months to ensure it does not exceed 24 months
+age_months <- pmin(age_months, 24)
+
+# Simulate variable sleep_hours across waves
+sleep_hours_adjustment <- sample(-1:1, n_babies * observations_per_baby, replace = TRUE)
+sleep_hours <- rep(sample(8:16, n_babies, replace = TRUE), each = observations_per_baby) + sleep_hours_adjustment
+
+# Simulate puzzle_time with variability
+noise <- rnorm(n = n_babies * observations_per_baby, mean = 0, sd = 5)
+puzzle_time <- round(120 - (age_months - 12) * 3 - ifelse(step_type == "Walking", 20, ifelse(step_type == "Toddling", 15, 10)) - (18 - sleep_hours) * 4 + noise)
+
+# Simulate giggle_count based on the simulated characteristics
+giggle_count <- round(
+  ifelse(step_type == "Walking", 5, ifelse(step_type == "Toddling", 4, 3)) -
+  (age_months - min(age_months)) / (max(age_months) - min(age_months)) * 3 +
+  (sleep_hours - min(sleep_hours)) / (max(sleep_hours) - min(sleep_hours)) * 2
+)
+
+# Ensure giggle_count remains within a realistic range
+giggle_count <- pmin(pmax(giggle_count, 3), 10)
 
 # Dataframe creation
 data <- tibble(BabyID = baby_ids,
-               StepType = step_type,
-               AgeMonths = age_months,
-               Wave = wave,
-               SleepHours = sleep_hours,
-               FeedingType = feeding_type,
-               PuzzleTime = puzzle_time,
-               GiggleCount = giggle_count)
-
+                    StepType = step_type,
+                    AgeMonths = age_months,
+                    Wave = wave,
+                    SleepHours = sleep_hours,
+                    PuzzleTime = puzzle_time,
+                    GiggleCount = giggle_count)
 
 # Save the raw data into a csv file
 write.csv(data, here("01-data/raw/babysteps-rawdata.csv"), row.names = FALSE)
