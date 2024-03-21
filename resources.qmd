@@ -41,3 +41,5 @@ In the fascinating world of reproducibility, there is always more. See below som
 -   [Flextable](https://ardata-fr.github.io/flextable-book/) - a framework to easily create tables for reporting and publications.
 
 -   [Report](https://easystats.github.io/report/) - "From R to your manuscript".
+
+-   [Gtsummary](https://www.danieldsjoberg.com/gtsummary/index.html) - Create publication-ready analytical and summary tables.
