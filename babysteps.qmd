@@ -330,7 +330,7 @@ source(here("02-scripts/00-simulate-data.R"))
 source(here("02-scripts/01-prepare-data.R"))
 
 # 2 Run analyses to create tables and figures
-source(here("02-scripts/02-create-tables-and-figures.R"))
+# source(here("02-scripts/02-create-tables-and-figures.R"))
 ```
 
 ::: callout-note

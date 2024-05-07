@@ -49,7 +49,7 @@ if (!requireNamespace("modelsummary", quietly = TRUE)) {install.packages("models
 # flextable for customising tables
 if (!requireNamespace("flextable", quietly = TRUE)) {install.packages("flextable")}
 # lme4 package for mixed-effects regression
-if (!requireNamespace("lme4", quietly = TRUE)) {install.packages("lme4")}
+if (!requireNamespace("lme4", type="source", quietly = TRUE)) {install.packages("lme4")}
 # broom to create tidy tables
 if (!requireNamespace("broom", quietly = TRUE)) {install.packages("broom")}
 # report for automating reporting  
