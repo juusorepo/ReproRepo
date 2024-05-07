@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Juuso Repo">
-<meta name="dcterms.date" content="2024-03-21">
+<meta name="dcterms.date" content="2024-05-07">
 
 <title>ReproRepo - Baby Steps for a Reproducible Workflow in R</title>
 <style>
@@ -218,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 21, 2024</p>
+      <p class="date">May 7, 2024</p>
     </div>
   </div>
   
@@ -265,7 +265,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These basic steps can be expanded to include e.g., producing a full manuscript in RStudio, managing version control with tools like Git, and ensuring computational reproducibility through containerization technologies such as Docker. See resources page for more.</p>
+<p>The tutorial is a work in progress. For any suggestions for improvements or requests for additional content, please <a href="contact">drop a message to the author</a>.</p>
 </div>
 </div>
 <section id="step-one-creating-project-and-folder-structure" class="level1" data-number="1">
@@ -274,11 +274,11 @@ Tip
 <section id="create-a-rstudio-project" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="create-a-rstudio-project"><span class="header-section-number">1.1</span> Create a RStudio project</h2>
 <ul>
-<li><p>In RStudio, start fresh and select File - New Project - New Directory - Quarto Project. It creates you a project folder with few files.</p></li>
+<li><p>In RStudio, start fresh and select File - New Project - New Directory - Quarto Project. It creates you a project folder with few files, and shows you that folder in the Files window.</p></li>
 <li><p>Copy and run the below code <strong>in RStudio</strong> <strong>console</strong> <strong>window</strong> to download this notebook to your project folder. (or download the <a href="https://github.com/juusorepo/ReproRepo/raw/master/babysteps-files.zip">zip file</a> and copy the files to your project folder).</p>
 <p><code>download.file("https://raw.githubusercontent.com/juusorepo/ReproRepo/master/babysteps.qmd", "babysteps.qmd")</code></p></li>
 <li><p>Open the notebook in RStudio.</p></li>
-<li><p>Run the below code chunk to install required packages. The Here package simplifies file path management by making all paths relative to the project root.</p></li>
+<li><p>Run the below code chunk to install required packages. The Here package simplifies file path management by making all paths relative to the project root (top-level folder).</p></li>
 </ul>
 <div class="cell">
 <details>
@@ -298,9 +298,9 @@ Tip
 <h2 data-number="1.2" class="anchored" data-anchor-id="creating-the-project-folder-structure"><span class="header-section-number">1.2</span> Creating the project folder structure</h2>
 <p>The code below will create a coherent folder structure for your project. You can modify the folder names for your own project as needed. Alternatively, you may create folders without code. Note these good practices when working with folders and files:</p>
 <ul>
-<li><p><strong>Naming conventions</strong> for folders and files: only lowercase letters; no spaces but-dashes (or_underscores) instead. Prefix numbers with leading zeros ensure automatic sorting (01-data, 02-scripts…).</p></li>
+<li><p><strong>Naming conventions</strong> for folders and files: only lowercase letters; no spaces but-dashes (or_underscores) instead. Prefix numbers with leading zeros can be used to ensure automatic sorting (01-data, 02-scripts…).</p></li>
 <li><p><strong>Relative file paths</strong>. Always use relative folder paths for reproducibility. Relative means <code>data/file.csv</code> instead of absolute one: <code>C:/Users/Documents…./file.csv</code></p></li>
-<li><p><strong>Here</strong> -<strong>function</strong>. Wrap the file path with the here function to ensure the path is always relative to the project root and works in all contexts, e.g., <code>here("data/file.csv")</code>. Requires R package Here.</p></li>
+<li><p><strong>Here</strong> -<strong>function</strong>. Wrap the file path with the here function to ensure the path is always relative to the project top-level folder (root) and works in all contexts, e.g., <code>here("data/file.csv")</code>. Requires R package Here.</p></li>
 <li><p><strong>Separate folders for public sharing.</strong> For our reproducible example, we will only need the folders: data, scripts, and supplementary for public sharing<em>.</em></p></li>
 </ul>
 <p>Run the code below to create your folders.</p>
@@ -327,6 +327,7 @@ Tip
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Print message</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Project folders created successfully."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>If you want to move your previous work into the new project, just copy the files to the respective folders. Create new subfolders as needed.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -345,11 +346,11 @@ Note
 </section>
 <section id="step-two-preparing-and-analysing-data-and-generating-reproducible-tables-and-figures" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> STEP TWO: Preparing and analysing data and generating reproducible tables and figures</h1>
-<p>Using notebooks instead of plain text .R scripts offers many benefits. Notebooks integrate code, results, and notes in one document, making them more readable, enhancing collaboration and reproducibility. In this tutorial, we will use Quarto notebooks (.qmd) which is a next generation version of R Markdown and becoming the new gold standard.</p>
+<p>Using notebooks instead of plain text .R scripts offers many benefits. Notebooks integrate code, results, and notes in one document, making them more readable, enhancing collaboration and reproducibility. In this tutorial, we will use Quarto notebooks (.qmd) which is a next generation version of R Markdown and becoming the new gold standard. <em>If you are used to using R scripts, the outputs in notebook can look a bit different. But you can still see the full outputs in the console windown after running your code.</em></p>
 <section id="preparing-data-in-a-reproducible-way" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="preparing-data-in-a-reproducible-way"><span class="header-section-number">2.1</span> Preparing data in a reproducible way</h2>
 <p>For reproducibility, it is vital to keep the raw data untouched and create code which includes all steps done for processing and preparing the data for analysis. All data cleaning done in R ensures the transparency of your research.</p>
-<p>A good open science practice (when possible) is to <strong>simulate data</strong> when planning analysis or preregistering your study (Peikert et al., 2021). Once the empirical data is available, you can replace the simulated data - and get the results quicker.</p>
+<p>A good open science practice is to <strong>simulate data</strong> when planning analysis or preregistering your study (Peikert et al., 2021). Simulated data can also be used for sharing when sharing the original data is not possible.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -395,7 +396,7 @@ Note
 <ul>
 <li><strong>Download the prepare-data notebook</strong> by running the code below (if not downloaded already)</li>
 <li><strong>Open the notebook</strong> and run all code.</li>
-<li>If you are reading this online, you can read the notebook <a href="04-notebooks/01-prepare-data">here</a></li>
+<li>If you are just reading this online, you can read the notebook <a href="04-notebooks/01-prepare-data">here</a></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download prepare-data notebook (if not downloaded)</span></span>
@@ -521,7 +522,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For automated computational reproducibility, you can use <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> for dependency management or Docker for containerization.</p>
+<p>If your notebook is getting messy, you can collapse/hide a code chunk from the small arrow on the top-left corner of the code chunk. You can also write “#| include:false” in the beginning of the chunk to suppress all output from that code block.</p>
 </div>
 </div>
 <section id="extracting-code-from-notebooks---the-purl-function" class="level3" data-number="3.1.1">
@@ -596,9 +597,8 @@ Note
 <p>Best way to share some analyses with your colleagues? Notebooks are great for that. They can be read in any browser and can include code and your notes and questions for your colleagues. Although maybe intimidating to show others your code, it’s an important step in making your research reproducible. With this example, we render/knit one notebook into html format for sharing,</p>
 <ul>
 <li><p>Open one of the example notebooks, for example 01-prepare-data.qmd</p></li>
-<li><p>To render your notebook in RStudio, click on the “Render” button. This process converts the notebook into an HTML file, facilitating easy sharing. To alter the output format, insert format: html at the notebook header, replacing html with pdf, docx, or another desired output format.</p></li>
+<li><p>Select “Render” from the toolbar on top of your notebook. This process converts the notebook into an HTML file. To alter the output format, add “format: html” at the notebook header, replacing html with pdf, docx, or another desired output format.</p></li>
 </ul>
-<p>Select Render. RStudio will render the notebook into a .html file, which you can easily share. You can change the output format with inserting the following in the very top of the notebook “format: html” and changing the html to pdf, docx, or other format.</p>
 </section>
 <section id="preparing-data-for-sharing" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="preparing-data-for-sharing"><span class="header-section-number">3.4</span> Preparing data for sharing</h2>
@@ -635,7 +635,8 @@ Note
 <li>Upload the files to the folders created</li>
 <li>Create a DOI (permanent link) for your project in OSF and start sharing!</li>
 </ol>
-<p><em>Congratulations on taking the initial steps! Feel free to adapt these ideas and codes to fit your personal style and needs. With R, numerous paths lead to the same destination. For further exploration, please refer to the resources page. Any <a href="contact">feedback</a> is always appreciated!</em></p>
+<p>*Congratulations on taking the initial steps! Feel free to adapt these ideas and codes to fit your personal style and needs. With R, numerous paths lead to the same destination.</p>
+<p>To expand the basic steps, e.g., producing a full manuscript in RStudio, managing version control with tools like Git, and ensuring computational reproducibility through containerization technologies such as Docker, see <a href="resources">resources</a>. *</p>
 
 
 </section>
