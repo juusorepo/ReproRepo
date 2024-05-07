@@ -43,3 +43,9 @@ In the fascinating world of reproducibility, there is always more. See below som
 -   [Report](https://easystats.github.io/report/) - "From R to your manuscript".
 
 -   [Gtsummary](https://www.danieldsjoberg.com/gtsummary/index.html) - Create publication-ready analytical and summary tables.
+
+## Tutorials for Mplus analyses in R
+
+- Garber, A. C. (2021). BCH Two-step Auxiliary Variable Integration with MplusAutomation. [osf link](https://osf.io/preprints/psyarxiv/wmfcj)
+- Garber, A. C. (2021). 3-Step ML Auxiliary Variable Integration Using MplusAutomation. [osf link](https://osf.io/preprints/psyarxiv/phtxa)
+-  Wardenaar, K. (2021). Latent Profile Analysis in R: A tutorial and comparison to Mplus.[osf link](https://osf.io/preprints/psyarxiv/wzftr) 

@@ -1,0 +1,174 @@
+---
+title: "Prepare data"
+freeze: auto
+date: "`r Sys.Date()`"
+---
+
+# Prepare data with EDA
+
+## 1 Load raw data and packages
+
+```{r}
+#| label: setup_prepare
+#| code-fold: true
+#| code-summary: "View code: Load packages and data"
+#| output: false
+
+# Load required packages
+require(here)
+require(tidyverse)
+
+df <- read.csv(here(01-data/raw/your-data.csv))
+```
+
+## Check and Modify Data Types
+
+**Action Steps:** Start by listing the current data types of variables in your df. This helps identify any variables that may be incorrectly typed, such as numeric variables recognized as character data due to formatting issues.
+
+```{r}
+#| label: display_data_structure
+#| purl: false
+
+# Display the current data types of all variables in the df
+str(df)
+
+```
+
+-   **Convert Data Types:** Based on the initial inspection, we convert variables to their correct data types. Common conversions include transforming character variables that represent categories into factors and ensuring numeric variables are not mistakenly treated as character or factor types.
+
+```{r}
+#| label: modify-data-types
+
+# Converting character variables to factors
+df <- df %>% mutate_if(is.character, as.factor)
+```
+
+## Initial Exploratory Data Analysis
+
+Before further processing, you may want to conduct an exploratory data analysis (EDA) to gain insights into the df's distribution and characteristics. There are various ways to do this and also packages for automated EDA analysis (e.g., DataExplorer, GGally, SmartEDA, Hmisc). For this tutorial, we will use the DataExplorer.
+
+-   **Action Steps:** Run the code below to create an EDA report. See results in Notebooks folder or [here](EDA-report-initial-2024-03-21.html).
+
+```{r}
+#| label: Initial-EDA
+#| purl: false # to exclude this chunk from the R script file
+#| eval: false
+
+# Load/Install DataExplorer package
+if (!requireNamespace("DataExplorer", quietly = TRUE)) {install.packages("DataExplorer")}
+require(DataExplorer)
+
+# Create the report
+df %>%
+    create_report(
+        output_file = paste("EDA-report-initial", Sys.Date(), sep="-"), # filename
+        report_title = "Initial EDA Report - Babysteps df",
+        y = 'PuzzleTime' # to set the outcome variable
+    )
+message("The EDA report was created and saved in your notebooks folder")
+```
+
+## Data Cleaning
+
+This step involves identifying and correcting issues in your df, such as missing values, errors, outliers, and standardizing variable names, to ensure data quality.
+
+### Identifying Missing Values
+
+-   **Overview:** Begin by identifying missing values in your df. Missing data can occur for various reasons, from non-response in surveys to errors in data entry.
+-   **Action Steps:** Use descriptive statistics to identify missing patterns and decide on appropriate methods for handling them, such as imputation or exclusion, based on the nature of your data.
+
+```{r}
+#| label: Missing-values
+#| include: false
+# insert your code here or delete the section
+```
+
+### Correcting Errors
+
+-   **Overview:** Data entry errors, inconsistencies in response formats, and other inaccuracies can significantly affect your analysis.
+-   **Action Steps:** Validate data ranges (e.g., ages within plausible limits) and consistency (e.g., gender coded uniformly). Correct identified errors where possible, or note them for exclusion or special consideration.
+
+```{r}
+#| label: Correcting Errors
+```
+
+### Handling Outliers
+
+-   **Overview:** Outliers can influence statistical analyses and may represent either genuine phenomena or data errors.
+-   **Action Steps:** Identify outliers through visual (e.g., boxplots) and statistical methods. Investigate their origins and decide whether to keep, adjust, or remove them, documenting your rationale.
+
+```{r}
+#| label: Handling Outliers
+```
+
+### **Standardize Variable Names**
+
+Ensure all variable names are in lowercase to maintain consistency across your df. This can help avoid case-sensitive errors in your analysis scripts.
+
+```{r}
+#| label: Standardize Variable Names
+
+# lowercase all variables (good practice)
+df <- df %>% rename_all(tolower)
+```
+
+*Tip. Check out clean.names() function from janitor package to clean up variable names.*
+
+## Data Recoding and Transformation
+
+This step encompasses the processes of adjusting your variables to better fit your analysis needs and preparing your data through various transformations. It ensures that your df is in the optimal form for analysis, addressing both the structure of your data and the scales of measurement.
+
+### Recoding Variables
+
+-   **Overview:** Recoding involves adjusting existing variables to better fit your analysis needs, such as combining categories of a nominal variable or changing measurement scales.
+-   **Action Steps:** Clearly define your recoding rules and apply them uniformly across your df. Document changes to ensure transparency and reproducibility.
+
+```{r}
+#| label: Recoding variables
+
+```
+
+### Normalizing Scales
+
+-   **Overview:** Variable scales may need normalization, especially when combining data from different sources or preparing for certain statistical analyses.
+-   **Action Steps:** Apply normalization techniques, such as z-score standardization or min-max scaling, to adjust scales. Choose a method appropriate for your data distribution and analysis requirements.
+
+### Creating Dummy Variables
+
+-   **Overview:** Dummy variables are used to represent categorical data in binary form, which is necessary for many types of statistical modeling.
+-   **Action Steps:** Convert categorical variables into dummy variables as needed.
+
+## Post-Cleaning EDA
+
+After cleaning and transforming your data, perform another round of EDA to verify the data preparation steps' effects and ensure the df is ready for analysis. Look for any remaining issues to check the data quality and structure post-cleaning.
+
+```{r}
+#| label: EDA-with-processed-data
+#| purl: false    # to exclude this chunk from the R script file
+#| eval: false
+#| output: false
+
+# Create the EDA report, define the outcome variable
+df %>%
+    create_report(
+        output_file = paste("EDA-report-processed", Sys.Date(), sep=" - "),
+        report_title = "EDA Report with processed data - Babysteps df",
+        y = 'puzzletime'
+    )
+message("The EDA report was created and saved in your notebooks folder")
+```
+
+## Save the processed data
+
+```{r}
+#| label: Save df
+# Save in CSV format into processed data -subfolder
+write.csv(df, here("01-data/processed/my-data.csv"), row.names = FALSE)
+
+```
+
+# About the tutorial
+
+This workflow guides you from loading your data to ensuring it's analytically ready, highlighting the iterative nature of data preparation. By incorporating initial and post-cleaning EDA, you continuously validate your steps and decisions, enhancing the quality of your research.
+
+**To follow the full tutorial, next step is [Creating reproducible outputs](../babysteps#step2c)**

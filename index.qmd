@@ -1,5 +1,5 @@
 ---
-title: "Babysteps for Reproducible Workflow in R"
+title: "Baby Steps for Reproducible Workflow in R"
 ---
 
 Methods reproducibility means documenting procedures well enough so they can be repeated with similar or different data. A reproducible workflow organizes these steps systematically.
