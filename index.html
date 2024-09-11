@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ReproRepo - Baby Steps for Reproducible Workflow in R</title>
+<title>Tools and tutorials for reproducibility in research – ReproRepo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Tutorials</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -135,14 +135,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ai-tool-for-study-preregistration-comparison" id="toc-ai-tool-for-study-preregistration-comparison" class="nav-link active" data-scroll-target="#ai-tool-for-study-preregistration-comparison"><span class="header-section-number">1</span> <strong>AI-tool for study-preregistration comparison</strong></a></li>
+  <li><a href="#baby-steps-for-reproducible-workflow-in-r" id="toc-baby-steps-for-reproducible-workflow-in-r" class="nav-link" data-scroll-target="#baby-steps-for-reproducible-workflow-in-r"><span class="header-section-number">2</span> <strong>Baby Steps for Reproducible Workflow in R</strong></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Baby Steps for Reproducible Workflow in R</h1>
+<h1 class="title">Tools and tutorials for reproducibility in research</h1>
 </div>
 
 
@@ -159,6 +166,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="ai-tool-for-study-preregistration-comparison" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> <strong>AI-tool for study-preregistration comparison</strong></h1>
+<p>The AI tool compares research preregistration with the study manuscript, analyzing consistency and identifying deviations from the registered research plan. This tool offers an efficient method for assessing transparency and preventing selective reporting.</p>
+<p>The tool creates an interactive report (see example below) and provides a chat-based interface similar to ChatGPT to refine and review the analysis in collaboration with AI. To test the full version, please email: juuso.repo@utu.fi.</p>
+<div class="d-grid gap-2">
+<p><a href="https://app.powerbi.com/view?r=eyJrIjoiZjFmZjNlMjgtMjI2Ni00MWM0LTlmYjMtOTlmOGRiMmYzOWYyIiwidCI6ImY1OTJjYjVmLWI4YmMtNDFiOS05MDFmLTlhOTlhYjg0YWZhNiIsImMiOjh9" style="text-decoration: none;"> <button class="btn btn-lg btn-primary" type="button">Open sample report </button> </a></p>
+</div>
+</section>
+<section id="baby-steps-for-reproducible-workflow-in-r" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> <strong>Baby Steps for Reproducible Workflow in R</strong></h1>
 <p>Methods reproducibility means documenting procedures well enough so they can be repeated with similar or different data. A reproducible workflow organizes these steps systematically.</p>
 <p>This tutorial covers the basics — from preparing data to making reproducible tables and figures for papers or presentations — without getting lost in too advanced topics. Basic knowledge of R and RStudio is recommended.</p>
 <div class="d-grid gap-2">
@@ -166,6 +183,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -203,18 +221,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -246,7 +253,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/juusorepo\.github\.io\/ReproRepo\/");
@@ -254,7 +283,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
