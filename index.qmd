@@ -6,7 +6,7 @@ title: "Tools and tutorials for reproducibility in research"
 
 Our AI tool compares research preregistrations with study manuscripts, analyzing consistency and identifying deviations from the registered research plan. This tool provides an efficient method for assessing transparency and preventing selective reporting.
 
-The results are shown in an interactive report (<a href="https://app.powerbi.com/view?r=eyJrIjoiZjFmZjNlMjgtMjI2Ni00MWM0LTlmYjMtOTlmOGRiMmYzOWYyIiwidCI6ImY1OTJjYjVmLWI4YmMtNDFiOS05MDFmLTlhOTlhYjg0YWZhNiIsImMiOjh9" style="text-decoration: none;">see example</a>) and analysis is conducted in a chat-based interface, similar to ChatGPT, for refining the analysis in collaboration with AI. <a href = "https://bit.ly/reproanalyst"A demo version</a> is currently open for beta testers. To participate, please email: juuso.repo\@utu.fi.
+The results are shown in an interactive report (<a href="https://app.powerbi.com/view?r=eyJrIjoiZjFmZjNlMjgtMjI2Ni00MWM0LTlmYjMtOTlmOGRiMmYzOWYyIiwidCI6ImY1OTJjYjVmLWI4YmMtNDFiOS05MDFmLTlhOTlhYjg0YWZhNiIsImMiOjh9" style="text-decoration: none;">see example</a>) and analysis is conducted in a chat-based interface, similar to ChatGPT, for refining the analysis in collaboration with AI. <a href = "https://bit.ly/reproanalyst">A demo version</a> is currently open for beta testers. To participate, please email: juuso.repo\@utu.fi.
 
 ::: {.d-grid .gap-2}
 <a href="https://app.powerbi.com/view?r=eyJrIjoiZjFmZjNlMjgtMjI2Ni00MWM0LTlmYjMtOTlmOGRiMmYzOWYyIiwidCI6ImY1OTJjYjVmLWI4YmMtNDFiOS05MDFmLTlhOTlhYjg0YWZhNiIsImMiOjh9" style="text-decoration: none;"> <button class="btn btn-lg btn-primary" type="button">Open sample report </button> </a>
