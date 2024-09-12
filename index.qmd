@@ -2,9 +2,9 @@
 title: "Tools and tutorials for reproducibility in research"
 ---
 
-# **AI-tool for study-preregistration comparison**
+## AI-tool for study-preregistration comparison
 
-Our AI tool compares research preregistrations with study manuscripts, analyzing consistency and identifying deviations from the registered research plan. This tool provides an efficient method for assessing transparency and preventing selective reporting.
+Our AI tool compares research preregistrations with study manuscripts, analyzing consistency and identifying deviations from the registered research plan. This tool provides an efficient method for assessing transparency and preventing selective reporting. See a <a href="ECSR-poster.pdf">poster</a> presented at ECSR 2024.
 
 The results are shown in an interactive report (<a href="https://app.powerbi.com/view?r=eyJrIjoiZjFmZjNlMjgtMjI2Ni00MWM0LTlmYjMtOTlmOGRiMmYzOWYyIiwidCI6ImY1OTJjYjVmLWI4YmMtNDFiOS05MDFmLTlhOTlhYjg0YWZhNiIsImMiOjh9" style="text-decoration: none;">see example</a>) and analysis is conducted in a chat-based interface, similar to ChatGPT, for refining the analysis in collaboration with AI. <a href = "https://bit.ly/reproanalyst">A demo version</a> is currently open for beta testers. To participate, please email: juuso.repo\@utu.fi.
 
@@ -12,11 +12,11 @@ The results are shown in an interactive report (<a href="https://app.powerbi.com
 <a href="https://app.powerbi.com/view?r=eyJrIjoiZjFmZjNlMjgtMjI2Ni00MWM0LTlmYjMtOTlmOGRiMmYzOWYyIiwidCI6ImY1OTJjYjVmLWI4YmMtNDFiOS05MDFmLTlhOTlhYjg0YWZhNiIsImMiOjh9" style="text-decoration: none;"> <button class="btn btn-lg btn-primary" type="button">Open sample report </button> </a>
 :::
 
-# **Baby Steps for Reproducible Workflow in R**
+## Baby Steps for Reproducible Workflow in R
 
 Methods reproducibility means documenting procedures well enough so they can be repeated with similar or different data. A reproducible workflow organizes these steps systematically.
 
-This tutorial covers the basics — from preparing data to making reproducible tables and figures for papers or presentations — without getting lost in too advanced topics. Basic knowledge of R and RStudio is recommended.
+This tutorial covers the basics — from preparing data to making reproducible tables and figures for papers or presentations in R — without getting lost in too advanced topics. Basic knowledge of R and RStudio is recommended.
 
 ::: {.d-grid .gap-2}
 <a href="babysteps.html" style="text-decoration: none;"> <button class="btn btn-lg btn-primary" type="button">Start the Tutorial</button> </a>
